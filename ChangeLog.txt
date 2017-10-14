@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2017-10-14 0:35 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc/english
+     + Files from core/doc,
+
 2017-10-13 23:44 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * Initial commit.
    ; Copied from http://oohg.wikia.com/wiki/Object_Oriented_Harbour_GUI_Wiki site.
