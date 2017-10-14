@@ -1,0 +1,5 @@
+Guías generales para la publicación de documentos:
+
+1. Siempre de crédito al autor y otros colaboradores citándolos expresamente.
+2. Siempre establezca el tipo de licencia, si alguna se aplica al documento. Recomendamos utilizar The Code Project Open License (CPOL) 1.02.
+3. Si bien no existe limitación en el idioma a utilizar, trate de escribir en Inglés ya que ooHG es de uso mundial.

@@ -1,0 +1,18 @@
+Lea estas notas cuidadosamente, le ahorrarán mucho tiempo y muchos problemas:
+
+01. La propiedad Value selecciona un registro por su número (RecNo()).
+02. La propiedad Value retorna el número del registro seleccionado (RecNo()).
+03. El control Browse no cambia el área de trabajo activa.
+04. El control Browse no cambia el registro corriente en el área de trabajo cuando SET BROWSESYNC es OFF (el valor por defecto).
+05. El control Browse no cambia el item seleccionado cuando se modifica el registro corriente del área de trabajo.
+06. Para volver a cargar los registros desde el área de trabajo utilice el método REFRESH.
+07. Durante la edición de una celda se crea una variable llamada MemVar.<NombreDelAreaDeTrabajo>.<NombreDeCampo>, la cual puede utilizarse, en los bloques de código de la cláusula VALID, para validar el valor ingresado por el usuario.
+08. Utilizando la cláusula APPEND se habilita el agregado de nuevos registro a la tabla definida por la cláusula WORKAREA.
+    La tecla de acceso rápido definida para agregar registros es Alt+A.
+09. La cláusula APPEND no puede utilizarse con campos que no pertenezcan a la tabla definida por la cláusula WORKAREA.
+10. La cláusula DELETE habilita el uso de la tecla Supr para marcar registros como borrados.
+11. El borrado de registros solo ocurre cuando no se utiliza la cláusula DELETEWHEN o cuando el bloque de código asociado a esta cláusula retorna .T..
+    Si el bloque de código devuelve .F., el borrado del registro no se ejecuta y se muestra el mensaje asociado a la cláusula DELETEMSG.
+12. El bloque de código ON DELETE se ejecuta después que el registro ha sido borrado, pero antes de ser desbloqueado y antes de mover el registro corriente en caso de que SET DELETED esté en ON.
+13. Para incluir un Browse dentro de un Splitbox debe definirse utilizando la sintaxis alternativa (DEFINE/END DEFINE).
+14. Un Browse incluido en un Splibox no tiene barras de desplazamiento verticales (debe utilizarse el teclado o la rueda del ratón para hacer scroll).

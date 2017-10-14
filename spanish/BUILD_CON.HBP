@@ -1,0 +1,112 @@
+#
+# build_con.hbp
+# Autor: Fernando Yurisich <fernando.yurisich@gmail.com>
+# Licenciado bajo The Code Project Open License (CPOL) 1.02
+# Ver <http://www.codeproject.com/info/cpol10.aspx>
+#
+# Visítenos en https://github.com/fyurisich/OOHG_Samples o en
+# http://oohg.wikia.com/wiki/Object_Oriented_Harbour_GUI_Wiki
+#
+# Use 'hbmk2 --help' para ver la lista completa de opciones.
+#
+# Este es un ejemplo de un archivo HBP de Harbour para construir una
+# aplicación en modo consola, por medio de la herramienta 'hbmk2" y
+# los compiladores Harbour y MinGW (configuración por defecto de la
+# distribución oficial de OOHG.
+#
+
+# Compilación incremental
+-inc
+
+# Para ver los comandos ejecutados, remueva el #
+#-trace
+
+# Para ver los mensajes informativos remueva el #
+#-info
+
+# Parámetros para el compilador Harbour
+-prgflag=-n -ic:\oohg\harbour\include;c:\oohg\include;.
+
+# Para obtener un archivo .ppo, remueva el #
+#-prgflag=-p
+
+# Para agregar soporte multihilos, remueva el #
+#-mt
+
+# Compilador C
+-compiler=mingw
+
+# Parámetros para el compilador MinGW
+-ldflag=-Wall -Lc:\oohg\mingw\lib -Lc:\oohg\harbour\lib -Lc:\oohg\lib -L.
+-ldflag=-Wl,--allow-multiple-definition
+-ldflag=-I. -Ic:\oohg\harbour\include -Ic:\oohg\include
+
+# Modo consola
+-mconsole
+
+# Librerías ooHG
+-loohg
+-lhbprinter
+-lminiprint
+
+# Librerías Harbour
+# Estas son las mismas librerías utilizadas en el COMPILE.BAT
+# Es posible agregar más librerías desde la carpeta harbour/lib
+# Note que NO debe incluirse el prefijo 'lib'
+-lcomctl32
+-lcomdlg32
+-lgdi32
+-lgtgui
+-lgtwin
+-lhbcommon
+-lhbcpage
+-lhbct
+-lhblang
+-lhbmacro
+-lhbmemio
+-lhbmisc
+-lhbmzip
+-lhbnulrdd
+-lhbodbc
+-lhbpcre
+-lhbpp
+-lhbrdd
+-lhbrtl
+-lhbsix
+-lhbtip
+-lhbvm
+-lhbwin
+-lhbziparc
+-lhbzlib
+-lminizip
+-lodbc32
+-lole32
+-loleaut32
+-lrddcdx
+-lrddfpt
+-lrddntx
+-lrddsql
+-lsddodbc
+-luser32
+-luuid
+-lvfw32
+-lwinmm
+-lwinspool
+-lws2_32
+-lwsock32
+-lxhb
+
+# Fuentes
+# Agregue aquí todos los fuentes adicionales necesarios
+# Para incluir oohg.rc agregue C:\OOHG\RESOURCES\OOHG.RC
+# Recuerde que solo puede incluirse un único archivo .rc
+# Para incluir otros utilice directivas #include en el archivo aquí agregado
+MyApp.prg
+
+# Nombre del EXE
+-oMyApp
+
+# Para ejecutar la aplicación al finalizar la construcción, remueva el #
+#-run
+
+# EOF

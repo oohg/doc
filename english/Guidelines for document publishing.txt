@@ -1,0 +1,5 @@
+General guidances for publishing documents
+
+Always credit the authors and contributors.
+Always state the type of license, if any applies to the code. We recommend The Code Project Open License (CPOL) 1.02.
+Although you can use any language, try to write in English because ooHG is used worldwide.

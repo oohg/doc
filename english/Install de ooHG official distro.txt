@@ -1,0 +1,7 @@
+To install the ooHG official distro, follow this procedure:
+
+1. Download the .ZIP file from http://sourceforge.net/projects/oohg/files/.
+2. If you already have a C:\OOHG folder in your hard drive, it's strongly recommended that you delete, rename or move it to another folder to avoid problems and improve support.
+3. Extract the content of the downloaded file to C:\ folder so its files are placed at C:\OOHG folder.
+4. Add C:\OOHG to your system's PATH so you can build samples and applications using COMPILE.BAT batch command file.
+5. If you want to update the distro with the CVS changes, see How to update ooHG distro with the CVS changes.

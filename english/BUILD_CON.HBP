@@ -1,0 +1,112 @@
+#
+# build_con.hbp
+# Author: Fernando Yurisich <fernando.yurisich@gmail.com>
+# Licensed under The Code Project Open License (CPOL) 1.02
+# See <http://www.codeproject.com/info/cpol10.aspx>
+#
+# Visit us at https://github.com/fyurisich/OOHG_Samples or at
+# http://oohg.wikia.com/wiki/Object_Oriented_Harbour_GUI_Wiki
+#
+# Use 'hbmk2 --help' to see full option´s list
+#
+# This is a sample Harbour's HBP file to build a console
+# Windows application using 'hbmk2" tool with Harbour 3.0.0
+# and MinGW compilers (default configuration for ooHG
+# official distro).
+#
+
+# Incremental compilation
+-inc
+
+# To see commands executed remove the #
+#-trace
+
+# To turn on informational messages remove the #
+#-info
+
+# Harbour compiler flags
+-prgflag=-n -ic:\oohg\harbour\include;c:\oohg\include;.
+
+# To build a .ppo file, remove the #
+#-prgflag=-p
+
+# To add multithread support, remove the #
+#-mt
+
+# C compiler
+-compiler=mingw
+
+# C compiler flags
+-ldflag=-Wall -Lc:\oohg\mingw\lib -Lc:\oohg\harbour\lib -Lc:\oohg\lib -L.
+-ldflag=-Wl,--allow-multiple-definition
+-ldflag=-I. -Ic:\oohg\harbour\include -Ic:\oohg\include
+
+# Console mode
+-mconsole
+
+# ooHG libs
+-loohg
+-lhbprinter
+-lminiprint
+
+# Harbour libraries
+# This are the same libs used in COMPILE.BAT
+# You can add more libraries from harbour/lib
+# Note that you must NOT include prefix 'lib'
+-lcomctl32
+-lcomdlg32
+-lgdi32
+-lgtgui
+-lgtwin
+-lhbcommon
+-lhbcpage
+-lhbct
+-lhblang
+-lhbmacro
+-lhbmemio
+-lhbmisc
+-lhbmzip
+-lhbnulrdd
+-lhbodbc
+-lhbpcre
+-lhbpp
+-lhbrdd
+-lhbrtl
+-lhbsix
+-lhbtip
+-lhbvm
+-lhbwin
+-lhbziparc
+-lhbzlib
+-lminizip
+-lodbc32
+-lole32
+-loleaut32
+-lrddcdx
+-lrddfpt
+-lrddntx
+-lrddsql
+-lsddodbc
+-luser32
+-luuid
+-lvfw32
+-lwinmm
+-lwinspool
+-lws2_32
+-lwsock32
+-lxhb
+
+# Sources
+# Add here all additional needed source files
+# To include oohg.rc add C:\OOHG\RESOURCES\OOHG.RC
+# Remember you can add only one .rc file
+# To use more you must #include them in the one added here
+MyApp.prg
+
+# EXE name
+-oMyApp
+
+# To execute after building remove the #
+#-run
+
+# EOF

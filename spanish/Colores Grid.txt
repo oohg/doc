@@ -1,0 +1,87 @@
+Los colores de las diferentes filas y columnas en los controles grid, xbrowse y browse están controlados, al momento de su definición, por las cláusulas SELECTEDCOLORS, FONTCOLOR, BACKCOLOR, DYNAMICFORECOLOR y DYNAMICBACKCOLOR.
+Durante la ejecución se pueden utilizar los médotos SetSelectedColors, FontColor, BackColor, SetItemColor y SetRangeColor para cambiar dichos colores.
+
+Cláusula SELECTEDCOLOR:
+
+Para los grids con navegación por celda, los colores para la fila y la celda seleccionadas son especificados usando un arreglo de ocho ítems.
+Los primeros cuatro especifican los colores para pintar la celda seleccionada y los últimos cuatro los colores para pintar las restantes celdas de la fila seleccionada:
+
+item 1: color del texto cuando el grid tiene el foco, el valor por defecto es COLOR_HIGHLIGHTTEXT.
+item 2: color de fondo del texto cuando el grid tiene el foco, el valor por defecto es COLOR_HIGHLIGHT.
+item 3: color del texto cuando el grid no tiene el foco, el valor por defecto es COLOR_WINDOWTEXT.
+item 4: color de fondo del texto cuando el grid no tiene el foco, el valor por defecto es COLOR_3DFACE.
+item 5: color del texto cuando el grid tiene el foco, el valor por defecto es DYNAMICFORECOLOR, o FONTCOLOR o COLOR_WINDOWTEXT.
+item 6: color de fondo del texto cuando el grid tiene el foco, el valor por defecto es DYNAMICBACKCOLOR, o BACKCOLOR o COLOR_WINDOW.
+item 7: color del texto cuando el grid no tiene el foco, el valor por defecto es DYNAMICFORECOLOR, o FONTCOLOR o COLOR_WINDOWTEXT.
+item 8: color de fondo del texto cuando el grid no tiene el foco, el valor por defecto es DYNAMICBACKCOLOR, o BACKCOLOR o COLOR_WINDOW.
+
+Para los restantes controles, estos colores son especificados usando un arreglo de cuatro ítems:
+
+item 1: color del texto cuando el control tiene el foco, el valor por defecto es COLOR_HIGHLIGHTTEXT.
+item 2: color de fondo del texto cuando el control tiene el foco, el valor por defecto es COLOR_HIGHLIGHT.
+item 3: color del texto cuando el control no tiene el foco, el valor por defecto es COLOR_WINDOWTEXT.
+item 4: color de fondo del texto cuando el control no tiene el foco, el valor por defecto es COLOR_3DFACE.
+
+Método SetSelectedColors:
+
+Cambia los colores de la fila y la celda seleccionadas.
+Recibe dos parámetros: un arreglo con los colores (ver arriba) y un valor lógico (.T. hace que el control sea redibujado inmediatamente usando los nuevos colores, .F. difiere el pintado hasta el próximo cambio en el Value del control).
+Si se omite el arreglo, la función retorna los colores actualmente en uso.
+
+Cláusula FONTCOLOR:
+
+Especifica el color del texto para las filas no seleccionadas.
+El valor por defecto es COLOR_WINDOWTEXT.
+
+Método FontColor:
+
+Cambia el color del texto para las filas no seleccionadas.
+Recibe el nuevo color como único parámetro.
+Si se omite, retorna el color actualmente en uso.
+
+Cláusula BACKCOLOR:
+
+Especifica el color de fondo del texto para las filas no seleccionadas.
+El valor por defecto es COLOR_WINDOW.
+
+Método BackColor:
+
+Cambia el color de fondo del texto para las filas no seleccionadas.
+El valor por defecto es COLOR_WINDOW.
+
+Cláusula DYNAMICFORECOLOR:
+
+Especifica el color del texto de cada columna en las filas no seleccionadas.
+El valor por defecto de los ítems en NIL es FONTCOLOR.
+
+Cláusula DYNAMICBACKCOLOR:
+
+Especifica el color de fondo del texto de cada columna en las filas no seleccionadas.
+El valor por defecto de los ítems en NIL es BACKCOLOR.
+
+Método SetItemColor:
+
+Cambia el color del texto y el color de fondo del texto de una cierta fila cuando no está seleccionada.
+Recibe cuatro parámetros: fila, color del texto (opcional, se asume DYNAMICFORECOLOR), color de fondo del texto (opcional, se asume DYNAMICBACKCOLOR) y un arreglo con valores de las celdas (opcional).
+
+Método SetRangeColor:
+
+Cambia el color del texto y el color de fondo del texto de una región de celdas cuando no están seleccionadas.
+Recibe seis parámetros: color del texto (opcional, si se omite, no se cambia), color de fondo del texto (opcional, si se omite, no se cambia), fila supeior, columna izquierda, fila inferior (opcional, se asume fila superior) y columna derecha (opcional, se asume columna izquierda).
+
+Notas:
+
+1. Los colores en la cláusula SELECTEDCOLOR y en el método SetSeletectedColors pueden especificarse usando un número de color, un arreglo de color (ver i_color.ch) o un codeblock que devuelva un número de color o un arreglo de color al ser evaluado.
+   Los codeblocks son evaluados por única vez al momento de definir el control o cuando el método es ejecutado.
+   Los codeblocks no reciben parámetros.
+2. Los colores en las clásulas y métodos FONTCOLOR y BACKCOLOR pueden especificarse usando un número de color o un arreglo de color (ver i_color.ch).
+   No está soportado el uso de codeblocks.
+3. Los colores en las cláusulas DYNAMICFORECOLOR y DYNAMICBACKCOLOR pueden especificarse usando un número de color, un arreglo de color (ver i_color.ch) o un codeblock que devuelva un número de color o un arreglo de color al ser evaluado.
+   Los codeblocks son evaluados, para cada celda, al ejecutarse los métodos AddColumn, AddItem, InsertItem o Item (cuando es usado para cambiar el valor de un ítem o sus colores).
+   Los codeblocks reciben el número de columna como primer parámetro, el número de fila como segundo parámetro y el valor del ítem (array de los valores de cada columna) como tercer parámetro.
+4. Los colores en los métodos SetItemColor y SetRangeColor pueden especificarse usando un número de color, un codeblock que devuelva un número de color o un arreglo de color al ser evaluado, o un arreglo de colores especificados usando números de colores, codeblocks o arreglos de colores (ver i_color.ch).
+   Los codeblocks son evaluados, para cada celda, al ejecutarse los métodos AddColumn, AddItem, InsertItem, Item (cuando es usado para cambiar el valor de un ítem o sus colores), SetItemColor o SetRangeColor.
+   Los codeblocks reciben el número de columna como primer parámetro, el número de fila como segundo parámetro y el valor del ítem (array de los valores de cada columna) como tercer parámetro.
+   Si se utiliza un arreglo de colores, y se quiere cambiar los colores de la columna 3, el arreglo debe tener al menos 3 items, y el tercero debe ser un color válido.
+5. Los controles Browse, por defecto, determinan los colores al momento de su definición.
+   Utilice la cláusula UPDATECOLORS para forzar la reevaluación de los colores cada vez que cambia el valor del control.

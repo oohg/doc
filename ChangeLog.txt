@@ -1,0 +1,13 @@
+/*
+ * $Id$
+ */
+
+/* Use this format for the entry headers:
+ * YYYY-MM-DD HH:MM UTC[-|+]hhmm Your Name or Username and/or <your_email@address>
+ * For example:
+ * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
+ */
+
+2017-10-13 23:44 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * Initial commit.
+   ; Copied from http://oohg.wikia.com/wiki/Object_Oriented_Harbour_GUI_Wiki site.

@@ -1,0 +1,48 @@
+En este artículo asumo que se utiliza la distribución oficial de OOGH, que la misma está instalada en la carpeta C:\OOHG, y que se utilizan los compiladores Harbour y MinGW (opciones por defecto).
+
+Antes que nada, asegúrese que el PATH de su sistema incluye la carpeta C:\OOHG, en caso contrario deberá agregarla.
+
+Para construir un aplicación, siga el siguiente procedimiento:
+
+1. Abra una ventana de comandos y cámbiese a la carpeta que contiene el código fuente (archivos .prg).
+2. Ingrese el siguiente comando:
+   compile myApp
+3. Para generar un archivo de preprocesador utilice:
+   compile myApp /p
+4. Si la aplicación está programada en modo consola utilice:
+   compile myApp /c
+5. Si desea añadir el debugger de Harbour utilice:
+   compile myApp /d
+
+Notas:
+1. Si la aplicación tiene más de un archivo fuente (ej.: myApp.prg y myFuncs.prg), para construirla con éxito necesitará agregar al final de myApp.prg:
+   #include "myFuncs.prg"
+2. Para incluir un archivo de recursos (.rc) deberá nombrarlo myApp.rc y colocarlo en la misma carpeta donde está ubicado myApp.prg.
+   Para utilizar un archivo de recursos adicionales deberá agregar al final de myApp.rc: #include "another.rc".
+3. Por defecto, el proceso de construcción del ejecutable incluye automáticamente el archivo de recursos de ooHG (archivo oohg.rc de la carpeta include).
+4. Este método de construcción también funcionará con la distribuciones basada en xHarbour y BCC.
+
+
+Si está utilizando la distribución oficial de OOHG instalada en C:\OOHG folder, con Harbour y MinGW como compiladores (opciones por defecto), podrá construir una aplicación con este método alternativo:
+
+Primero, asegúrese que el PATH del sistema incluye C:\OOHG\HARBOUR\BIN y C:\OOHG\MINGW\BIN para la distribución basada en Harbour 3.0, o C:\OOHG\HB32\COMP\MINGW\BIN y C:\OOHG\HG32\BIN para la distribución basada en Harbour 3.2.
+
+También verifique que no incluye referencias a otros compiladores C (incluyendo otras versiones de MINGW).
+
+Si la aplicación trabaja en modo GUI o en modo mixto, copie el archivo BUILD_GUI.HBP en la carpeta donde están los archivos fuente (archivos .prg).
+Finalmente, abra una ventana DOS, cambie a la carpeta de la aplicación y ejecute 'HBMK2 BUILD_GUI.HBP' para construir el archivo exe.
+
+Si la aplicación trabaja en modo consola, copie el archivo BUILD_GUI.HBP en la carpeta donde están los archivos fuente (archivos .prg).
+Finalmente, abra una ventana DOS, cambie a la carpeta de la aplicación y ejecute 'HBMK2 BUILD_GUI.HBP' para construir el archivo exe.
+
+Si la aplicación trabaja en modo consola, cree un archivo de texto llamado BUILD_CON.HBP, en la carpeta donde están los archivos fuente (archivos .prg), y copie el código que encontrará aquí.
+Finalmente, abra una ventana DOS, cambie a la carpeta de la aplicación y ejecute 'HBMK2 BUILD_CON.HBP' para construir el archivo exe.
+
+Notas
+
+Se puede agregar un archivo de recursos (archivos .rc) en la sección '# Source' del archivo .HBP, si la aplicación utiliza uno.
+Este archivo puede tener cualquier nombre.
+Para utilizar archivos de recursos adicionales, agréguelos al final del primer archivo de recursos utilizando #include "otro.rc".
+Por defecto, el proceso de construcción no agrega automáticamente el archivo de recursos de OOHG (vea el archivo oohg.rc en la carpeta RESOURCES).
+Si la aplicación utiliza recursos de este archivo, debe agregarlo mediante alguno de los métodos antes mencionados.
+Recuerde agregarlo utilizando el nombre completo del archivo (C:\OOHG\RESOURCES\OOHG.RC).
