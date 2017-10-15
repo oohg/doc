@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2017-10-14 21:55 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc/README.md
+     * Changed to state the repository's purpose and the current pending tasks.
+
 2017-10-14 19:45 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc/manual
      + Files from core/manual.
