@@ -1,0 +1,34 @@
+Como descargar los repositorios de OOHG a disco local:
+
+Descargar "Git" desde https://git-scm.com/download
+Instalar
+Descargar "GitHub Desktop" desde https://desktop.github.com/
+Instalar
+Ingresar a GitHub Desktop.
+Clic en "Clone a repository"
+Clic en "URL"
+En "Repository ..." ingresar https://github.com/oohg/core.git
+En "Local path" ingresar C:\OOHG (la carpeta no debe existir).
+Clic en "Clone"
+
+Para descargar los otros repositorios (distros, doc, ejemplos, fmt, ide, samples):
+
+Clic en menú "File"
+Clic en opción "Clone a repository"
+Clic en "URL"
+En "Repository ..." ingresar la dirección que corresponda
+   https://github.com/oohg/distros.git
+   https://github.com/oohg/doc.git
+   https://github.com/oohg/ejemplos.git
+   https://github.com/oohg/fmt.git
+   https://github.com/oohg/ide.git
+   https://github.com/oohg/samples.git
+En "Local path" ingresar
+   C:\OOHG\distros
+   C:\OOHG\doc
+   C:\OOHG\ejemplos
+   C:\OOHG\fmt
+   C:\OOHG\ide
+   C:\OOHG\samples
+Clic en clone
+
