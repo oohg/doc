@@ -8,28 +8,36 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2017-10-25 23:00 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\ChangeLog.txt
+   * doc\Classes.txt
+   * doc\CLASSES_INDEX.HTM
+     * Updated.
+   * doc\TreeOfClasses.prg
+     * hb_osnewline() replaced by Chr(13)+Chr(10).
+
 2017-10-23 22:03 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc/ChangeLog.txt
+   * doc\ChangeLog.txt
      ! Typos.
-   + doc/english/Download repositories to local drive.txt
-   + doc/manual/PAGE_TEMPLATE.HTM
-   + doc/spanish/Descargar los repositorios a disco local.txt
+   + doc\english\Download repositories to local drive.txt
+   + doc\manual\PAGE_TEMPLATE.HTM
+   + doc\spanish\Descargar los repositorios a disco local.txt
 
 2017-10-15 21:18 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   + doc/.gitattributes
-   + doc/.gitignore
+   + doc\.gitattributes
+   + doc\.gitignore
 
 2017-10-14 21:55 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc/README.md
+   * doc\README.md
      * Changed to state the repository's purpose and the current pending tasks.
 
 2017-10-14 19:45 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc/manual
-     + Files from core/manual.
+   * doc\manual
+     + Files from core\manual.
 
 2017-10-14 00:35 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc/english
-     + Files from core/doc.
+   * doc\english
+     + Files from core\doc.
 
 2017-10-13 23:44 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * Initial commit.

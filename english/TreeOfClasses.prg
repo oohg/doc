@@ -176,12 +176,12 @@ FUNCTION Populate( oMainForm )
                 UPPER( LEFT( cLine, 9 ) ) == "DELEGATE " .OR. ;
                 ( UPPER( LEFT( cLine, 6 ) ) == "ERROR " .AND. UPPER( LEFT( LTRIM( SUBSTR( cLine, 7 ) ), 8 ) ) == "HANDLER " )
             IF EMPTY( cClassName )
-               MSGSTOP( "Found " + HB_OSNewLine() + cLine + HB_OSNewLine() + "without associated class.", "Tree of ooHG's Classes, msg #3" )
+               MSGSTOP( "Found " + Chr( 13 ) + Chr( 10 ) + cLine + Chr( 13 ) + Chr( 10 ) + "without associated class.", "Tree of ooHG's Classes, msg #3" )
                oMainForm:Release()
                RETURN Nil
             ELSE
                IF ASCAN( aTreeItems, cClassName + cLine ) > 0
-                  MSGSTOP( cLine + HB_OSNewLine() + " already defined in CLASS " + HB_OSNewLine() + cClassName + ".", "Tree of ooHG's Classes, msg #4" )
+                  MSGSTOP( cLine + Chr( 13 ) + Chr( 10 ) + " already defined in CLASS " + Chr( 13 ) + Chr( 10 ) + cClassName + ".", "Tree of ooHG's Classes, msg #4" )
                   oMainForm:Release()
                   RETURN Nil
                ENDIF
@@ -278,7 +278,7 @@ FUNCTION Populate( oMainForm )
                 */
                FOR j := 1 to LEN( aOrphans[i][3] )
                   IF aOrphans[i][4] .AND. ASCAN( aTreeItems, aOrphans[i][1] + aOrphans[i][3][j] ) > 0
-                     MSGSTOP( aOrphans[i][3][j] + HB_OSNewLine() + " already defined in CLASS " + HB_OSNewLine() + aOrphans[i][1] + ".", "Tree of ooHG's Classes, msg #6" )
+                     MSGSTOP( aOrphans[i][3][j] + Chr( 13 ) + Chr( 10 ) + " already defined in CLASS " + Chr( 13 ) + Chr( 10 ) + aOrphans[i][1] + ".", "Tree of ooHG's Classes, msg #6" )
                      oMainForm:Release()
                      RETURN Nil
                   ENDIF
