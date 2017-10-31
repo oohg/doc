@@ -1,5 +1,5 @@
 /*
- * $Id: treeofclasses.prg,v 1.3 2015-03-10 23:58:19 fyurisich Exp $
+ * $Id: TreeOfClasses.prg $
  */
 /*
  * Reads classes.txt and shows the tree of classes in a a Tree control

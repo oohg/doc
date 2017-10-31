@@ -21,7 +21,7 @@ Notes
 
 If you are using the ooHG official distro installed in C:\OOHG folder, with Harbour and MinGW as compilers (default options), you can also use this method:
 
-First of all, be sure you're system's PATH includes C:\OOHG\HARBOUR\BIN and C:\OOHG\MINGW\BIN for the distro based on Harbour 3.0, or C:\OOHG\HB32\COMP\MINGW\BIN and C:\OOHG\HG32\BIN for the distro bases on Harbour 3.2.
+First of all, be sure you're system's PATH includes C:\OOHG\HB30\BIN and C:\OOHG\HB30\COMP\MINGW\BIN for the distro based on Harbour 3.0, or C:\OOHG\HB32\BIN and C:\OOHG\HB32\COMP\MINGW\BIN for the distro bases on Harbour 3.2.
 Also verify that it doesn't includes references to any other C compiler (including another versions of MINGW).
 
 If your app works in GUI or mixed mode, copy file BUILD_GUI.HBP in the folder were your source files (.prg files) are located.

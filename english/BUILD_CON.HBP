@@ -1,11 +1,10 @@
 #
 # build_con.hbp
-# Author: Fernando Yurisich <fernando.yurisich@gmail.com>
+# Author: Fernando Yurisich <fyurisich@oohg.org>
 # Licensed under The Code Project Open License (CPOL) 1.02
 # See <http://www.codeproject.com/info/cpol10.aspx>
 #
-# Visit us at https://github.com/fyurisich/OOHG_Samples or at
-# http://oohg.wikia.com/wiki/Object_Oriented_Harbour_GUI_Wiki
+# Visit us at https://oohg.github.io
 #
 # Use 'hbmk2 --help' to see full option´s list
 #
@@ -25,7 +24,7 @@
 #-info
 
 # Harbour compiler flags
--prgflag=-n -ic:\oohg\harbour\include;c:\oohg\include;.
+-prgflag=-n1 -i${HG_ROOT}\harbour\include;${HG_ROOT}\include;.
 
 # To build a .ppo file, remove the #
 #-prgflag=-p
@@ -37,9 +36,9 @@
 -compiler=mingw
 
 # C compiler flags
--ldflag=-Wall -Lc:\oohg\mingw\lib -Lc:\oohg\harbour\lib -Lc:\oohg\lib -L.
+-ldflag=-Wall -L${HG_ROOT}\mingw\lib -L${HG_ROOT}\hb30\lib -L${HG_ROOT}\${LIB_GUI} -L.
 -ldflag=-Wl,--allow-multiple-definition
--ldflag=-I. -Ic:\oohg\harbour\include -Ic:\oohg\include
+-ldflag=-I. -I${HG_ROOT}\harbour\include -I${HG_ROOT}\include
 
 # Console mode
 -mconsole

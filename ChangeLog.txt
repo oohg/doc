@@ -8,12 +8,31 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2017-10-30 22:12 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\ChangeLog.txt
+     * Updated.
+   * doc\english\Build an app.txt
+   * doc\english\BUILD_CON.HBP
+   * doc\english\BUILD_GUI.HBP
+   * doc\english\Classes.txt
+   * doc\english\How_to_Configure_and_Use.txt
+   * doc\english\Maintenance.txt
+   * doc\english\Rebuild ooHG libraries.txt
+   * doc\english\Stream.txt
+   * doc\english\TPrint.txt
+   * doc\english\TreeOfClasses.prg
+   * doc\english\Update the Harbour compiler.txt
+     * Updated folders.
+     * Use macros instead of fixed folders.
+     * Id.
+   - doc\english\ML.bat
+
 2017-10-25 23:00 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\ChangeLog.txt
-   * doc\Classes.txt
-   * doc\CLASSES_INDEX.HTM
+   * doc\english\Classes.txt
+   * doc\manual\CLASSES_INDEX.HTM
      * Updated.
-   * doc\TreeOfClasses.prg
+   * doc\english\TreeOfClasses.prg
      * hb_osnewline() replaced by Chr(13)+Chr(10).
 
 2017-10-23 22:03 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>

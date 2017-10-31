@@ -1,5 +1,5 @@
 /*
- * $Id: tprint.txt,v 1.5 2012-09-30 23:22:57 fyurisich Exp $
+ * $Id: TPrint.txt $
  */
 
 CLASE TPRINT

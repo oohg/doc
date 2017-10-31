@@ -1,5 +1,5 @@
 /*
- * $Id: How_to_Configure_and_Use.txt,v 1.5 2015-03-21 01:33:17 fyurisich Exp $
+ * $Id: How_to_Configure_and_Use $
  */
 
 
@@ -159,8 +159,6 @@ D:\MYMINGW), deberá setear la siguiente variable de ambiente antes de usar los
 comandos de compilación:
 
 set HG_MINGW=D:\MYMINGW
-
-
 
 Para utilizar el compilador Borland C++ 5.5 en lugar de MinGW, edite
 C:\OOHG\COMPILE.BAT y reemplace su contenido con:

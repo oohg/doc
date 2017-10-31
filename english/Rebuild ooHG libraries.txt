@@ -27,9 +27,10 @@ To rebuild ooHG libraries, follow this procedure:
       CALL MAKELIB.BAT HB32
    and execute it.
 
-To build the ooHG libraries (liboohg.a, libhbprinter.a and libminiprint.a) for Harbour 3.x and MinGW (the compilers included in the official distro, available at http://sourceforge.net/projects/oohg/files/) using Harbour's 'hbmk2' tool:
+To rebuild ooHG libraries using Harbour's 'hbmk2' tool:
 
-1. Update your working copy of OOHG, see How to update ooHG distro with the CVS changes.
-2. Switch to SOURCE folder.
-3. Create a text file named ML.BAT and paste the code included below.
-4. Execute ML.BAT (if everything went well, 'hbmk2' will create the libraries in C:\OOHG\LIB folder, along with a hidden folder named .hbmk).
+1. Open a Windows Console at C:\OOHG\SOURCE folder.
+
+2. Execute command
+      "BUILDLIB.BAT HB30" to rebuild using Harbour 3.0 and MinGW compiler.
+      "BUILDLIB.BAT HB32" to rebuild using Harbour 3.2 and MinGW compiler.
