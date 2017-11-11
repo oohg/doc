@@ -1,6 +1,6 @@
 [OPTIONS]
 Compatibility=1.1 or later
-Compiled file=..\ide\ooHG.chm
+Compiled file=..\..\ide\ooHG.chm
 Contents file=ooHG.hhc
 Default Window=main
 Default topic=OOHG.HTM
