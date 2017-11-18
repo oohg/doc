@@ -18,31 +18,29 @@
 6. En "Local path" ingresar C:\OOHG (la carpeta no debe existir).
 7. Clic en "Clone".
 8. Para descargar los otros repositorios (distros, doc, ejemplos, fmt, ide, samples):
-
-  * Hacer clic en menú "File".
-  * Hacer clic en opción "Clone a repository".
-  * Hacer clic en "URL".
-  * En "Repository ..." ingresar la dirección que corresponda
-    * https://github.com/oohg/distros.git
-    * https://github.com/oohg/doc.git
-    * https://github.com/oohg/ejemplos.git
-    * https://github.com/oohg/fmt.git
-    * https://github.com/oohg/ide.git
-    * https://github.com/oohg/samples.git
-  * En "Local path" ingresar
-    * C:\OOHG\distros
-    * C:\OOHG\doc
-    * C:\OOHG\ejemplos
-    * C:\OOHG\fmt
-    * C:\OOHG\ide
-    * C:\OOHG\samples
-  * Hacer clic en "Clone".
+   * Hacer clic en menú "File".
+   * Hacer clic en opción "Clone a repository".
+   * Hacer clic en "URL".
+   * En "Repository ..." ingresar la dirección que corresponda
+     * https://github.com/oohg/distros.git
+     * https://github.com/oohg/doc.git
+     * https://github.com/oohg/ejemplos.git
+     * https://github.com/oohg/fmt.git
+     * https://github.com/oohg/ide.git
+     * https://github.com/oohg/samples.git
+   * En "Local path" ingresar
+     * C:\OOHG\distros
+     * C:\OOHG\doc
+     * C:\OOHG\ejemplos
+     * C:\OOHG\fmt
+     * C:\OOHG\ide
+     * C:\OOHG\samples
+   * Hacer clic en "Clone".
 9. Reconstruir las librerías (ver más abajo).
 
 #### Para usuarios:
 
 1. Ingresar a las páginas de los diferentes repositorios:
-
    * https://github.com/oohg/core
    * https://github.com/oohg/distros
    * https://github.com/oohg/doc
@@ -82,7 +80,6 @@
 3. Abrir una Consola de Comandos en la carpeta C:\OOHG\SOURCE.
 4. Ejecutar CLEAN.BAT
 5. Ejecutar el comando:
-
    * "MAKELIB.BAT HB30" para reconstruir utilizando los compiladores Harbour 3.0 y MinGW.
    * "MAKELIB.BAT HB32" para reconstruir utilizando los compiladores Harbour 3.2 y MinGW.
    * "MAKELIB.BAT XB"   para reconstruir utilizando los compiladores xHarbour    y BCC.
@@ -92,6 +89,5 @@
 
 1. Abrir una ventana de comandos de Windows en la carpeta C:\OOHG\SOURCE.
 2. Ejecutar el comando
-
    * "BUILDLIB.BAT HB30" para reconstruir utilizando los compiladores Harbour 3.0 y MinGW.
    * "BUILDLIB.BAT HB32" para reconstruir utilizando los compiladores Harbour 3.2 y MinGW.
