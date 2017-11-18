@@ -1,4 +1,4 @@
-## Procedimiento para instalar la distribuciÛn oficial de ooHG:
+## Procedimiento para instalar la distribuci√≥n oficial de ooHG:
 
 1. Descargar el archivo .ZIP desde http://sourceforge.net/projects/oohg/files/
 2. Si ya existe una carpeta C:\OOHG en su disco duro, es muy recomendable borrarla, renombarla o moverla a otro lugar para evitar problemas y mejorar la calidad del soporte en caso de que exista alguno.
@@ -6,7 +6,7 @@
 4. Agregar C:\OOHG al PATH del sistema de forma que se puedan construir los ejemplos y aplicaciones utilizando el comando COMPILE.BAT
 
 
-## Procedimientos para actualizar la distribuciÛn con los ˙ltimos cambios en los fuentes:
+## Procedimientos para actualizar la distribuci√≥n con los √∫ltimos cambios en los fuentes:
 
 #### Para desarrolladores:
 
@@ -18,10 +18,11 @@
 6. En "Local path" ingresar C:\OOHG (la carpeta no debe existir).
 7. Clic en "Clone".
 8. Para descargar los otros repositorios (distros, doc, ejemplos, fmt, ide, samples):
-  * Hacer clic en men˙ "File".
-  * Hacer clic en opciÛn "Clone a repository".
+
+  * Hacer clic en men√∫ "File".
+  * Hacer clic en opci√≥n "Clone a repository".
   * Hacer clic en "URL".
-  * En "Repository ..." ingresar la direcciÛn que corresponda
+  * En "Repository ..." ingresar la direcci√≥n que corresponda
     * https://github.com/oohg/distros.git
     * https://github.com/oohg/doc.git
     * https://github.com/oohg/ejemplos.git
@@ -36,11 +37,12 @@
     * C:\OOHG\ide
     * C:\OOHG\samples
   * Hacer clic en "Clone".
-9. Reconstruir las librerÌas (ver m·s abajo).
+9. Reconstruir las librer√≠as (ver m√°s abajo).
 
 #### Para usuarios:
 
-1. Ingresar a las p·ginas de los diferentes repositorios:
+1. Ingresar a las p√°ginas de los diferentes repositorios:
+
    * https://github.com/oohg/core
    * https://github.com/oohg/distros
    * https://github.com/oohg/doc
@@ -48,24 +50,24 @@
    * https://github.com/oohg/fmt
    * https://github.com/oohg/ide
    * https://github.com/oohg/samples
-2. Hacer clic en el botÛn "Clone or download".
+2. Hacer clic en el bot√≥n "Clone or download".
 3. Hacer clic en "Download zip" y guardar en el disco local.
 4. Desempaquetar el contenido en una carpeta auxiliar.
 5. Copiar el contenido a la correspondiente carpeta en C:\OOHG.
-6. Reconstruir las librerÌas (ver m·s abajo).
+6. Reconstruir las librer√≠as (ver m√°s abajo).
 
 
 ## Procedimiento para actualizar el compilador Harbour 3.2:
 
-1. Descargar la versiÛn Nightly de Harbour desde este enlace:
+1. Descargar la versi√≥n Nightly de Harbour desde este enlace:
    https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
 2. Instalar Harbour en C:\OOHG\HB32
-3. Reconstruir las librerÌas (ver m·s abajo).
+3. Reconstruir las librer√≠as (ver m√°s abajo).
 
 
-## Procedimiento para reconstruir las librerÌas:
+## Procedimiento para reconstruir las librer√≠as:
 
-#### MÈtodo tradicional:
+#### M√©todo tradicional:
 
 1. Abrir una ventana de comandos de Windows en la carpeta C:\OOHG\SOURCE.
 2. En la carpeta C:\OOHG\SOURCE crear un archivo de texto llamado CLEAN.BAT con el siguiente contenido:
@@ -80,14 +82,16 @@
 3. Abrir una Consola de Comandos en la carpeta C:\OOHG\SOURCE.
 4. Ejecutar CLEAN.BAT
 5. Ejecutar el comando:
+
    * "MAKELIB.BAT HB30" para reconstruir utilizando los compiladores Harbour 3.0 y MinGW.
    * "MAKELIB.BAT HB32" para reconstruir utilizando los compiladores Harbour 3.2 y MinGW.
    * "MAKELIB.BAT XB"   para reconstruir utilizando los compiladores xHarbour    y BCC.
-   * Para utilizar otros compiladores C deber· ajustar y utilizar uno de los archivos alternativos MAKELIB_BCC.BAT, MAKELIB_PC.BAT o MAKELIB_VC.BAT
+   * Para utilizar otros compiladores C deber√° ajustar y utilizar uno de los archivos alternativos MAKELIB_BCC.BAT, MAKELIB_PC.BAT o MAKELIB_VC.BAT
 
 #### Utilizando HBMK2 (solo para HB30 y HB32):
 
 1. Abrir una ventana de comandos de Windows en la carpeta C:\OOHG\SOURCE.
 2. Ejecutar el comando
+
    * "BUILDLIB.BAT HB30" para reconstruir utilizando los compiladores Harbour 3.0 y MinGW.
    * "BUILDLIB.BAT HB32" para reconstruir utilizando los compiladores Harbour 3.2 y MinGW.
