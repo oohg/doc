@@ -13,7 +13,7 @@
    - doc\spanish\Actualizar la distribución con los últimos cambios.txt
    - doc\spanish\Descargar los repositorios a disco local.txt
    - doc\spanish\Instalar la distribución oficial de ooHG.txt
-   - doc\spanish\Instalar y actualizar.txt
+   + doc\spanish\Instalar y actualizar.txt
    - doc\spanish\ML.BAT
    - doc\spanish\Reconstruir las librerías de ooHG.txt
    * doc\spanish\BUILD_CON.HBP
