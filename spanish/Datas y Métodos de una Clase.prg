@@ -11,6 +11,24 @@
  * e INLINEs de una clase data. Vea las funciones DoMethod,
  * _OOHG_HasMethod and _OOHG_HasData en source/h_controlmisc.prg
  *
+ * Para distinguir un DATA de un METHOD con o sin SETGET siga
+ * las siguientes reglas:
+ *
+ * DATA: xyz es un DATA cuando la lista de DATAs contiene los
+ * ítems xyz (mensaje 'get') y _xyz (mensaje 'set').
+ *
+ * METHOD con SETGET: xyz es un METHOD con SETGET cuando la lista
+ * de METHODs contiene los ítems xyz y _xyz.
+ *
+ * INLINE o METHOD sin SETGET: xyz es un METHOD sin SETGET cuando
+ * la Lista de METHODs contiene el ítem xyz y no contiene el ítem _xyz.
+ *
+ * NOTAS:
+ *
+ * Cuando la lista de DATAs contiene el ítem _xyz pero no contiene el
+ * ítem xyz, en la clase padre xyz es un DATA y en la clase es un
+ * METHOD sin SETGET.
+ *
  * Visítenos en https://github.com/fyurisich/OOHG_Samples o en
  * http://oohg.wikia.com/wiki/Object_Oriented_Harbour_GUI_Wiki
  */

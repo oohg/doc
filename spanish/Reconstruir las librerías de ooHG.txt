@@ -11,7 +11,7 @@ Para reconstruir las librerías de ooHG, siga el siguiente procedimiento:
    Para utilizar otros compiladores C deberá ajustar y utilizar uno de los archivos alternativos:
    MAKELIB_BCC.BAT, MAKELIB_PC.BAT o MAKELIB_VC.BAT
 
-   Si la reconstrucción fracasa verifique que el PATH del sistema incluye C:\OOHG y que las siguientes variables de ambiantes no están seteadas:
+   Si la reconstrucción fracasa verifique que el PATH del sistema incluye C:\OOHG y que las siguientes variables de ambiente no están seteadas:
       HG_HRB
       HG_MINGW
       HG_ROOT
@@ -31,7 +31,7 @@ Para reconstruir las librerías de ooHG, siga el siguiente procedimiento:
 
 Para construir las librerías de ooHG (liboohg.a, libhbprinter.a and libminiprint.a) para Harbour 3.x y MinGW (los compiladores incluidos en la distribución oficial, disponible en http://sourceforge.net/projects/oohg/files/) utilizando la herramienta 'hbmk2' de Harbour:
 
-1. Actualice su copia de trabajo de OOHG, vea "Como actualizar la distribución oficial de ooHG con los cambios del CVS.txt"
+1. Actualice su copia de trabajo de OOHG, vea "Como actualizar la distribución oficial de ooHG con los último cambios.txt"
 2. Cambie a la carpeta SOURCE.
 3. Cree un archivo de texto llamado ML.BAT y pegue el código incluido más abajo.
 4. Ejecute ML.BAT (si todo funcionó bien, 'hbmk2' creó las librerías en la carpeta C:\OOHG\LIB, junto con una carpeta oculta llamada .hbmk).

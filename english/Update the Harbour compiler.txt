@@ -1,8 +1,7 @@
-1. Download ooHG repository from GitHub (see "Download repositories to local drive.txt).
-2. Download Harbour's Nightly version from this link:
+1. Download Harbour's Nightly version from this link:
    https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
-3. Install Harbour to C:\OOHG\HB32
-4. At folder C:\OOHG\SOURCE create a text file named CLEAN.BAT with the following content:
+2. Install Harbour to C:\OOHG\HB32
+3. At folder C:\OOHG\SOURCE create a text file named CLEAN.BAT with the following content:
       SET PATH=C:\OOHG
       SET HG_HRB=
       SET HG_MINGW=
@@ -10,4 +9,4 @@
       SET LIB_GUI=
       SET LIB_HRB=
       CALL MAKELIB.BAT HB32
-5. Open a Command Prompt at folder C:\OOHG\SOURCE and execute CLEAN.BAT
+4. Open a Command Prompt at folder C:\OOHG\SOURCE and execute CLEAN.BAT

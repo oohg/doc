@@ -1,8 +1,4 @@
-1. Descargar el repositorio de ooHG desde el CVS de SourceForge utilizando este enlace:
-   http://oohg.cvs.sourceforge.net/viewvc/oohg/oohg/?view=tar
-2. Desempacar el archivo.GZ en una carpeta auxiliar.
-3. Extraer, desde el archivo .TAR resultante, la carpeta OOHG y copiarla a la carpeta raíz del C:
-4. Descargar la versión Nightly de Harbour desde este enlace:
+1. Descargar la versión Nightly de Harbour desde este enlace:
    https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
 5. Instalar Harbour en C:\OOHG\HB32
 6. En la carpeta C:\OOHG\SOURCE crear un archivo de texto llamado CLEAN.BAT con el siguiente contenido:

@@ -8,6 +8,21 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2017-11-17 21:42 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\README.md
+     - T*O*D*O list, see Issues.
+   - doc\english\Guidelines for document publishing.txt
+   * doc\english\Update de Harbour compiler.txt
+     * Updated.
+   * doc\spanish\Actualizar el compilador Harbour.txt
+     * Updated.
+   * doc\spanish\Datas y Métodos de una clase.prg
+     + Added info from doc\spanish\Datas y Métodos de una clase.txt
+   - doc\spanish\Datas y Métodos de una clase.txt
+   - doc\spanish\Guías para la publicación de documentos.txt
+   * doc\spanish\Reconstruir las librerías de OOHG.txt
+      Updated.
+
 2017-11-17 20:48 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\ChangeLog.txt
      * Updated.

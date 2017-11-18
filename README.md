@@ -3,15 +3,10 @@ Description:
 This repository contains all the available information about OOHG's libraries.
 The information can be packed into a .chm file to be shipped with the distros.
 
-To Do List:
-
-* Integrate documents in 'english' folder into the manual.
-* Synchronize manual's pages with core.
-* Document missing library's features.
-* Move building tools to 'distros' repository.
-* Translate manual to Spanish.
-* Transform folder into a website.
-* Automate the building of 'manual/changelog.htm' from 'core/changelog*.txt'
+General guidances for publishing documents:
+* Always credit the authors and contributors.
+* Always state the type of license, if any applies to the code. We recommend The Code Project Open License (CPOL) 1.02.
+* Although you can use any language, try to write in English because ooHG is used worldwide.
 
 Please, join us.
 Your help will be really welcome and appreciated.
