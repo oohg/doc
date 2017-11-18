@@ -60,16 +60,7 @@
 1. Descargar la versión Nightly de Harbour desde este enlace:
    https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
 2. Instalar Harbour en C:\OOHG\HB32
-3. En la carpeta C:\OOHG\SOURCE crear un archivo de texto llamado CLEAN.BAT con el siguiente contenido:
-      SET PATH=C:\OOHG
-      SET HG_HRB=
-      SET HG_MINGW=
-      SET HG_ROOT=
-      SET LIB_GUI=
-      SET LIB_HRB=
-      CALL MAKELIB.BAT HB32
-4. Abrir una Consola de Comandos en la carpeta C:\OOHG\SOURCE y ejecutar CLEAN.BAT
-5. Reconstruir las librerías (ver más abajo).
+3. Reconstruir las librerías (ver más abajo).
 
 
 ## Procedimiento para reconstruir las librerías:
@@ -77,26 +68,24 @@
 #### Método tradicional:
 
 1. Abrir una ventana de comandos de Windows en la carpeta C:\OOHG\SOURCE.
-2. Verificar que el PATH del sistema incluye C:\OOHG y que las siguientes variables de ambiente no están seteadas:
-   * HG_HRB
-   * HG_MINGW
-   * HG_ROOT
-   * LIB_GUI
-   * LIB_HRB
-   Si tiene dudas, puede crear y ejecutar un archivo llamado CLEAN.BAT con el siguiente contenido:
-       SET PATH=C:\OOHG
-       SET HG_HRB=
-       SET HG_MINGW=
-       SET HG_ROOT=
-       SET LIB_GUI=
-       SET LIB_HRB=
-3. Ejecutar el comando
+2. En la carpeta C:\OOHG\SOURCE crear un archivo de texto llamado CLEAN.BAT con el siguiente contenido:
+   ```
+      SET PATH=C:\OOHG
+      SET HG_HRB=
+      SET HG_MINGW=
+      SET HG_ROOT=
+      SET LIB_GUI=
+      SET LIB_HRB=
+   ```
+3. Abrir una Consola de Comandos en la carpeta C:\OOHG\SOURCE.
+4. Ejecutar CLEAN.BAT
+5. Ejecutar el comando:
    * "MAKELIB.BAT HB30" para reconstruir utilizando los compiladores Harbour 3.0 y MinGW.
    * "MAKELIB.BAT HB32" para reconstruir utilizando los compiladores Harbour 3.2 y MinGW.
    * "MAKELIB.BAT XB"   para reconstruir utilizando los compiladores xHarbour    y BCC.
    * Para utilizar otros compiladores C deberá ajustar y utilizar uno de los archivos alternativos MAKELIB_BCC.BAT, MAKELIB_PC.BAT o MAKELIB_VC.BAT
 
-#### Utilizando HBMK2 (solo HB30 y HB32):
+#### Utilizando HBMK2 (solo para HB30 y HB32):
 
 1. Abrir una ventana de comandos de Windows en la carpeta C:\OOHG\SOURCE.
 2. Ejecutar el comando
