@@ -18,24 +18,24 @@
 6. En "Local path" ingresar C:\OOHG (la carpeta no debe existir).
 7. Clic en "Clone".
 8. Para descargar los otros repositorios (distros, doc, ejemplos, fmt, ide, samples):
-* Hacer clic en menú "File".
-* Hacer clic en opción "Clone a repository".
-* Hacer clic en "URL".
-* En "Repository ..." ingresar la dirección que corresponda
-  * https://github.com/oohg/distros.git
-  * https://github.com/oohg/doc.git
-  * https://github.com/oohg/ejemplos.git
-  * https://github.com/oohg/fmt.git
-  * https://github.com/oohg/ide.git
-  * https://github.com/oohg/samples.git
-* En "Local path" ingresar
-  * C:\OOHG\distros
-  * C:\OOHG\doc
-  * C:\OOHG\ejemplos
-  * C:\OOHG\fmt
-  * C:\OOHG\ide
-  * C:\OOHG\samples
-* Hacer clic en "Clone".
+  * Hacer clic en menú "File".
+  * Hacer clic en opción "Clone a repository".
+  * Hacer clic en "URL".
+  * En "Repository ..." ingresar la dirección que corresponda
+    * https://github.com/oohg/distros.git
+    * https://github.com/oohg/doc.git
+    * https://github.com/oohg/ejemplos.git
+    * https://github.com/oohg/fmt.git
+    * https://github.com/oohg/ide.git
+    * https://github.com/oohg/samples.git
+  * En "Local path" ingresar
+    * C:\OOHG\distros
+    * C:\OOHG\doc
+    * C:\OOHG\ejemplos
+    * C:\OOHG\fmt
+    * C:\OOHG\ide
+    * C:\OOHG\samples
+  * Hacer clic en "Clone".
 9. Reconstruir las librerías (ver más abajo).
 
 #### Para usuarios:
@@ -84,12 +84,12 @@
    * LIB_GUI
    * LIB_HRB
    Si tiene dudas, puede crear y ejecutar un archivo llamado CLEAN.BAT con el siguiente contenido:
-   >   SET PATH=C:\OOHG
-   >   SET HG_HRB=
-   >   SET HG_MINGW=
-   >   SET HG_ROOT=
-   >   SET LIB_GUI=
-   >   SET LIB_HRB=
+       SET PATH=C:\OOHG
+       SET HG_HRB=
+       SET HG_MINGW=
+       SET HG_ROOT=
+       SET LIB_GUI=
+       SET LIB_HRB=
 3. Ejecutar el comando
    * "MAKELIB.BAT HB30" para reconstruir utilizando los compiladores Harbour 3.0 y MinGW.
    * "MAKELIB.BAT HB32" para reconstruir utilizando los compiladores Harbour 3.2 y MinGW.
