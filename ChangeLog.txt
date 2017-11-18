@@ -8,6 +8,19 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2017-11-18 08:20 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   - doc\spanish\Actualizar el compilador Harbour.txt
+   - doc\spanish\Actualizar la distribución con los últimos cambios.txt
+   - doc\spanish\Descargar los repositorios a disco local.txt
+   - doc\spanish\Instalar la distribución oficial de ooHG.txt
+   - doc\spanish\Instalar y actualizar.txt
+   - doc\spanish\ML.BAT
+   - doc\spanish\Reconstruir las librerías de ooHG.txt
+   * doc\spanish\BUILD_CON.HBP
+   * doc\spanish\BUILD_GUI.HBP
+   * Construir una aplicación.txt
+     * Updated
+
 2017-11-17 21:42 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\README.md
      - T*O*D*O list, see Issues.

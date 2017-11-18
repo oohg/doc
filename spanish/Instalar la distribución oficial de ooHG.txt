@@ -1,8 +1,0 @@
-Para instalar la distribución oficial de ooHG siga el siguiente procedimiento:
-
-1. Descargar el archivo .ZIP desde http://sourceforge.net/projects/oohg/files/
-2. Si ya existe una carpeta C:\OOHG en su disco duro, es muy recomendable borrarla, renombarla o moverla a otro lugar para evitar problemas y mejorar la calidad del soporte en caso de que exista alguno.
-3. Extraer el contenido del archivo descargado en C:\ de forma que los archivos sean copiados a la carpeta C:\OOHG.
-4. Agregar C:\OOHG al PATH del sistema de forma que se puedan construir los ejemplos y aplicaciones utilizando el comando COMPILE.BAT
-
-Si desea actualizar la distribución con los cambios del CVS, vea "Como actualizar la distribución con los cambios del CVS.txt".

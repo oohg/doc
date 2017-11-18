@@ -32,10 +32,7 @@ También verifique que no incluye referencias a otros compiladores C (incluyendo 
 Si la aplicación trabaja en modo GUI o en modo mixto, copie el archivo BUILD_GUI.HBP en la carpeta donde están los archivos fuente (archivos .prg).
 Finalmente, abra una ventana DOS, cambie a la carpeta de la aplicación y ejecute 'HBMK2 BUILD_GUI.HBP' para construir el archivo exe.
 
-Si la aplicación trabaja en modo consola, copie el archivo BUILD_GUI.HBP en la carpeta donde están los archivos fuente (archivos .prg).
-Finalmente, abra una ventana DOS, cambie a la carpeta de la aplicación y ejecute 'HBMK2 BUILD_GUI.HBP' para construir el archivo exe.
-
-Si la aplicación trabaja en modo consola, cree un archivo de texto llamado BUILD_CON.HBP, en la carpeta donde están los archivos fuente (archivos .prg), y copie el código que encontrará aquí.
+Si la aplicación trabaja en modo consola, copie el archivo BUILD_CON.HBP en la carpeta donde están los archivos fuente (archivos .prg).
 Finalmente, abra una ventana DOS, cambie a la carpeta de la aplicación y ejecute 'HBMK2 BUILD_CON.HBP' para construir el archivo exe.
 
 Notas
