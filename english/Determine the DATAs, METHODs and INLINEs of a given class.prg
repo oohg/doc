@@ -11,8 +11,26 @@
  * of a given class. See functions DoMethod, _OOHG_HasMethod and
  * _OOHG_HasData in source/h_controlmisc.prg
  *
- * Visit us at https://github.com/fyurisich/OOHG_Samples or at
- * http://oohg.wikia.com/wiki/Object_Oriented_Harbour_GUI_Wiki
+ * To distinguish a DATA from a METHOD with or without SETGET
+ * follow this rules:
+ *
+ * DATA: xyz is a DATA when the List of DATAs contains items xyz
+ * ('get' message) and _xyz ('set' message).
+ *
+ * METHOD with SETGET: xyz is a METHOD with SETGET when the list
+ * of METHODs contains items xyz and _xyz.
+ *
+ * INLINE or METHOD without SETGET: xyz is a METHOD without
+ * SETGET when the list of METHODs contains item xyz and not
+ * contains item _xyz.
+ *
+ * NOTES:
+ *
+ * When the List of DATAs contains item _xyz but not contains
+ * item xyz, in the parent class xyz is a DATA and in the class
+ * is a METHOD without SETGET.
+ *
+ * Visit us at https://oohg.github.io
  */
 
 #include "hbclass.ch"

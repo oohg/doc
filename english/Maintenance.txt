@@ -23,7 +23,7 @@ This document states the tasks to fulfill whenever:
 
 5. A new distro is builded:
    * Change the date in manual/OOHG.HTM
-   * Change the date in function _oohg_Version of source/h_error.prg
+   * Change the date in pseudo function oohgVersion of include/i_pseudofunc.ch
 
 6. A new year starts:
    * Update the year in the copyright note of all files.

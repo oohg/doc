@@ -10,8 +10,8 @@
 
 #### Para desarrolladores:
 
-1. Descargar e instalar "Git" desde https://git-scm.com/download
-2. Descargar e instalar "GitHub Desktop" desde https://desktop.github.com/
+1. Descargar "Git" desde https://git-scm.com/download e instalar.
+2. Descargar "GitHub Desktop" desde https://desktop.github.com/ e instalar
 3. Ingresar a GitHub Desktop.
 4. Hacer clic en "Clone a repository" y luego en "URL".
 5. En "Repository ..." ingresar https://github.com/oohg/core.git
@@ -67,8 +67,7 @@
 
 #### Método tradicional:
 
-1. Abrir una ventana de comandos de Windows en la carpeta C:\OOHG\SOURCE.
-2. En la carpeta C:\OOHG\SOURCE crear un archivo de texto llamado CLEAN.BAT con el siguiente contenido:
+1. En la carpeta C:\OOHG\SOURCE crear un archivo de texto llamado CLEAN.BAT con el siguiente contenido:
    ```
       SET PATH=C:\OOHG
       SET HG_HRB=
@@ -77,9 +76,9 @@
       SET LIB_GUI=
       SET LIB_HRB=
    ```
-3. Abrir una Consola de Comandos en la carpeta C:\OOHG\SOURCE.
-4. Ejecutar CLEAN.BAT
-5. Ejecutar el comando:
+2. Abrir una Consola de Comandos en la carpeta C:\OOHG\SOURCE.
+3. Ejecutar CLEAN.BAT
+4. Ejecutar el comando:
    * "MAKELIB.BAT HB30" para reconstruir utilizando los compiladores Harbour 3.0 y MinGW.
    * "MAKELIB.BAT HB32" para reconstruir utilizando los compiladores Harbour 3.2 y MinGW.
    * "MAKELIB.BAT XB"   para reconstruir utilizando los compiladores xHarbour    y BCC.

@@ -1,6 +1,6 @@
 #
 # build_gui.hbp
-# Autor: Fernando Yurisich <fernando.yurisich@gmail.com>
+# Autor: Fernando Yurisich <fyurisich@oohg.org>
 # Licenciado bajo The Code Project Open License (CPOL) 1.02
 # Ver <http://www.codeproject.com/info/cpol10.aspx>
 #
@@ -24,7 +24,7 @@
 #-info
 
 # Parámetros para el compilador Harbour
--prgflag=-n -ic:\oohg\harbour\include;c:\oohg\include;.
+-prgflag=-n1 -i${HG_HRB}\include;${HG_ROOT}\include;.
 
 # Para obtener un archivo .ppo, remueva el #
 #-prgflag=-p
@@ -36,17 +36,15 @@
 -compiler=mingw
 
 # Parámetros para el compilador C
--ldflag=-Wall -Lc:\oohg\mingw\lib -Lc:\oohg\harbour\lib -Lc:\oohg\lib -L.
+-ldflag=-Wall -L${HG_ROOT}\mingw\lib -L${HG_HRB}\${LIB_HRB} -L${HG_ROOT}\${LIB_GUI} -L.
 -ldflag=-Wl,--allow-multiple-definition
--ldflag=-I. -Ic:\oohg\harbour\include -Ic:\oohg\include
+-ldflag=-I. -I${HG_HRB}\include -I${HG_ROOT}\include
 
 # Modo GUI
 -mwindows
 
 # Librerías ooHG
--loohg
--lhbprinter
--lminiprint
+${HG_ROOT}\oohg.hbc
 
 # Librerías Harbour
 # Estas son las mismas librerías utilizadas en el COMPILE.BAT

@@ -8,6 +8,63 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-01-12 21:28 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\.gitignore
+     + Some files.
+   * doc\ChangeLog.txt
+     * Updated.
+
+   * doc\english\BUILD_CON.HBP
+     * Use HG_HRB envvar.
+     * Use oohg.hbc
+   * doc\english\BUILD_GUI.HBP
+     * Use HG_HRB envvar.
+   * doc\english\Determine the DATAs, METHODs and INLINEs of a given class.prg
+     + Info from doc\english\Class Datas and Methods.txt
+     - wiki reference.
+   * doc\english\Maintenance.txt
+     * Updated reference to oohgVersion.
+   * doc\english\TreeOfClasses.prg
+     + Author and license.
+
+   - doc\english\Build an app.txt
+   - doc\english\Class Datas and Methods.txt
+   - doc\english\Download repositories to local drive.txt
+   + doc\english\How_to_Configure_and_Use.md
+   - doc\english\How_to_Configure_and_Use.txt
+   - doc\english\Install de ooHG official distro.txt
+   + doc\english\Install_and_Update.md
+   - doc\english\Notes on Browse clauses, properties and methods.txt
+   + doc\english\Notes_on_Browse_control.md
+   - doc\english\Rebuild ooHG libraries.txt
+   + doc\english\Stream.md
+   - doc\english\Stream.txt
+   - doc\english\The Code Project Open License.txt
+   - doc\english\TPrint.txt
+   - doc\english\Update ooHG distro with the latest changes.txt
+   - doc\english\Update the Harbour compiler.txt
+
+   * doc\manual\Changelog.htm
+     ! Typo.
+
+   + doc\manual\buildhelp.bat
+
+   * doc\spanish\BUILD_CON.HBP
+   * doc\spanish\BUILD_GUI.HBP
+     * Use HG_ROOT, LIB_GUI and HG_HRB envvars.
+     * Use oohg.hbc
+     * Mail updated.
+   * doc\spanish\Datas y Métodos de una Clase.prg
+     - wiki reference.
+   * doc\spanish\Instalar y actualizar.md
+     * Format changed.
+
+   + doc\spanish\Como configurar y usar.txt
+   + doc\spanish\Construir una aplicación.md
+   - doc\spanish\Construir una aplicación.txt
+   + doc\spanish\Stream.md
+   + doc\spanish\TPrint.txt
+
 2017-11-18 08:53 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\ChangeLog.txt
      * Updated.

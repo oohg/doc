@@ -24,7 +24,7 @@
 #-info
 
 # Harbour compiler flags
--prgflag=-n1 -i${HG_ROOT}\hb30\include;${HG_ROOT}\include;.
+-prgflag=-n1 -i${HG_ROOT}\${HG_HRB}\include;${HG_ROOT}\include;.
 
 # To build a .ppo file, remove the #
 #-prgflag=-p
@@ -36,9 +36,9 @@
 -compiler=mingw
 
 # C compiler flags
--ldflag=-Wall -L${HG_ROOT}\mingw\lib -L${HG_ROOT}\hb30\lib -L${HG_ROOT}\${LIB_GUI} -L.
+-ldflag=-Wall -L${HG_ROOT}\mingw\lib -L${HG_ROOT}\${HG_HRB}\lib -L${HG_ROOT}\${LIB_GUI} -L.
 -ldflag=-Wl,--allow-multiple-definition
--ldflag=-I. -I${HG_ROOT}\harbour\include -I${HG_ROOT}\include
+-ldflag=-I. -I${HG_ROOT}\${HG_HRB}\include -I${HG_ROOT}\include
 
 # GUI mode
 -mwindows
