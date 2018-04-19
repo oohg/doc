@@ -26,7 +26,7 @@ SetSelectedColors method:
 
 Changes the colors for the selected row and cell.
 Receives two parameters: an array of colors (see above) and a logical value (.T. forces the control to redraw using the new colors, .F. defers redrawing until next change in control's Value).
-If the arrays is ommited the method returns the the colors actually in use.
+If the array is omitted the method returns the the colors actually in use.
 
 FONTCOLOR clause:
 
@@ -36,7 +36,7 @@ FontColor method:
 
 Changes the text's color for unselected rows.
 Receives the new color as parameter.
-If the color is ommited the method returns the color actually in use.
+If the color is omitted the method returns the color actually in use.
 
 BACKCOLOR clause:
 
@@ -47,7 +47,7 @@ BackColor method:
 
 Changes the text's background color for unselected rows.
 Receives the new color as parameter.
-If the color is ommited the method returns the color actually in use.
+If the color is omitted the method returns the color actually in use.
 
 DYNAMICFORECOLOR clause:
 
@@ -67,7 +67,7 @@ Receives four parameters: row, foreground color (optional, defaults to DYNAMICFO
 SetRangeColor method:
 
 Changes the text's color and text's background color for a region of cells when they're unselected.
-Receives six parameters: foreground color (optional, if ommited no change is made), background color (optional, if ommited no change is made), top row, left column, bottom row (optional, defaults to top) and right column (optional, defaults to left).
+Receives six parameters: foreground color (optional, if omitted no change is made), background color (optional, if omitted no change is made), top row, left column, bottom row (optional, defaults to top) and right column (optional, defaults to left).
 
 Notes:
 
@@ -78,12 +78,14 @@ Notes:
    Codeblocks are not supported.
 3. Colors for DYNAMICFORECOLOR and DYNAMICBACKCOLOR clauses may be specified using a color number, a color array (see i_color.ch) or a codeblock that returns a valid color number or color array when evaluated.
    Codeblocks are evaluated when the AddColumn, AddItem, InsertItem and Item (when is used to change it's value o it's colors) methods are executed.
+   Note that because AddColumn adds the new column _after_ evaluating the block colors, you can´t use the new column's content inside the block.
    Codeblocks receive the column number as first parameter, the row number as second parameter and the item value (array of column's values) as third parameter.
+   To set colors on control's properties you must use _OOHG_ThisControl to access the object.
 4. Colors for SetItemColor and SetRangeColor methods may be specified using a color number, a codeblock that returns a valid color number or color array when evaluated, or an array of colors specified by color numbers, codeblocks o color arrays (see i_color.ch).
    Codeblocks are evaluated when the AddColumn, AddItem, InsertItem, Item (when is used to change it's value o it's colors), SetItemColor or SetRangeColor methods are executed.
-   Codeblocks receive the column number as first parameter, the row number as second parameter and the item value (array of column's values) as third parameter.
+   Color blocks receive the column number as first parameter, the row number as second parameter and the item value (array of column's values) as third parameter.
    If an array is used to change the color of column 3, the array must have at least 3 items and the third must be a valid color.
-5. Browse controls, by default, determine colors at define time.
+5. Controls, by default, determine colors at define time.
    Use UPDATECOLORS clause to force color reevaluation each time the control's value is changed.
 
 

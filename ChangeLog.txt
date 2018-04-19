@@ -8,6 +8,12 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-04-19 20:17 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\ChangeLog.txt
+   * doc\english\Grid colors.txt
+   * doc\spanish\Colores Grid.txt
+     * Updated.
+
 2018-04-06 20:17 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\ChangeLog.txt
      * Updated.

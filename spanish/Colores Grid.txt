@@ -47,16 +47,17 @@ El valor por defecto es COLOR_WINDOW.
 Método BackColor:
 
 Cambia el color de fondo del texto para las filas no seleccionadas.
-El valor por defecto es COLOR_WINDOW.
+Recibe el nuevo color como único parámetro.
+Si se omite, retorna el color actualmente en uso.
 
 Cláusula DYNAMICFORECOLOR:
 
-Especifica el color del texto de cada columna en las filas no seleccionadas.
+Especifica el color del texto de cada columna en las filas no seleccionadas, utilizando un arreglo.
 El valor por defecto de los ítems en NIL es FONTCOLOR.
 
 Cláusula DYNAMICBACKCOLOR:
 
-Especifica el color de fondo del texto de cada columna en las filas no seleccionadas.
+Especifica el color de fondo del texto de cada columna en las filas no seleccionadas, utilizando un arreglo.
 El valor por defecto de los ítems en NIL es BACKCOLOR.
 
 Método SetItemColor:
@@ -78,10 +79,12 @@ Notas:
    No está soportado el uso de codeblocks.
 3. Los colores en las cláusulas DYNAMICFORECOLOR y DYNAMICBACKCOLOR pueden especificarse usando un número de color, un arreglo de color (ver i_color.ch) o un codeblock que devuelva un número de color o un arreglo de color al ser evaluado.
    Los codeblocks son evaluados, para cada celda, al ejecutarse los métodos AddColumn, AddItem, InsertItem o Item (cuando es usado para cambiar el valor de un ítem o sus colores).
-   Los codeblocks reciben el número de columna como primer parámetro, el número de fila como segundo parámetro y el valor del ítem (array de los valores de cada columna) como tercer parámetro.
+   Dado que AddColumn agrega la nueva columna _después_ de evaluar el codeblock, no es posible utilizar el contenido de la nueva columna dentro del codeblock.
+   Los codeblocks reciben el número de columna como primer parámetro, el número de fila como segundo parámetro y el valor del ítem (arreglo de los valores de cada columna) como tercer parámetro.
+   Para especificar colores en base a las propiedades del control debe utilizar _OOHG_ThisControl para acceder al objeto.
 4. Los colores en los métodos SetItemColor y SetRangeColor pueden especificarse usando un número de color, un codeblock que devuelva un número de color o un arreglo de color al ser evaluado, o un arreglo de colores especificados usando números de colores, codeblocks o arreglos de colores (ver i_color.ch).
    Los codeblocks son evaluados, para cada celda, al ejecutarse los métodos AddColumn, AddItem, InsertItem, Item (cuando es usado para cambiar el valor de un ítem o sus colores), SetItemColor o SetRangeColor.
-   Los codeblocks reciben el número de columna como primer parámetro, el número de fila como segundo parámetro y el valor del ítem (array de los valores de cada columna) como tercer parámetro.
+   Los codeblocks reciben el número de columna como primer parámetro, el número de fila como segundo parámetro y el valor del ítem (arreglo de los valores de cada columna) como tercer parámetro.
    Si se utiliza un arreglo de colores, y se quiere cambiar los colores de la columna 3, el arreglo debe tener al menos 3 items, y el tercero debe ser un color válido.
-5. Los controles Browse, por defecto, determinan los colores al momento de su definición.
+5. Los controles, por defecto, determinan los colores al momento de su definición.
    Utilice la cláusula UPDATECOLORS para forzar la reevaluación de los colores cada vez que cambia el valor del control.
