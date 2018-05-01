@@ -114,7 +114,6 @@ This control uses a grid to show data taken from the records of a DBF.
       [ RTL ; ]
       [ &lt;ONAPPEND, ON APPEND&gt; bOnAppend ; ]
       [ &lt;ONEDITCELL, ON EDITCELL&gt; bOnEditCell ; ]
-      [ &lt;ONBEFOREEDITCELL, ON BEFOREEDITCELL&gt; bOnBeforEditCell ; ]
       [ COLUMNCONTROLS aEditControls ; ]
       [ REPLACEFIELD aReplaceFields ; ]
       [ SUBCLASS Subclass ]
@@ -155,8 +154,9 @@ This control uses a grid to show data taken from the records of a DBF.
       [ UPDATECOLORS ; ]
       [ &lt;FIXEDCONTROLS, DYNAMICCONTROLS&gt; ; ]
       [ &lt;ONHEADRCLICK, ON HEADRCLICK&gt; bHeadRClick ; ]
-      [ EXTDBLCLICK ]
       [ NOMODALEDIT ; ]
+      [ NAVIGATEBYCELL ; ]
+      [ EXTDBLCLICK ]
       [ SILENT ; ]
       [ &lt;ENABLEALTA, DISABLEALTA&gt; ; ]
       [ NOSHOWALWAYS ; ]
@@ -169,7 +169,10 @@ This control uses a grid to show data taken from the records of a DBF.
       [ DEFAULTVALUES aDefaultValues ; ]
       [ &lt;ONEDITCELLEND, ON EDITCELLEND&gt; bOnEditEnd ; ]
       [ EDITFIRSTVISIBLE ; ]
-      [ NAVIGATEBYCELL ; ]
+      [ &lt;ONBEFOREEDITCELL, ON BEFOREEDITCELL&gt; bOnBeforEditCell ; ]
+      [ EDITCELLVALUE edtval ] ;
+      [ KEYSLIKECLIPPER ] ;
+      [ CELLTOOLTIP ] ;
 
 *** Alternative syntax:
 
@@ -182,26 +185,26 @@ This control uses a grid to show data taken from the records of a DBF.
       [ HEIGHT nHeight ]
       [ HEADERS aHeaders ]
       [ WIDTHS aWidths ]
+      [ WORKAREA cWorkarea ]
       [ FIELDS aFields ]
       [ VALUE nValue ]
       [ FONTNAME cFontName ]
       [ FONTSIZE nFontSize ]
+      [ FONTBOLD &lt;.T., .F.&gt; ]
+      [ FONTITALIC &lt;.T., .F.&gt; ]
+      [ FONTUNDERLINE &lt;.T., .F.&gt; ]
+      [ FONTSTRIKEOUT &lt;.T., .F.&gt; ]
       [ TOOLTIP cTooltip ]
       [ &lt;ONCHANGE, ON CHANGE&gt; bOnChange ]
       [ &lt;ONDBLCLICK, ON DBLCLICK&gt; bOnDblClick ]
       [ &lt;ONHEADCLICK, ON HEADCLICK&gt; aHeadClick ]
       [ &lt;ONGOTFOCUS, ON GOTFOCUS&gt; bOnGotFocus ]
       [ &lt;ONLOSTFOCUS, ON LOSTFOCUS&gt; bOnLostFocus ]
-      [ WORKAREA cWorkarea ]
       [ ALLOWDELETE &lt;.T., .F.&gt; ]
       [ NOLINES &lt;.T., .F.&gt; ]
       [ IMAGE aimage ]
       [ JUSTIFY ajust ]
       [ HELPID helpid ]
-      [ FONTBOLD &lt;.T., .F.&gt; ]
-      [ FONTITALIC &lt;.T., .F.&gt; ]
-      [ FONTUNDERLINE &lt;.T., .F.&gt; ]
-      [ FONTSTRIKEOUT &lt;.T., .F.&gt; ]
       [ SETBREAK &lt;.T., .F.&gt; ]
       [ BACKCOLOR backcolor ]
       [ FONTCOLOR fontcolor ]
@@ -277,6 +280,9 @@ This control uses a grid to show data taken from the records of a DBF.
       [ EDITFIRSTVISIBLE &lt;.T., .F.&gt; ]
       [ NAVIGATEBYCELL &lt;.T., .F.&gt; ]
       [ SUBCLASS Subclass ]
+      [ EDITCELLVALUE edtval ] ;
+      [ KEYSLIKECLIPPER &lt;.T., .F.&gt; ] ;
+      [ CELLTOOLTIP &lt;.T., .F.&gt; ] ;
    END BROWSE
 
 *** OOP Syntax:

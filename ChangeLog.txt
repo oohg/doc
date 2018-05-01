@@ -8,6 +8,17 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-04-30 22:26 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\ChangeLog.txt
+     * Changed slash by backslash.
+   * doc\english\Classes.txt
+     + New methods, datas and classes.
+   * doc\english\Maintenance.txt
+   * doc\manual\BROWSE.HTM
+   * doc\manual\Changelog.HTM
+   * doc\manual\CLASSES_INDEX.HTM
+     * Updated.
+
 2018-04-19 20:17 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\ChangeLog.txt
    * doc\english\Grid colors.txt
@@ -100,7 +111,7 @@
 
 2017-11-17 21:42 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\README.md
-     - T*O*D*O list, see Issues.
+     - "to do" list, see Issues.
    - doc\english\Guidelines for document publishing.txt
    * doc\english\Update de Harbour compiler.txt
      * Updated.

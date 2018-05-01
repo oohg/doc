@@ -18,7 +18,7 @@ This document states the tasks to fulfill whenever:
 3. A METHOD or DATA is added to or deleted from a class.
    * Update doc/classes.txt and manual/CLASSES.HTM
 
-4. A modification is made to ./Changelog;
+4. A modification is made to any Changelog:
    * Copy the modifications to manual/Changelog.htm
 
 5. A new distro is builded:
