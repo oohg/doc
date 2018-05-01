@@ -8,6 +8,15 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-05-01 10:40 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Maintenance.txt
+     * Improved.
+   * doc\manual\Changelog.HTM
+     ! Missing entries.
+     * Updated.
+   * doc\ChangeLog.txt
+     * Updated.
+
 2018-04-30 22:26 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\ChangeLog.txt
      * Changed slash by backslash.
