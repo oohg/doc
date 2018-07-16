@@ -8,6 +8,15 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-07-16 18:31 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\ChangeLog.txt
+     * Updated.
+   * doc\english\Determine the DATAs, METHODs and INLINEs of a given class.prg
+   * doc\english\TreeOfClasses.prg
+   * doc\manual\Changelog.HTM
+   * doc\spanish\Datas y Métodos de una Clase.prg
+     * Changed private mail to public one.
+
 2018-05-21 10:04 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\ChangeLog.txt
      * Updated.
