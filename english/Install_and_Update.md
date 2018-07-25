@@ -78,6 +78,7 @@
    ```
 2. Open a CMD window at C:\OOHG\SOURCE folder.
 3. Execute CLEAN.BAT
+4. Execute the command:
    * "MAKELIB.BAT HB30" to rebuild using Harbour 3.0 and MinGW compiler.
    * "MAKELIB.BAT HB32" to rebuild using Harbour 3.2 and MinGW compiler.
    * "MAKELIB.BAT XB"   to rebuild using xHarbour    and BCC   compiler.

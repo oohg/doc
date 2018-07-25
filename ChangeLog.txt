@@ -8,9 +8,11 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-07-24 22:49 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Install_and_Update.md
+     ! Missing sentence.
+
 2018-07-16 18:31 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    * doc\english\Determine the DATAs, METHODs and INLINEs of a given class.prg
    * doc\english\TreeOfClasses.prg
    * doc\manual\Changelog.HTM
@@ -18,16 +20,12 @@
      * Changed private mail to public one.
 
 2018-05-21 10:04 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    * doc\manual\*.HTM
      * Copyright updated.
 
 2018-05-01 19:36 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\manual\Changelog.HTM
      ! Missing entries.
-     * Updated.
-   * doc\ChangeLog.txt
      * Updated.
 
 2018-05-01 10:40 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
@@ -36,12 +34,8 @@
    * doc\manual\Changelog.HTM
      ! Missing entries.
      * Updated.
-   * doc\ChangeLog.txt
-     * Updated.
 
 2018-04-30 22:26 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Changed slash by backslash.
    * doc\english\Classes.txt
      + New methods, datas and classes.
    * doc\english\Maintenance.txt
@@ -51,14 +45,11 @@
      * Updated.
 
 2018-04-19 20:17 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
    * doc\english\Grid colors.txt
    * doc\spanish\Colores Grid.txt
      * Updated.
 
 2018-04-06 20:17 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    * doc\manual\OVERVIEW.HTM
      - Reference to wiki.
      * Changed reference to user's group.
@@ -66,8 +57,6 @@
 2018-01-12 21:28 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\.gitignore
      + Some files.
-   * doc\ChangeLog.txt
-     * Updated.
 
    * doc\english\BUILD_CON.HBP
      * Use HG_HRB envvar.
@@ -99,9 +88,6 @@
    - doc\english\Update ooHG distro with the latest changes.txt
    - doc\english\Update the Harbour compiler.txt
 
-   * doc\manual\Changelog.htm
-     ! Typo.
-
    + doc\manual\buildhelp.bat
 
    * doc\spanish\BUILD_CON.HBP
@@ -121,8 +107,6 @@
    + doc\spanish\TPrint.txt
 
 2017-11-18 08:53 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    - doc\spanish\Instalar y actualizar.txt
    + doc\spanish\Instalar y actualizar.md
      * Format added using markdown.
@@ -156,26 +140,18 @@
       Updated.
 
 2017-11-17 20:48 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    * doc\manual\*.*
      * References to sourceforge changed to github.
 
 2017-11-17 19:59 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    * doc\manual\*.*
      * Id.
 
 2017-11-10 21:59 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    * doc\manual\ooHG.hhp
      ! .chm destination folder.
 
 2017-10-30 22:12 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     * Updated.
    * doc\english\Build an app.txt
    * doc\english\BUILD_CON.HBP
    * doc\english\BUILD_GUI.HBP
@@ -193,7 +169,6 @@
    - doc\english\ML.bat
 
 2017-10-25 23:00 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
    * doc\english\Classes.txt
    * doc\manual\CLASSES_INDEX.HTM
      * Updated.
@@ -201,8 +176,6 @@
      * hb_osnewline() replaced by Chr(13)+Chr(10).
 
 2017-10-23 22:03 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\ChangeLog.txt
-     ! Typos.
    + doc\english\Download repositories to local drive.txt
    + doc\manual\PAGE_TEMPLATE.HTM
    + doc\spanish\Descargar los repositorios a disco local.txt
