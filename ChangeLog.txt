@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-08-04 9:36 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\manual\Changelog.HTM
+     ! Typo.
+
 2018-07-24 22:49 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Install_and_Update.md
      ! Missing sentence.
