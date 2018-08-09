@@ -8,7 +8,7 @@
 
 ## Procedures to update your copy with the latest changes:
 
-#### For developers:
+#### For people who develop OOHG:
 
 1. Download "Git" from https://git-scm.com/download and install it.
 2. Download "GitHub Desktop" from https://desktop.github.com/ and install it.
@@ -38,7 +38,7 @@
    * Click on "Clone".
 9. Rebuild the libraries (see below).
 
-#### For users:
+#### For people who uses OOHG to develop apps:
 
 1. Access the repositories at:
    * https://github.com/oohg/core
