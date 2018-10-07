@@ -8,7 +8,7 @@
 
 ## Procedures to update your copy with the latest changes:
 
-#### For developers:
+#### For people who develop OOHG:
 
 1. Download "Git" from https://git-scm.com/download and install it.
 2. Download "GitHub Desktop" from https://desktop.github.com/ and install it.
@@ -38,10 +38,10 @@
    * Click on "Clone".
 9. Rebuild the libraries (see below).
 
-#### For users:
+#### For people who uses OOHG to develop apps:
 
 1. Access the repositories at:
-   * https://github.com/oohg/core
+   * https://github.com/oohg/core (1)
    * https://github.com/oohg/distros
    * https://github.com/oohg/doc
    * https://github.com/oohg/ejemplos
@@ -52,7 +52,8 @@
 3. Click on "Download zip" and save the file to your local drive.
 4. Unpack the content of the file into an auxiliary folder.
 5. Copy the content to the matching folder into C:\OOHG.
-9. Rebuild the libraries (see below).
+   (1) Do not copy "core" folder to C:\OOHG, just copy it's content.
+6. Rebuild the libraries (see below).
 
 
 ## Procedure to update Harbour HB32's compiler:
