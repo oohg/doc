@@ -159,4 +159,4 @@ set HG_VC=D:\VS9
    #include "another.rc"
    ```
 * By default, this building process does not automatically __includes__ ooHG's resource file (see file oohg.rc at include folder).
-* If the app needs the resources of this file you must add it by one the aformentioned methods and using it full name (C:\OOHG\RESOURCES\OOHG.RC).
+* If the app needs the resources of this file you must add it by one of the aformentioned methods and using its full name (C:\OOHG\RESOURCES\OOHG.RC).
