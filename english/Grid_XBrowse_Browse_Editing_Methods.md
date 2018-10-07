@@ -359,19 +359,19 @@ Other methods of TOBrowse control
    METHOD Refresh()
 
       ::Value may change.
-      Repaints grid trying not to change the position of selected row.\
-      Calls method ::Update().\
-      The dbf's record pointer is preserved.\
+      Repaints grid trying not to change the position of selected row.
+      Calls method ::Update().
+      The dbf's record pointer is preserved.
 
 
 ************************************************************************************
 
-   Quick reference:
+## Quick reference:
 
    *** TGRID:
 
-   To capture a new value for a cell:
-      Using an inline window:
+   To capture a new value for a cell:\
+      Using an inline window:\
          TGrid:EditCell2
 
    To capture new values for the cells of a row:
