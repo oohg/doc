@@ -8,6 +8,42 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-10-07 12:53 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   - doc\english\Classes.txt
+     ; Changed format to markdown and renamed to Classes.md
+   - doc\english\Determine the DATAs, METHODs and INLINEs of a given class.prg
+     ; Updated and moved to samples\classes\s002.prg
+   - doc\english\Grid colors.txt
+     ; Changed format to markdown and renamed to Grid_Color.md
+   - doc\english\Maintenance.txt
+     ; Changed format to markdown and renamed to Maintenance.md
+
+2018-10-07 12:48 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Notes_on_Browse_control.md
+   * doc\english\Stream.md
+   * doc\english\TreeOfClasses.prg
+     * Updated.
+
+2018-10-07 12:45 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   + doc\spanish\Readme.md
+     ; Announces that the 'spanish' folder will be eliminated by
+       31/03/19 if no one assumes the task of updating it.
+
+2018-10-07 12:40 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   + doc\english\Grid_XBrowse_Browse_Editing_Methods.md
+   + doc\english\Maintenance.md
+   + doc\english\Nested_Clicks.md
+   + doc\english\Tab_Class_Tree.md
+   + doc\english\TPrint.md
+
+2018-10-07 11:14 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Classes.md
+     * Updated.
+
+2018-10-07 11:06 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   + doc\english\Classes.md
+   + doc\english\Grid_Colors.md
+
 2018-08-04 9:36 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\manual\Changelog.HTM
      ! Typo.
