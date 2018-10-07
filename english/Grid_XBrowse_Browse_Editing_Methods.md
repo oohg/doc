@@ -3,6 +3,7 @@ Editing methods of TGrid control
 --------------------------------
 
    METHOD EditCell( nRow, nCol, EditControl, uOldValue, uValue, cMemVar, nOnFocusPos )
+
       Edits one cell (using EditCell2).
       If the edition isn't aborted, the cell value is changed and the
       OnEditCell event procedure is evaluated (with nRow and nCol as
@@ -29,6 +30,7 @@ Editing methods of TGrid control
                        control. Defaults to -2. See TText:SetFocus().
 
    METHOD EditCell2( nRow, nCol, EditControl, uOldValue, uValue, cMemVar, nOnFocusPos )
+
       Edits one cell and returns the new value in uValue.
       It does not change the cell's value.
       Uses inline edition.
@@ -54,6 +56,7 @@ Editing methods of TGrid control
                        control. Defaults to -2. See TText:SetFocus().
 
    METHOD EditItem()
+
       Edits all the cells of the selected row (using EditItem2).
       If the edition isn't aborted, the cells' values are changed and
       the OnEditCell event procedure is evaluated (with nRow and 0
@@ -65,6 +68,7 @@ Editing methods of TGrid control
       Returns .F. if edition is aborted, and .T. if not.
 
    METHOD EditItem2( nItem, aItems, aEditControls, aMemVars, cTitle )
+
       Edits all the cells of a row and returns the new values in an array.
       It does not change the cells' values.
       Uses a separate window to do the edition.
@@ -87,6 +91,7 @@ Editing methods of TGrid control
                        Defaults to Nil.
 
    METHOD EditAllCells( nRow, nCol )
+
       If FULLMOVE is enabled, this method calls EditGrid.
       If not, it uses EditCell to edit all the cells of a row, starting
       from nCol.
@@ -98,6 +103,7 @@ Editing methods of TGrid control
                        Defaults to 1.
 
    METHOD EditGrid( nRow, nCol )
+
       Edits all the cells of a row (using EditCell), starting from nCol.
       If FULLMOVE is not enabled, the edition proceeds to the right until
       the last column of the row is edited (you can not change this and
@@ -126,6 +132,7 @@ Editing methods of TGrid control
                        Defaults to 1.
 
    METHOD AppendItem
+
       Adds a new row at the bottom and starts editing it by calling
       EditGrid if FULLMOVE is .T., EditAllCells if FULLMOVE is .F. and
       INPLACE is .T., or EditItem if FULLMOVE is .F. and INPLACE is .F.
@@ -136,6 +143,7 @@ Editing methods of TXBrowse control
 -----------------------------------
 
    METHOD EditCell( nRow, nCol, EditControl, uOldValue, uValue, cMemVar, lAppend, nOnFocusPos )
+
       Edits one cell (using TGrid:EditCell2).
       If the edition isn't aborted, the captured value is stored into
       the data provider, the OnAppend event procedure is evaluted if
@@ -170,6 +178,7 @@ Editing methods of TXBrowse control
                        control. Defaults to -2. See TText:SetFocus().
 
    METHOD EditItem( lAppend, lOneRow, nItem, lChange )
+
       Edits all the cells of the selected row (using EditItem_B).
       This method does not allow recursive calls.
       Returns .F. if edition is aborted, and .T. if not.
@@ -183,6 +192,7 @@ Editing methods of TXBrowse control
                        Defaults to .T.
 
    METHOD EditItem_B( lAppend, lOneRow )
+
       Edits all the cells of the selected row.
       If INPLACE is enabled, this method calls EditAllCells.
       If not, it uses TGrid:EditItem2 to capture the cell values and if
@@ -205,6 +215,7 @@ Editing methods of TXBrowse control
                        Defaults to .T.
 
    METHOD EditAllCells( nRow, nCol, lAppend, lOneRow )
+
       It uses EditCell to edit all the cells of a row, starting from nCol.
       If FULLMOVE is not enabled, the edition proceeds to the right until
       the last column of the row is edited (you can not change this and
@@ -234,6 +245,7 @@ Editing methods of TXBrowse control
                        Defaults to .F.
 
    METHOD EditGrid( nRow, nCol, lAppend, lFromB, lOneRow )
+
       Calls EditAllCells.
 
 
@@ -241,6 +253,7 @@ Editing methods of TOBrowse control
 -----------------------------------
 
    METHOD EditCell( nRow, nCol, EditControl, uOldValue, uValue, cMemVar, lAppend, nOnFocusPos, lRefresh, lChange )
+
       Edits one cell (using TXBrowse:EditCell).
       When lAppend is .T., the edition is done at row nRow and column nCol
       (without using its previous value). If edition isn't aborted, the
@@ -282,7 +295,8 @@ Editing methods of TOBrowse control
                        Defaults to .F. (::Value is not changed).
 
    METHOD EditItem( lAppend )
-      Edits all the cells of the last row (using EditItem_B).            xxx
+
+      Edits all the cells of the last row (using EditItem_B).
       This method does not allow recursive calls.
       Returns .F. if edition is aborted, and .T. if not.
 
@@ -293,8 +307,8 @@ Editing methods of TOBrowse control
    METHOD EditItem_B( lAppend )
 
    METHOD EditAllCells( nRow, nCol, lAppend, lFromB )
-      It uses EditCell to edit all the cells of a row, starting from nCol.
 
+      It uses EditCell to edit all the cells of a row, starting from nCol.
       If FULLMOVE is not enabled, the edition proceeds to the right until
       the last column of the row is edited (you can not change this and
       you can not add new rows) or until a cell edition is aborted.
@@ -327,6 +341,7 @@ Other methods of TOBrowse control
 ---------------------------------
 
    METHOD Update()
+
       Reloads row's data from the dbf, starting from the current record
       and skipping forward until ::CountPerPage records are processed or
       end of file is reached.
@@ -342,13 +357,16 @@ Other methods of TOBrowse control
       ::BrowseOnChange().
 
    METHOD Refresh()
+
       ::Value may change.
-      Repaints grid trying not to change the position of selected row
-      Calls method ::Update()
-      The dbf's record pointer is preserved.
+      Repaints grid trying not to change the position of selected row.\
+      Calls method ::Update().\
+      The dbf's record pointer is preserved.\
 
 
 ************************************************************************************
+
+   Quick reference:
 
    *** TGRID:
 
