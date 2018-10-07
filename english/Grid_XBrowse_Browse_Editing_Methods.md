@@ -370,70 +370,70 @@ Other methods of TOBrowse control
 
    *** TGRID:
 
-    To capture a new value for a cell:\
-       Using an inline window:\
-           TGrid:EditCell2
+    To capture a new value for a cell:
+       Using an inline window:
+          TGrid:EditCell2
 
-   To capture new values for the cells of a row:
-      Using a separate window:
-         TGrid:EditItem2
+    To capture new values for the cells of a row:
+       Using a separate window:
+          TGrid:EditItem2
 
-   To edit one cell:
-      Using an inline window:
-         TGrid:EditCell (sets value) --> TGrid:EditCell2
+    To edit one cell:
+       Using an inline window:
+          TGrid:EditCell (sets value) --> TGrid:EditCell2
 
-   To edit one row:
-      Using a separate window:
-        TGrid:EditItem (sets values) --> TGrid:EditItem2
-     Using an inline window:
-        TGrid:EditAllCells + FULLMOVE .F. --> TGrid:EditCell
+    To edit one row:
+       Using a separate window:
+          TGrid:EditItem (sets values) --> TGrid:EditItem2
+       Using an inline window:
+          TGrid:EditAllCells + FULLMOVE .F. --> TGrid:EditCell
 
-   To edit one or more rows, with appends:
-      Using an inline window:
-         TGrid:EditAllCells + FULLMOVE .T. --> TGrid:EditGrid
-         TGrid:EditGrid --->  TGrid:EditCell
+    To edit one or more rows, with appends:
+       Using an inline window:
+          TGrid:EditAllCells + FULLMOVE .T. --> TGrid:EditGrid
+          TGrid:EditGrid --->  TGrid:EditCell
 
    *** TXBROWSE:
 
-   To edit one cell:
-      Using an inline window:
-         TXBrowse:EditCell (sets value) --> TGrid:EditCell2
+    To edit one cell:
+       Using an inline window:
+          TXBrowse:EditCell (sets value) --> TGrid:EditCell2
 
-   To edit one row:
-      Using a separate window:
-         TXBrowse:EditItem + INPLACE .F. + lOneRow # .F. --> TXBrowse:EditItem_B
-         TXBrowse:EditItem_B + INPLACE .F. (sets values) --> TGrid:EditItem2
-      Using an inline window:
-         TXBrowse:EditItem + INPLACE .T. + lOneRow # .F. --> TXBrowse:EditItem_B
-         TXBrowse:EditItem_B + INPLACE .T. + lOneRow # .F. --> TXBrowse:EditAllCells + lOneRow == .T.
-         TXBrowse:EditAllCells + lOneRow == .T. --> TXBrowse:EditCell
-         TXBrowse:EditAllCells + FULLMOVE .F. --> TXBrowse:EditCell
-         TXBrowse:EditGrid + lOneRow == .T. --> TXBrowse:EditAllCells + lOneRow == .T.
-         TXBrowse:EditGrid + FULLMOVE .F. --> TXBrowse:EditAllCells + FULLMOVE .F.
+    To edit one row:
+       Using a separate window:
+          TXBrowse:EditItem + INPLACE .F. + lOneRow # .F. --> TXBrowse:EditItem_B
+          TXBrowse:EditItem_B + INPLACE .F. (sets values) --> TGrid:EditItem2
+       Using an inline window:
+          TXBrowse:EditItem + INPLACE .T. + lOneRow # .F. --> TXBrowse:EditItem_B
+          TXBrowse:EditItem_B + INPLACE .T. + lOneRow # .F. --> TXBrowse:EditAllCells + lOneRow == .T.
+          TXBrowse:EditAllCells + lOneRow == .T. --> TXBrowse:EditCell
+          TXBrowse:EditAllCells + FULLMOVE .F. --> TXBrowse:EditCell
+          TXBrowse:EditGrid + lOneRow == .T. --> TXBrowse:EditAllCells + lOneRow == .T.
+          TXBrowse:EditGrid + FULLMOVE .F. --> TXBrowse:EditAllCells + FULLMOVE .F.
 
-   To edit one or more row, with appends:
-      Using an inline window:
-         TXBrowse:EditAllCells + FULLMOVE .T. + lOneRow # .T. --> TXBrowse:EditCell
-         TXBrowse:EditGrid + FULLMOVE .T. + lOneRow # .T. --> TXBrowse:EditAllCells + FULLMOVE .T. + lOneRow # .T.
+    To edit one or more row, with appends:
+       Using an inline window:
+          TXBrowse:EditAllCells + FULLMOVE .T. + lOneRow # .T. --> TXBrowse:EditCell
+          TXBrowse:EditGrid + FULLMOVE .T. + lOneRow # .T. --> TXBrowse:EditAllCells + FULLMOVE .T. + lOneRow # .T.
 
    *** TOBROWSE:
 
-   To edit one cell:
-      Using an inline window:
-         TOBrowse:EditCell --> TXBrowse:EditCell
+    To edit one cell:
+       Using an inline window:
+          TOBrowse:EditCell --> TXBrowse:EditCell
 
-   To edit one row:
-      TOBrowse:EditItem --> TOBrowse:EditItem_B
-      TOBrowse:EditGrid --> TOBrowse:EditAllCells
+    To edit one row:
+        TOBrowse:EditItem --> TOBrowse:EditItem_B
+        TOBrowse:EditGrid --> TOBrowse:EditAllCells
 
-      Using a separate window:
-         TOBrowse:EditItem_B + INPLACE .F. -> TXBrowse:EditItem_B + INPLACE .F.
-      Using an inline window:
-         TOBrowse:EditItem_B + INPLACE .T. -> TOBrowse:EditAllCells + lOneRow == .T.
-         TOBrowse:EditAllCells + lOneRow == .T. --> TOBrowse:EditCell
-         TOBrowse:EditAllCells + FULLMOVE .F. --> TOBrowse:EditCell
+       Using a separate window:
+          TOBrowse:EditItem_B + INPLACE .F. -> TXBrowse:EditItem_B + INPLACE .F.
+       Using an inline window:
+          TOBrowse:EditItem_B + INPLACE .T. -> TOBrowse:EditAllCells + lOneRow == .T.
+          TOBrowse:EditAllCells + lOneRow == .T. --> TOBrowse:EditCell
+          TOBrowse:EditAllCells + FULLMOVE .F. --> TOBrowse:EditCell
 
-   To edit one or more row, with appends:
-      Using an inline window:
-         TOBrowse:EditAllCells + FULLMOVE .T. + lOneRow # .T. --> TOBrowse:EditCell
+    To edit one or more row, with appends:
+       Using an inline window:
+          TOBrowse:EditAllCells + FULLMOVE .T. + lOneRow # .T. --> TOBrowse:EditCell
 
