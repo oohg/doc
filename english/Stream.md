@@ -8,6 +8,7 @@ Taking advantage of the flexibility of classes, it's possible to use the same co
 Another use is for data uncompress and or conversion.
 
 Sample classes are:
+
 * TStreamBase:   Read data sequentially or line by line from a memory buffer. See TStream.prg
 * TStreamFile:   Reads data from a file. See TStream.prg
 * TStreamSocket: Reads/writes data from a network socket. See TStreamSocket.prg

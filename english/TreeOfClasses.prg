@@ -2,7 +2,7 @@
  * $Id: TreeOfClasses.prg $
  */
 /*
- * Reads classes.txt and shows the tree of classes in a a Tree control
+ * Reads classes.md and shows the tree of classes in a a Tree control
  * Author: Fernando Yurisich <fyurisich@oohg.org>
  * Licensed under The Code Project Open License (CPOL) 1.02
  * See <http://www.codeproject.com/info/cpol10.aspx>
@@ -80,7 +80,7 @@ FUNCTION MainFormResize( oMainForm )
 RETURN Nil
 
 /*
- * Populate tree with classes' information from docs/classes.txt file
+ * Populate tree with classes' information from classes.md file
  */
 FUNCTION Populate( oMainForm )
 
@@ -88,7 +88,7 @@ FUNCTION Populate( oMainForm )
    LOCAL nClassId, nParentId, aTreeItems, aOrphans, nPos
    local cDataName, cMethodName, lNew, cOthers, aItems
 
-   oFile := TFileRead():New( "CLASSES.TXT" )
+   oFile := TFileRead():New( "CLASSES.MD" )
 
    oFile:Open()
 
@@ -319,7 +319,7 @@ FUNCTION Populate( oMainForm )
       ENDDO
 
       IF LEN( aTreeItems ) == 0
-         MSGSTOP( "CLASSES.TXT does not contains classes' data.", "Tree of ooHG's Classes, msg #8" )
+         MSGSTOP( "CLASSES.MD does not contains classes' data.", "Tree of ooHG's Classes, msg #8" )
          oMainForm:Release()
       ENDIF
    ENDIF

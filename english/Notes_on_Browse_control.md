@@ -1,4 +1,5 @@
 ## Notes on Browse's clauses, properties and methods
+
 Read this notes carefully, they will save you a lot of time and trouble.
 
 * Value property selects a record by its number (RecNo()).
