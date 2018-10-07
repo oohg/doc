@@ -8,6 +8,33 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-10-07 19:31 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\How_to_Configure_and_Use.md
+   * doc\english\Nested_Clicks.md
+    ! Typos.
+   - doc\english\Stream.md
+     ; See samples\oohg\stream\Stream.md
+
+2018-10-07 19:12 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Grid_XBrowse_Browse_Editing_Methods.md
+     * Format.
+
+2018-10-07 19:07 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Grid_XBrowse_Browse_Editing_Methods.md
+     * Some changes to test line breaks.
+
+2018-10-07 19:03 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Grid_XBrowse_Browse_Editing_Methods.md
+     * Some changes to test line breaks.
+
+2018-10-07 18:51 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Grid_XBrowse_Browse_Editing_Methods.md
+     * Some changes to test line breaks.
+
+2018-10-07 18:47 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Grid_XBrowse_Browse_Editing_Methods.md
+     * Some changes to test line breaks.
+
 2018-10-07 12:53 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    - doc\english\Classes.txt
      ; Changed format to markdown and renamed to Classes.md
