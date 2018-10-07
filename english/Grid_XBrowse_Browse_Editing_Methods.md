@@ -371,8 +371,8 @@ Other methods of TOBrowse control
    *** TGRID:
 
    To capture a new value for a cell:\
-      Using an inline window:\
-         TGrid:EditCell2
+       Using an inline window:\
+           TGrid:EditCell2
 
    To capture new values for the cells of a row:
       Using a separate window:
