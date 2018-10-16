@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-10-16 18:23 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\TPrint.md
+     * Updated.
+
 2018-10-07 19:31 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\How_to_Configure_and_Use.md
    * doc\english\Nested_Clicks.md
