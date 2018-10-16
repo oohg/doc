@@ -14,14 +14,14 @@ cPrintLibrary available values are:
 * CALCPRINT: to generate an OpenOffice Calc file (OpenOffice must be installed).
 * RTFPRINT: to generate an RTF file.
 * CSVPRINT: to generate a CSV file.
-* HTMLPRINT: to generate an HTML file.
-* HTMLPRINTFROMCALC: to generate an HTML file using OpenOffice Calc (OpenOffice must be installed).
+* HTMLPRINT: to generate an HTML file using EXCEL (default) or Calc.
+* HTMLPRINTFROMCALC: to generate an HTML file using Calc (OpenOffice must be installed).
 * HTMLPRINTFROMEXCEL: to generate an HTML file using Excel (Excel must be installed).
 * PDFPRINT: to generate a PDF file.
 * RAWPRINT: to print to a printer spool using binary format.
 * SPREADSHEETPRINT: to generate an Excel file using BIFF format (no Excel nor OpenOffice needed).
 
-When ommited, cPrintLibrary defaults to the value of \_OOHG\_PrintLibrary global variable (see below).
+When ommited, cPrintLibrary defaults to the value of \_OOHG\_PrintLibrary global variable.
 \_OOHG\_PrintLibrary also sets the default printing library for "Report form", "Edit" and "Edit Extended" commands.
 The starting values of \_OOHG\_PrintLibrary is "MINIPRINT".
 
