@@ -91,14 +91,14 @@ $Id: BUTTON.HTM $
       [ BUFFER &lt;buffer&gt; ] ;
       [ HBITMAP &lt;hbitmap&gt; ] ;
       [ &lt;lnoldtr: NOLOADTRANSPARENT&gt; ] ;
-      [ &lt;scale: FORCESCALE&gt; ] ;
+      [ &lt;stretch: STRETCH&gt; ] ;
       [ &lt;cancel: CANCEL&gt; ] ;
       [ &lt;imgalign: LEFT, RIGHT, TOP, BOTTOM, CENTER&gt; ] ;
       [ &lt;multiline: MULTILINE&gt; ] ;
       [ &lt;drawby: OOHGDRAW, WINDRAW&gt; ] ;
       [ IMAGEMARGIN &lt;aImageMargin&gt; ] ;
       [ &lt;no3dcolors: NO3DCOLORS&gt; ] ;
-      [ &lt;autofit: AUTOFIT, ADJUST&gt; ] ;
+      [ &lt;autofit: AUTOFIT, ADJUST, FORCESCALE&gt; ] ;
       [ &lt;lDIB: DIBSECTION&gt; ] ;
       [ BACKCOLOR &lt;backcolor&gt; ] ;
       [ &lt;nohotlight: NOHOTLIGHT&gt; ] ;
@@ -109,7 +109,7 @@ $Id: BUTTON.HTM $
             &lt;.flat.&gt;, &lt;.notabstop.&gt;, &lt;helpid&gt;, &lt;.invisible.&gt;, &lt;.bold.&gt;, ;
             &lt;.italic.&gt;, &lt;.underline.&gt;, &lt;.strikeout.&gt;, &lt;.rtl.&gt;, &lt;.noprefix.&gt;, ;
             &lt;.disabled.&gt;, &lt;buffer&gt;, &lt;hbitmap&gt;, &lt;bitmap&gt;, &lt;.lnoldtr.&gt;, ;
-            &lt;.scale.&gt;, &lt;.cancel.&gt;, &lt;"imgalign"&gt;, &lt;.multiline.&gt;, ;
+            &lt;.stretch.&gt;, &lt;.cancel.&gt;, &lt;"imgalign"&gt;, &lt;.multiline.&gt;, ;
             IIF( #&lt;drawby&gt; == "OOHGDRAW", .T., IIF( #&lt;drawby&gt; == "WINDRAW", .F., NIL ) ), ;
             &lt;aImageMargin&gt;, &lt;{onmousemove}&gt;, &lt;.no3dcolors.&gt;, &lt;.autofit.&gt;, ;
             ! &lt;.lDIB.&gt;, &lt;backcolor&gt;, &lt;.nohotlight.&gt; )

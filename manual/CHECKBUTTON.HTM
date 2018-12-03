@@ -88,10 +88,10 @@ $Id: CHECKBUTTON.HTM $
       [ BUFFER &lt;buffer&gt; ] ;
       [ HBITMAP &lt;hbitmap&gt; ] ;
       [ &lt;lnoldtr: NOLOADTRANSPARENT&gt; ] ;
-      [ &lt;scale: FORCESCALE&gt; ] ;
+      [ &lt;stretch: STRETCH&gt; ] ;
       [ FIELD &lt;field&gt; ] ;
       [ &lt;no3dcolors: NO3DCOLORS&gt; ] ;
-      [ &lt;autofit: AUTOFIT, ADJUST&gt; ] ;
+      [ &lt;autofit: AUTOFIT, ADJUST, FORCESCALE&gt; ] ;
       [ &lt;lDIB: DIBSECTION&gt; ] ;
       [ BACKCOLOR &lt;backcolor&gt; ] ;
       [ &lt;disabled: DISABLED&gt; ] ;
@@ -108,7 +108,7 @@ $Id: CHECKBUTTON.HTM $
             &lt;f&gt;, &lt;n&gt;, &lt;tooltip&gt;, &lt;{change}&gt;, [&lt;w&gt;], [&lt;h&gt;], &lt;{lostfocus}&gt;, ;
             &lt;{gotfocus}&gt;, &lt;helpid&gt;, &lt;.invisible.&gt;, &lt;.notabstop.&gt;, &lt;.bold.&gt;, ;
             &lt;.italic.&gt;, &lt;.underline.&gt;, &lt;.strikeout.&gt;, &lt;(field)&gt;, &lt;.rtl.&gt;, ;
-            &lt;bitmap&gt;, &lt;buffer&gt;, &lt;hbitmap&gt;, &lt;.lnoldtr.&gt;, &lt;.scale.&gt;, ;
+            &lt;bitmap&gt;, &lt;buffer&gt;, &lt;hbitmap&gt;, &lt;.lnoldtr.&gt;, &lt;.stretch.&gt;, ;
             &lt;.no3dcolors.&gt;, &lt;.autofit.&gt;, ! &lt;.lDIB.&gt;, &lt;backcolor&gt;, &lt;.disabled.&gt;, ;
             IIF( #&lt;drawby&gt; == "OOHGDRAW", .T., IIF( #&lt;drawby&gt; == "WINDRAW", .F., NIL ) ), ;
             &lt;aImageMargin&gt;, &lt;{onmousemove}&gt;, &lt;"imgalign"&gt;, &lt;.multiline.&gt;, ;

@@ -77,7 +77,7 @@ $Id: PICTURE.HTM $
       [ &lt;dummy3: PICTURE, ICON&gt; &lt;filename&gt; ] ;
       [ BUFFER &lt;buffer&gt; ] ;
       [ HBITMAP &lt;hbitmap&gt; ] ;
-      [ &lt;scale: FORCESCALE&gt; ] ;
+      [ &lt;autofit: AUTOFIT, ADJUST, FORCESCALE&gt; ] ;
       [ &lt;border: BORDER&gt; ] ;
       [ &lt;clientedge: CLIENTEDGE&gt; ] ;
       [ TOOLTIP &lt;tooltip&gt; ] ;
@@ -91,7 +91,7 @@ $Id: PICTURE.HTM $
    =&gt; ;
       [ &lt;obj&gt; := ] _OOHG_SelectSubClass( TPicture(), [ &lt;subclass&gt;() ] ): ;
             Define( &lt;(name)&gt;, &lt;(parent)&gt;, &lt;col&gt;, &lt;row&gt;, &lt;filename&gt;, &lt;w&gt;, &lt;h&gt;, ;
-            &lt;buffer&gt;, &lt;hbitmap&gt;, &lt;.stretch.&gt;, &lt;.scale.&gt;, &lt;.imagesize.&gt;, ;
+            &lt;buffer&gt;, &lt;hbitmap&gt;, &lt;.stretch.&gt;, &lt;.autofit.&gt;, &lt;.imagesize.&gt;, ;
             &lt;.border.&gt;, &lt;.clientedge.&gt;, &lt;backcolor&gt;, &lt;{action}&gt;, &lt;tooltip&gt;, ;
             &lt;helpid&gt;, &lt;.rtl.&gt;, &lt;.invisible.&gt;, &lt;.notrans.&gt;, &lt;.no3dcolors.&gt;, ;
             &lt;.nodib.&gt;, &lt;.style.&gt;, &lt;area&gt;, &lt;.disabled.&gt; )
