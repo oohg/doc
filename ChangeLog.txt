@@ -8,6 +8,12 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-12-03 20:29 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\manual\BUTTON.HTM
+   * doc\manual\CHECKBUTTON.HTM
+   * doc\manual\PICTURE.HTM
+     * Updated.
+
 2018-10-16 18:23 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\TPrint.md
      * Updated.
