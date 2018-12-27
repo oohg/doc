@@ -21,7 +21,7 @@ cPrintLibrary available values are:
 * RAWPRINT: to print to a printer spool using binary format.
 * SPREADSHEETPRINT: to generate an Excel file using BIFF format (no Excel nor OpenOffice needed).
 
-When ommited, cPrintLibrary defaults to the value of \_OOHG\_PrintLibrary global variable.
+When omited, cPrintLibrary defaults to the value of \_OOHG\_PrintLibrary global variable.
 \_OOHG\_PrintLibrary also sets the default printing library for "Report form", "Edit" and "Edit Extended" commands.
 The starting values of \_OOHG\_PrintLibrary is "MINIPRINT".
 
