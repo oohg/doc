@@ -8,6 +8,16 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2018-12-27 19:50 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Notes_on_Browse_control.md
+   * doc\english\TPrint.md
+   * doc\manual\ACTIVEX.HTM
+   * doc\manual\ANIGIF.HTM
+   * doc\manual\ANIMATEBOX.HTM
+   * doc\manual\BROWSE.HTM
+   * doc\manual\Changelog.htm
+     ! Typo.
+
 2018-12-03 20:29 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\manual\BUTTON.HTM
    * doc\manual\CHECKBUTTON.HTM
