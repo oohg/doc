@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-01-11 16:32 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\manual\Changelog.htm
+     + Credit.
+
 2018-12-27 19:50 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Notes_on_Browse_control.md
    * doc\english\TPrint.md
