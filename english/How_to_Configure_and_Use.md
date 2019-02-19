@@ -9,7 +9,7 @@ set HG_ROOT=D:\XYZ
 ```
 
 * By default, OOHG package build with Harbour 3.0 uses the folder "LIB" to store it's libraries.
-For OOHG package build with Harbour 3.2, "LIB\HB\WIN" is used.
+For OOHG package build with Harbour 3.2, "LIB\HB\MINGW" is used.
 To use a different folder (e.g. C:\OOHG\LIB\MYLIBS), set the following environment variable, before using the compilation commands:
 ```
 set LIB_GUI=LIB\MYLIBS
