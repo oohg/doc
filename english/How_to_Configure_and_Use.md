@@ -21,12 +21,12 @@ To use a different version of Harbour (e.g. installed in D:\MYHRB), set the foll
 set HG_HRB=D:\MYHRB
 ```
 
-* If the new version stores it's libraries in a folder different than "D:\MYHRB\LIB" (e.g. at D:\MYHRB\LIB\MYLIBS), set the following environment variable, before using the compilation commands:
+* If the new version stores its libraries in a folder different than "D:\MYHRB\LIB" (e.g. at D:\MYHRB\LIB\MYLIBS), set the following environment variable, before using the compilation commands:
 ```
 set LIB_HRB=D:\MYHRB\LIB\MYLIBS
 ```
 
-* If the new version stores it's binaries in a folder different than "D:\MYHRB\BIN" (e.g. at D:\MYHRB\BIN\WIN\MINGW), set the following environment variable, before using the compilation commands:
+* If the new version stores its binaries in a folder different than "D:\MYHRB\BIN" (e.g. at D:\MYHRB\BIN\WIN\MINGW), set the following environment variable, before using the compilation commands:
 ```
 set BIN_HRB=D:\MYHRB\BIN\WIN\MINGW
 ```
