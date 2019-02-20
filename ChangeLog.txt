@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-02-19 21:33 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\How_to_Configure_and_Use.md
+     ! Typos.
+
 2019-02-19 17:30 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\How_to_Configure_and_Use.md
      ! Lib path for Harbour 3.2 + MinGW.
