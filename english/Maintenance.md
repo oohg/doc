@@ -28,6 +28,7 @@ A new distro is builded:
    * Change the date in doc\manual\OOHG.HTM
    * Change the date in pseudo-function OOHGVERSION of
      core\include\i_pseudofunc.ch
+   * Updated doc\manual\Changelog.htm
 
 A new year starts:
 
