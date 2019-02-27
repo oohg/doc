@@ -8,6 +8,18 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-02-27 15:36 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Classes.md
+     * Updated.
+   * doc\english\Maintenance.md
+     + Task added.
+   * doc\english\TreeOfClasses.prg
+     + Logic to rebuild Classes.md before loading the tree.
+   * doc\manual\Changelog.htm
+     * Updated.
+   * doc\manual\OOHG.HTM
+     * Publication date changed.
+
 2019-02-25 19:18 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Maintenance.md
      + Task added.
