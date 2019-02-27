@@ -10,6 +10,9 @@
 
 #include "oohg.ch"
 
+#define DOUBLE_QUOTATION_MARK  '"'
+#define DQM( x )               ( DOUBLE_QUOTATION_MARK + x + DOUBLE_QUOTATION_MARK )
+
 FUNCTION Main()
 
    SET EXACT ON
@@ -33,6 +36,7 @@ FUNCTION Main()
          BOLD ;
          SIZE 18 ;
          TRANSPARENT ;
+         INVISIBLE ;
          HEIGHT 40 ;
          WIDTH oMainForm:ClientWidth - 20
 
@@ -53,31 +57,31 @@ FUNCTION Main()
    oMainForm:Center()
    oMainForm:activate()
 
-RETURN Nil
+RETURN NIL
 
 /*
  * Size and place controls whenever the form's size is changed
  */
 FUNCTION MainFormResize( oMainForm )
 
-   LOCAL TitleHeight  := GetTitleheight()
-   LOCAL BorderHeight := GetBorderheight()
+   LOCAL TitleHeight  := GetTitleHeight()
+   LOCAL BorderHeight := GetBorderHeight()
    LOCAL ScreenDPI    := GetScreenDPI()
 
    WITH OBJECT oMainForm
-      IF :WIDTH < INT(388 * ScreenDPI / 96)
-        :WIDTH := INT(388 * ScreenDPI / 96)
+      IF :Width < Int( 388 * ScreenDPI / 96 )
+        :Width := Int( 388 * ScreenDPI / 96 )
       ENDIF
 
-      IF :HEIGHT < INT(388 * ScreenDPI / 96)
-         :HEIGHT := INT(388 * ScreenDPI / 96)
+      IF :Height < Int( 388 * ScreenDPI / 96 )
+         :Height := Int( 388 * ScreenDPI / 96 )
       ENDIF
 
-      :Classes:WIDTH  := :WIDTH - ( BorderHeight * 2 ) - INT(40 * ScreenDPI / 96)
-      :Classes:HEIGHT := :HEIGHT - TitleHeight - ( BorderHeight * 2 ) - INT(40 * ScreenDPI / 96)
+      :Classes:Width  := :Width - ( BorderHeight * 2 ) - Int( 40 * ScreenDPI / 96 )
+      :Classes:Height := :Height - TitleHeight - ( BorderHeight * 2 ) - Int( 40 * ScreenDPI / 96 )
    END WITH
 
-RETURN Nil
+RETURN NIL
 
 /*
  * Populate tree with classes' information from classes.md file
@@ -86,7 +90,16 @@ FUNCTION Populate( oMainForm )
 
    LOCAL oFile, cLine, cRest, i, j, cClassName, cParentClass
    LOCAL nClassId, nParentId, aTreeItems, aOrphans, nPos
-   local cDataName, cMethodName, lNew, cOthers, aItems
+   LOCAL cDataName, cMethodName, lNew, cOthers, aItems
+
+   IF MSGYESNO( "Rebuild CLASSES.MD ?" )
+      oMainForm:lbl_wait:Visible := .T.
+      IF Rebuild()
+         RETURN NIL
+      ENDIF
+   ELSE
+      oMainForm:lbl_wait:Visible := .T.
+   ENDIF
 
    oFile := TFileRead():New( "CLASSES.MD" )
 
@@ -103,7 +116,7 @@ FUNCTION Populate( oMainForm )
       cOthers    := ""          // For cases when the FROM clause contains more than one class.
 
       DO WHILE oFile:MoreToRead()
-         cLine := ALLTRIM( oFile:ReadLine() )
+         cLine := AllTrim( oFile:ReadLine() )
          
          /*
           * Just process the lines with the the following structures:
@@ -114,46 +127,50 @@ FUNCTION Populate( oMainForm )
           *    ENDCLASS
           */
 
-         IF UPPER( LEFT( cLine, 6 ) ) == "CLASS "
-            cRest := LTRIM( SUBSTR( cLine, 7 ) )
+         IF Upper( Left( cLine, 6 ) ) == "CLASS " .OR. Upper( Left( cLine, 13 ) ) == "CREATE CLASS "
+            IF Upper( Left( cLine, 13 ) ) == "CREATE CLASS "
+               cRest := LTrim( SubStr( cLine, 14 ) )
+            ELSE
+               cRest := LTrim( SubStr( cLine, 7 ) )
+            ENDIF
 
-            i := AT( " ", cRest )
+            i := At( " ", cRest )
             IF i > 0
-              cClassName := LEFT( cRest, i - 1 )
-              cRest      := SUBSTR( cRest, i + 1 )
+              cClassName := Left( cRest, i - 1 )
+              cRest      := SubStr( cRest, i + 1 )
             ELSE
                cClassName := cRest
                cRest      := ""
             ENDIF
 
-            IF ASCAN( aTreeItems, cClassName ) > 0
+            IF AScan( aTreeItems, cClassName ) > 0
                MSGSTOP( "CLASS " + cClassName + " already defined.", "Tree of ooHG's Classes, msg #2" )
                oMainForm:Release()
-               RETURN Nil
+               RETURN NIL
             ENDIF
 
-            IF UPPER( LEFT( cRest, 5 ) ) == "FROM "
-               cParentClass := LTRIM( SUBSTR( cRest, 6 ) )
+            IF Upper( Left( cRest, 5 ) ) == "FROM "
+               cParentClass := LTrim( SubStr( cRest, 6 ) )
 
-               IF RIGHT( cParentClass, 7 ) == " STATIC"
-                  cParentClass := LEFT( cParentClass, LEN( cParentClass ) - 7 )
+               IF Right( cParentClass, 7 ) == " STATIC"
+                  cParentClass := Left( cParentClass, Len( cParentClass ) - 7 )
                ENDIF
 
-               nPos := AT( ",", cParentClass )
+               nPos := At( ",", cParentClass )
                IF nPos > 0
                   /*
                    * Class has more than one parent
                    */
-                  cOthers := ALLTRIM( SUBSTR( cParentClass, nPos + 1 ) )
+                  cOthers := AllTrim( SubStr( cParentClass, nPos + 1 ) )
                   aItems  := {}
 
-                  cParentClass := ALLTRIM( LEFT( cParentClass, nPos - 1) )
+                  cParentClass := AllTrim( Left( cParentClass, nPos - 1) )
                ENDIF
 
-               nParentId := ASCAN( aTreeItems, cParentClass )
+               nParentId := AScan( aTreeItems, cParentClass )
                IF nParentId > 0
-                  AADD( aTreeItems, cClassName )
-                  nClassId := LEN( aTreeItems )
+                  AAdd( aTreeItems, cClassName )
+                  nClassId := Len( aTreeItems )
 
                   oMainForm:Classes:AddItem( cClassName, nParentId, nClassId )
                ELSE
@@ -164,58 +181,58 @@ FUNCTION Populate( oMainForm )
                    * an array of class' datas and methods and a flag
                    * indicating if cClassName must be unique.
                    */
-                  AADD( aOrphans, { cClassName, cParentClass, {}, Empty( cOthers ) } )
+                  AAdd( aOrphans, { cClassName, cParentClass, {}, Empty( cOthers ) } )
                   nClassId := 0
                ENDIF
             ELSE
-               AADD( aTreeItems, cClassName )
-               nClassId := LEN( aTreeItems )
+               AAdd( aTreeItems, cClassName )
+               nClassId := Len( aTreeItems )
 
-               oMainForm:Classes:AddItem( cClassName, nil, nClassId )
+               oMainForm:Classes:AddItem( cClassName, NIL, nClassId )
             ENDIF
-         ELSEIF UPPER( LEFT( cLine, 5 ) ) == "DATA " .OR. ;
-                UPPER( LEFT( cLine, 7 ) ) == "METHOD " .OR. ;
-                UPPER( LEFT( cLine, 8 ) ) == "MESSAGE " .OR. ;
-                UPPER( LEFT( cLine, 9 ) ) == "DELEGATE " .OR. ;
-                ( UPPER( LEFT( cLine, 6 ) ) == "ERROR " .AND. UPPER( LEFT( LTRIM( SUBSTR( cLine, 7 ) ), 8 ) ) == "HANDLER " )
-            IF EMPTY( cClassName )
+         ELSEIF Upper( Left( cLine, 5 ) ) == "DATA " .OR. ;
+                Upper( Left( cLine, 7 ) ) == "METHOD " .OR. ;
+                Upper( Left( cLine, 8 ) ) == "MESSAGE " .OR. ;
+                Upper( Left( cLine, 9 ) ) == "DELEGATE " .OR. ;
+                ( Upper( Left( cLine, 6 ) ) == "ERROR " .AND. Upper( Left( LTrim( SubStr( cLine, 7 ) ), 8 ) ) == "HANDLER " )
+            IF Empty( cClassName )
                MSGSTOP( "Found " + Chr( 13 ) + Chr( 10 ) + cLine + Chr( 13 ) + Chr( 10 ) + "without associated class.", "Tree of ooHG's Classes, msg #3" )
                oMainForm:Release()
-               RETURN Nil
+               RETURN NIL
             ELSE
-               IF ASCAN( aTreeItems, cClassName + cLine ) > 0
+               IF AScan( aTreeItems, cClassName + cLine ) > 0
                   MSGSTOP( cLine + Chr( 13 ) + Chr( 10 ) + " already defined in CLASS " + Chr( 13 ) + Chr( 10 ) + cClassName + ".", "Tree of ooHG's Classes, msg #4" )
                   oMainForm:Release()
-                  RETURN Nil
+                  RETURN NIL
                ENDIF
 
                IF nClassId > 0
-                  AADD( aTreeItems, cClassName + cLine )
+                  AAdd( aTreeItems, cClassName + cLine )
 
-                  oMainForm:Classes:AddItem( cLine, nClassId, LEN( aTreeItems ) )
+                  oMainForm:Classes:AddItem( cLine, nClassId, Len( aTreeItems ) )
                ELSE
-                  AADD( aOrphans[LEN(aOrphans)][3], cLine )
+                  AAdd( aOrphans[ Len( aOrphans ), 3 ], cLine )
                ENDIF
 
-               IF ! EMPTY( cOthers )
-                  AADD( aItems, cLine )
+               IF ! Empty( cOthers )
+                  AAdd( aItems, cLine )
                ENDIF
             ENDIF
-         ELSEIF UPPER( LEFT( cLine, 8 ) ) == "ENDCLASS"
+         ELSEIF Upper( Left( cLine, 8 ) ) == "ENDCLASS"
             DO WHILE ! Empty( cOthers )
-               nPos := AT( ",", cOthers )
+               nPos := At( ",", cOthers )
                IF nPos > 0
-                  cParentClass := ALLTRIM( LEFT( cOthers, nPos - 1 ) )
-                  cOthers      := ALLTRIM( SUBSTR( cOthers, nPos + 1 ) )
+                  cParentClass := AllTrim( Left( cOthers, nPos - 1 ) )
+                  cOthers      := AllTrim( SubStr( cOthers, nPos + 1 ) )
                ELSE
                   cParentClass := cOthers
                   cOthers    := ""
                ENDIF
 
-               nParentId := ASCAN( aTreeItems, cParentClass )
+               nParentId := AScan( aTreeItems, cParentClass )
                IF nParentId > 0
-                  AADD( aTreeItems, cClassName )
-                  nClassId := LEN( aTreeItems )
+                  AAdd( aTreeItems, cClassName )
+                  nClassId := Len( aTreeItems )
 
                   oMainForm:Classes:AddItem( cClassName, nParentId, nClassId )
                ELSE
@@ -226,17 +243,17 @@ FUNCTION Populate( oMainForm )
                    * an array of class' datas and methods and a flag
                    * indicating if cClassName must be unique.
                    */
-                  AADD( aOrphans, { cClassName, cParentClass, {}, .F. } )
+                  AAdd( aOrphans, { cClassName, cParentClass, {}, .F. } )
                   nClassId := 0
                ENDIF
 
-               FOR i := 1 TO LEN( aItems )
+               FOR i := 1 TO Len( aItems )
                   IF nClassId > 0
-                     AADD( aTreeItems, cClassName + aItems[ i ] )
+                     AAdd( aTreeItems, cClassName + aItems[ i ] )
 
-                     oMainForm:Classes:AddItem( aItems[ i ], nClassId, LEN( aTreeItems ) )
+                     oMainForm:Classes:AddItem( aItems[ i ], nClassId, Len( aTreeItems ) )
                   ELSE
-                     AADD( aOrphans[LEN(aOrphans)][3], aItems[ i ] )
+                     AAdd( aOrphans[ Len( aOrphans ), 3 ], aItems[ i ] )
                   ENDIF
                NEXT i
             ENDDO
@@ -252,43 +269,43 @@ FUNCTION Populate( oMainForm )
       /*
        * Add orphaned classes
        */
-      DO WHILE LEN( aOrphans ) > 0
+      DO WHILE Len( aOrphans ) > 0
          i := 1
          lNew := .F.
 
-         DO WHILE i <= LEN( aOrphans )
-            IF aOrphans[i][4] .AND. ASCAN( aTreeItems, aOrphans[i][1] ) > 0
-               MSGSTOP( "CLASS " + aOrphans[i][1] + " already defined.", "Tree of ooHG's Classes, msg #5" )
+         DO WHILE i <= Len( aOrphans )
+            IF aOrphans[ i, 4 ] .AND. AScan( aTreeItems, aOrphans[ i, 1 ] ) > 0
+               MSGSTOP( "CLASS " + aOrphans[ i, 1 ] + " already defined.", "Tree of ooHG's Classes, msg #5" )
                oMainForm:Release()
-               RETURN Nil
+               RETURN NIL
             ENDIF
 
             /*
              * Check if parent is in the tree control
              */
-            nParentId := ASCAN( aTreeItems, aOrphans[i][2] )
+            nParentId := AScan( aTreeItems, aOrphans[ i, 2 ] )
             IF nParentId > 0
                /*
                 * If it is, add class to tree
                 */
-               AADD( aTreeItems, aOrphans[i][1] )
-               nClassId := LEN( aTreeItems )
+               AAdd( aTreeItems, aOrphans[ i, 1 ] )
+               nClassId := Len( aTreeItems )
 
-               oMainForm:Classes:AddItem( aOrphans[i][1], nParentId, nClassId )
+               oMainForm:Classes:AddItem( aOrphans[ i, 1 ], nParentId, nClassId )
                
                /*
                 * Add datas and methods
                 */
-               FOR j := 1 to LEN( aOrphans[i][3] )
-                  IF aOrphans[i][4] .AND. ASCAN( aTreeItems, aOrphans[i][1] + aOrphans[i][3][j] ) > 0
-                     MSGSTOP( aOrphans[i][3][j] + Chr( 13 ) + Chr( 10 ) + " already defined in CLASS " + Chr( 13 ) + Chr( 10 ) + aOrphans[i][1] + ".", "Tree of ooHG's Classes, msg #6" )
+               FOR j := 1 TO Len( aOrphans[ i, 3 ] )
+                  IF aOrphans[ i, 4 ] .AND. AScan( aTreeItems, aOrphans[ i, 1 ] + aOrphans[ i, 3, j ] ) > 0
+                     MSGSTOP( aOrphans[ i, 3, j ] + Chr( 13 ) + Chr( 10 ) + " already defined in CLASS " + Chr( 13 ) + Chr( 10 ) + aOrphans[ i, 1 ] + ".", "Tree of ooHG's Classes, msg #6" )
                      oMainForm:Release()
-                     RETURN Nil
+                     RETURN NIL
                   ENDIF
 
-                  AADD( aTreeItems, aOrphans[i][1] + aOrphans[i][3][j] )
+                  AAdd( aTreeItems, aOrphans[ i, 1 ] + aOrphans[ i, 3, j ] )
 
-                  oMainForm:Classes:AddItem( aOrphans[i][3][j], nClassId, LEN( aTreeItems ) )
+                  oMainForm:Classes:AddItem( aOrphans[ i, 3, j ], nClassId, Len( aTreeItems ) )
                NEXT
 
                lNew := .T.
@@ -296,8 +313,8 @@ FUNCTION Populate( oMainForm )
                /*
                 * Delete orphan
                 */
-               ADEL( aOrphans, i )
-               ASIZE( aOrphans, LEN( aOrphans ) - 1 )
+               ADel( aOrphans, i )
+               ASize( aOrphans, Len( aOrphans ) - 1 )
                
                /*
                 * Restart from the first item in aOrphans
@@ -312,19 +329,168 @@ FUNCTION Populate( oMainForm )
          ENDDO
          
          IF ! lNew
-            MSGSTOP( "CLASS " + aOrphans[1][2] + " not defined.", "Tree of ooHG's Classes, msg #7" )
+            MSGSTOP( "CLASS " + aOrphans[ 1, 2 ] + " not defined.", "Tree of ooHG's Classes, msg #7" )
             oMainForm:Release()
-            RETURN Nil
+            RETURN NIL
          ENDIF
       ENDDO
 
-      IF LEN( aTreeItems ) == 0
+      IF Len( aTreeItems ) == 0
          MSGSTOP( "CLASSES.MD does not contains classes' data.", "Tree of ooHG's Classes, msg #8" )
          oMainForm:Release()
       ENDIF
    ENDIF
 
-RETURN Nil
+RETURN NIL
+
+FUNCTION Rebuild
+
+   LOCAL aClass, aFiles, aLines := {}, cClassName, cFile, cInput, cLine, cRoot, lIsOpen := .F., oFile
+   LOCAL cWord2, cWord3, nPos
+
+   IF Empty( cRoot := GetEnv( "HG_ROOT" ) )
+      MSGSTOP( "HG_ROOT envvar is not set.", "Tree of ooHG's Classes, msg #9" )
+      oMainForm:Release()
+      RETURN .T.
+   ENDIF
+   cRoot += "\source\"
+   aFiles := Array( ADir( cRoot + "*.prg" ) )
+   ADir( cRoot + "*.prg", aFiles )
+
+   FOR EACH cFile IN aFiles
+      oFile := TFileRead():New( cRoot + cFile )
+
+      oFile:Open()
+
+      IF oFile:Error()
+         MSGSTOP( oFile:ErrorMsg( "FileRead: " ), "Tree of ooHG's Classes, msg #10" )
+         oMainForm:Release()
+         RETURN .T.
+      ENDIF
+
+      DO WHILE oFile:MoreToRead()
+         cInput := oFile:ReadLine()
+         cLine := AllTrim( cInput ) + " "
+
+         /*
+          * Just process the lines with the the following structures:
+          *    CLASS <ClassName>
+          *    CLASS <ClassName> FROM <ParentClassName>
+          *    DATA <DataName> [ <Additional information> ]
+          *    METHOD <MethodName> [ <Additional information> ]
+          *    ENDCLASS
+          */
+
+         IF Upper( Left( cLine, 6 ) ) == "CLASS " .OR. Upper( Left( cLine, 13 ) ) == "CREATE CLASS "
+            IF lIsOpen
+               MSGSTOP( "CLASS " + DQM( aClass[ 1 ] ) + " from " + DQM( cFile ) + "has no ENDCLASS.", "Tree of ooHG's Classes, msg #11" )
+               AAdd( aLines, aClass )
+            ELSE
+               lIsOpen := .T.
+            ENDIF
+            IF Upper( Left( cLine, 6 ) ) == "CREATE CLASS "
+               cInput := StrTran( cInput, "CREATE CLASS ", "CLASS ", 1, 1 )
+            ENDIF
+            aClass := { AllTrim( cInput ) }
+         ELSEIF Upper( Left( cLine, 5 ) ) == "DATA " .OR. ;
+                Upper( Left( cLine, 7 ) ) == "METHOD " .OR. ;
+                Upper( Left( cLine, 8 ) ) == "MESSAGE " .OR. ;
+                Upper( Left( cLine, 9 ) ) == "DELEGATE " .OR. ;
+                ( Upper( Left( cLine, 6 ) ) == "ERROR " .AND. Upper( Left( LTrim( SubStr( cLine, 7 ) ), 8 ) ) == "HANDLER " )
+            IF lIsOpen
+               IF Upper( Left( cLine, 5 ) ) == "DATA "
+                  cWord2 := LTrim( SubStr( cLine, 6 ) )
+                  IF ( nPos := At( " ", cWord2 ) ) > 0
+                     cWord3 := LTrim( SubStr( cWord2, nPos ) )
+                     cWord2 := Left( cWord2, nPos - 1 )
+                  ELSE
+                     cWord3 := ""
+                  ENDIF
+                  cInput := "DATA " + RTrim( cWord2 )
+                  IF Len( cInput ) + 3 < 48
+                     cInput += Space( 48 - 3 - Len( cInput ) )
+                  ENDIF
+                  IF Right( cInput, 1 ) # " "
+                     cInput += " "
+                  ENDIF
+                  cInput += cWord3
+                  AAdd( aClass, Space( 3 ) + AllTrim( cInput ) )
+               ELSEIF Upper( Left( cLine, 7 ) ) == "METHOD "
+                  cWord2 := LTrim( SubStr( cLine, 8 ) )
+                  IF ( nPos := At( " BLOCK ", Upper( cWord2 ) ) ) > 0
+                     cWord3 := SubStr( cWord2, nPos + 1 )
+                     cWord2 := Left( cWord2, nPos - 1 )
+                  ELSEIF ( nPos := At( " INLINE ", Upper( cWord2 ) ) ) > 0
+                     cWord3 := SubStr( cWord2, nPos + 1 )
+                     cWord2 := Left( cWord2, nPos - 1 )
+                  ELSEIF ( nPos := At( " SETGET ", Upper( cWord2 ) ) ) > 0
+                     cWord3 := SubStr( cWord2, nPos + 1 )
+                     cWord2 := Left( cWord2, nPos - 1 )
+                  ELSEIF ( nPos := At( " HIDDEN ", Upper( cWord2 ) ) ) > 0
+                     cWord3 := SubStr( cWord2, nPos + 1 )
+                     cWord2 := Left( cWord2, nPos - 1 )
+                  ELSE
+                     cWord3 := ""
+                  ENDIF
+                  cInput := "METHOD " + RTrim( cWord2 )
+                  IF Len( cInput ) + 3 < 48
+                     cInput += Space( 48 - 3 - Len( cInput ) )
+                  ENDIF
+                  IF Right( cInput, 1 ) # " "
+                     cInput += " "
+                  ENDIF
+                  cInput += cWord3
+                  AAdd( aClass, Space( 3 ) + AllTrim( cInput ) )
+               ELSEIF Upper( Left( cLine, 8 ) ) == "MESSAGE "
+                  cWord2 := LTrim( SubStr( cLine, 8 ) )
+                  IF ( nPos := At( " METHOD ", Upper( cWord2 ) ) ) > 0
+                     cWord3 := SubStr( cWord2, nPos + 1 )
+                     cWord2 := Left( cWord2, nPos - 1 )
+                  ELSE
+                     cWord3 := ""
+                  ENDIF
+                  cInput := "MESSAGE " + RTrim( cWord2 )
+                  IF Len( cInput ) + 3 < 48
+                     cInput += Space( 48 - 3 - Len( cInput ) )
+                  ENDIF
+                  IF Right( cInput, 1 ) # " "
+                     cInput += " "
+                  ENDIF
+                  cInput += cWord3
+                  AAdd( aClass, Space( 3 ) + AllTrim( cInput ) )
+               ELSE
+                  AAdd( aClass, Space( 3 ) + AllTrim( cInput ) )
+               ENDIF
+            ENDIF
+         ELSEIF Upper( Left( cLine, 8 ) ) == "ENDCLASS"
+            IF lIsOpen
+               AAdd( aClass, cLine )
+               AAdd( aLines, aClass )
+               lIsOpen := .F.
+            ELSE
+               MSGSTOP( DQM( cLine ) + " from " + DQM( cFile ) + "has no CLASS.", "Tree of ooHG's Classes, msg #13" )
+            ENDIF
+         ENDIF
+      ENDDO
+   NEXT
+
+   cFile := "## OOHG Classes" + CRLF + ;
+            CRLF + ;
+            "```" + CRLF + ;
+            "/*--------------------------------------------------------------------------------------------------------------------------------*/" + CRLF
+
+   FOR EACH aClass IN aLines
+      FOR EACH cLine IN aClass
+         cFile += cLine + CRLF
+      NEXT
+      cFile += CRLF + ;
+               "/*--------------------------------------------------------------------------------------------------------------------------------*/" + CRLF
+   NEXT
+   cFile += "```" + CRLF
+
+   hb_MemoWrit( "Classes.md", cFile )
+
+RETURN .F.
 
 /*
  * C functions

@@ -29,6 +29,7 @@ A new distro is builded:
    * Change the date in pseudo-function OOHGVERSION of
      core\include\i_pseudofunc.ch
    * Updated doc\manual\Changelog.htm
+   * Create new oide.chm (see doc\manual\HowToBuild.txt)
 
 A new year starts:
 
