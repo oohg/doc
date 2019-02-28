@@ -19,16 +19,16 @@ A METHOD or DATA is added to or deleted from a class.
 
    * Update doc\english\Classes.md and doc\manual\CLASSES.HTM
 
-A modification is made to any ChangeLog.txt (core, distros, doc, fmt, ide, oohg.github.io or samples):
+A modification is made to any ChangeLog.txt (core, distros, doc, fmt, ide, or samples):
 
-   * Copy the modifications to doc\manual\Changelog.htm
+   * Copy the modifications to doc\manual\Changelog_xxxxxxx.htm
 
 A new distro is builded:
 
    * Change the date in doc\manual\OOHG.HTM
    * Change the date in pseudo-function OOHGVERSION of
      core\include\i_pseudofunc.ch
-   * Updated doc\manual\Changelog.htm
+   * Updated doc\manual\Changelog_XXXXXXX.htm
    * Create new oide.chm (see doc\manual\HowToBuild.txt)
 
 A new year starts:
