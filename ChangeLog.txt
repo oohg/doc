@@ -8,6 +8,22 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-02-27 23:16 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   + doc\manual\CHANGELOG_DISTROS.HTM
+   + doc\manual\CHANGELOG_DOC.HTM
+   + doc\manual\CHANGELOG_FMT.HTM
+   + doc\manual\CHANGELOG_IDE.HTM
+   + doc\manual\CHANGELOG_SAMPLES.HTM
+   * doc\manual\Changelog.HTM
+   * doc\manual\INFORMATION.HTM
+   * doc\manual\LICENSE.HTM
+     * Changes logs are now separated by repository.
+     * Updated with last changes.
+
+2019-02-27 23:05 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Maintenance.md
+     * Updated.
+
 2019-02-27 15:36 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Classes.md
      * Updated.
