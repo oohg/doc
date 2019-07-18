@@ -8,6 +8,23 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-07-18 20:33 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\BUILD_CON.HBP
+   * doc\english\BUILD_GUI.HBP
+     * Updated.
+
+2019-07-18 20:32 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\How_to_Configure_and_Use.md
+     ! Added missing reference to Harbour 3.4
+
+2019-07-18 20:31 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Maintenance.md
+     ! Added missing task.
+
+2019-07-18 20:29 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   - doc\spanish\*.*
+     ; Removed because no one assumed the task of updating it.
+
 2019-02-27 23:16 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    + doc\manual\CHANGELOG_DISTROS.HTM
    + doc\manual\CHANGELOG_DOC.HTM
