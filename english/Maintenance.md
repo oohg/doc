@@ -2,6 +2,16 @@
 
 This document states the tasks to fulfill whenever:
 
+A PROPERTY or EVENT is added to forms in i_window.ch:
+
+   * Add support for it to the IDE.
+   * Update the corresponding HTML file at doc\manual folder.
+
+A PROPERTY or EVENT is deleted from forms in i_window.ch:
+
+   * Delete the support for it from the IDE.
+   * Update the corresponding HTML file at doc\manual folder.
+
 A PROPERTY or EVENT is added to a control in it's i_xxxxxxxx.ch:
 
    * Add support for it to the IDE.
