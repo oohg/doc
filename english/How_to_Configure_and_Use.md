@@ -137,7 +137,7 @@ set HG_VC=D:\VS9
 
 ## Another alternate procedure to build and app using Harbour and MinGW:
 
-1. Be sure that the system's PATH includes C:\OOHG\HB30\BIN and C:\OOHG\HB30\COMP\MINGW\BIN for Harbour 3.0 distro, or C:\OOHG\HB32\BIN and C:\OOHG\HB32\COMP\MINGW\BIN for Harbour 3.2 distro.
+1. Be sure that the system's PATH includes C:\OOHG\HB30\BIN and C:\OOHG\HB30\COMP\MINGW\BIN for Harbour 3.0 distro, or C:\OOHG\HB32\BIN and C:\OOHG\HB32\COMP\MINGW\BIN for Harbour 3.2 distro, or C:\OOHG\HB34\BIN and C:\OOHG\HB34\COMP\MINGW\BIN for Harbour 3.4 distro.
 2. If your app is intented to run in GUI or mixed mode, copy BUILD_GUI.HBP file to the folder where the source files are located.
 3. Open a CMD window and change to the folder.
 4. Execute this command:
