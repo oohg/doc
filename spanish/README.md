@@ -1,1 +1,0 @@
-IMPORTANTE: estos ejemplos no están sincronizados con los del repositorio SAMPLES y no reciben mantenimiento desde hace mucho tiempo. En caso de que nadie le dedique tiempo a esa tarea, el repositorio será eliminado el 31/03/2019.
