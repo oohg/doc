@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-07-20 19:38 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Install_and_Update.md
+     - Reference to deleted repository.
+
 2019-07-18 20:33 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\BUILD_CON.HBP
    * doc\english\BUILD_GUI.HBP
