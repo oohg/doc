@@ -17,21 +17,19 @@
 5. At "Repository ..." enter https://github.com/oohg/core.git
 6. At "Local path" enter C:\OOHG (the folder must not exists).
 7. Click on "Clone".
-8. To download the other repositories (distros, doc, ejemplos, fmt, ide, samples):
+8. To download the other repositories (distros, doc, fmt, ide, samples):
    * Click on "File" menu.
    * Click option "Clone a repository".
    * Click on "URL".
    * At "Repository ..." enter the corresponding address
      * https://github.com/oohg/distros.git
      * https://github.com/oohg/doc.git
-     * https://github.com/oohg/ejemplos.git
      * https://github.com/oohg/fmt.git
      * https://github.com/oohg/ide.git
      * https://github.com/oohg/samples.git
    * At "Local path" enter
      * C:\OOHG\distros
      * C:\OOHG\doc
-     * C:\OOHG\ejemplos
      * C:\OOHG\fmt
      * C:\OOHG\ide
      * C:\OOHG\samples
@@ -44,7 +42,6 @@
    * https://github.com/oohg/core (1)
    * https://github.com/oohg/distros
    * https://github.com/oohg/doc
-   * https://github.com/oohg/ejemplos
    * https://github.com/oohg/fmt
    * https://github.com/oohg/ide
    * https://github.com/oohg/samples
