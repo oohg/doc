@@ -8,6 +8,15 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-09-10 19:44 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Classes.md
+   * doc\manual\CLASSES_INDEX.HTM
+     * Updated.
+
+2019-09-08 12:25 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\manual\Changelog.HTM
+     ! Typos.
+
 2019-07-20 19:38 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Install_and_Update.md
      - Reference to deleted repository.
