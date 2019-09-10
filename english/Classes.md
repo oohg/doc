@@ -257,6 +257,7 @@ CLASS TButton FROM TControl
    DATA lFitTxt                   INIT .F.
    DATA lLibDraw                  INIT .F.
    DATA lNo3DColors               INIT .F.
+   DATA lNoDestroy                INIT .F.
    DATA lNoDIBSection             INIT .T.
    DATA lNoFocusRect              INIT .F.
    DATA lNoHotLight               INIT .F.
@@ -475,6 +476,7 @@ CLASS TControl FROM TWindow
    METHOD Register
    METHOD AddToCtrlsArrays
    METHOD PreAddToCtrlsArrays
+   METHOD PosAddToCtrlsArrays
    METHOD DelFromCtrlsArrays
    METHOD TabIndex           SETGET
    METHOD Refresh            BLOCK { |Self| ::ReDraw() }
@@ -599,98 +601,101 @@ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TForm FROM TWindow
-   DATA oToolTip           INIT nil
-   DATA Focused            INIT .T.
-   DATA LastFocusedControl INIT 0
-   DATA AutoRelease        INIT .F.
-   DATA ActivateCount      INIT { 0, NIL, .T. }
-   DATA oMenu              INIT nil
-   DATA hWndClient         INIT NIL
-   DATA oWndClient         INIT NIL
-   DATA lInternal          INIT .F.
-   DATA lForm              INIT .T.
-   DATA nWidth             INIT 300
-   DATA nHeight            INIT 300
-   DATA lShowed            INIT .F.
-   DATA lStretchBack       INIT .T.
-   DATA hBackImage         INIT nil
-   DATA lentersizemove     INIT .F.
-   DATA ldefined           INIT .F.
-   DATA uFormCursor        INIT IDC_ARROW
-   DATA OnRelease          INIT nil
-   DATA OnInit             INIT nil
-   DATA OnMove             INIT nil
-   DATA OnSize             INIT nil
-   DATA OnPaint            INIT nil
-   DATA OnScrollUp         INIT nil
-   DATA OnScrollDown       INIT nil
-   DATA OnScrollLeft       INIT nil
-   DATA OnScrollRight      INIT nil
-   DATA OnHScrollBox       INIT nil
-   DATA OnVScrollBox       INIT nil
-   DATA OnInteractiveClose INIT nil
-   DATA OnMaximize         INIT nil
-   DATA OnMinimize         INIT nil
-   DATA OnRestore          INIT nil
-   DATA nVirtualHeight     INIT 0
-   DATA nVirtualWidth      INIT 0
-   DATA RangeHeight        INIT 0
-   DATA RangeWidth         INIT 0
-   DATA MinWidth           INIT 0
-   DATA MaxWidth           INIT 0
-   DATA MinHeight          INIT 0
-   DATA MaxHeight          INIT 0
-   DATA ForceRow           INIT nil     // Must be NIL instead of 0
-   DATA ForceCol           INIT nil     // Must be NIL instead of 0
-   DATA GraphControls      INIT {}
-   DATA GraphTasks         INIT {}
-   DATA GraphCommand       INIT nil
-   DATA GraphData          INIT {}
-   DATA SplitChildList     INIT {}    // INTERNAL windows.
-   DATA aChildPopUp        INIT {}    // POP UP windows.
-   DATA lTopmost           INIT .F.
-   DATA aNotifyIcons       INIT {}
-   METHOD Title               SETGET
-   METHOD Height              SETGET
-   METHOD Width               SETGET
-   METHOD Col                 SETGET
-   METHOD Row                 SETGET
-   METHOD Cursor              SETGET
-   METHOD BackColor           SETGET
-   METHOD TopMost             SETGET
-   METHOD VirtualWidth        SETGET
-   METHOD VirtualHeight       SETGET
-   METHOD BackImage           SETGET
+   DATA oToolTip                  INIT NIL
+   DATA Focused                   INIT .T.
+   DATA LastFocusedControl        INIT 0
+   DATA AutoRelease               INIT .F.
+   DATA ActivateCount             INIT { 0, NIL, .T. }
+   DATA oMenu                     INIT NIL
+   DATA hWndClient                INIT NIL
+   DATA oWndClient                INIT NIL
+   DATA lInternal                 INIT .F.
+   DATA lForm                     INIT .T.
+   DATA nWidth                    INIT 300
+   DATA nHeight                   INIT 300
+   DATA lShowed                   INIT .F.
+   DATA lStretchBack              INIT .T.
+   DATA hBackImage                INIT NIL
+   DATA lEnterSizeMove            INIT .F.
+   DATA lDefined                  INIT .F.
+   DATA uFormCursor               INIT IDC_ARROW
+   DATA OnRelease                 INIT NIL
+   DATA OnInit                    INIT NIL
+   DATA OnMove                    INIT NIL
+   DATA OnSize                    INIT NIL
+   DATA OnPaint                   INIT NIL
+   DATA OnScrollUp                INIT NIL
+   DATA OnScrollDown              INIT NIL
+   DATA OnScrollLeft              INIT NIL
+   DATA OnScrollRight             INIT NIL
+   DATA OnHScrollBox              INIT NIL
+   DATA OnVScrollBox              INIT NIL
+   DATA OnInteractiveClose        INIT NIL
+   DATA OnMaximize                INIT NIL
+   DATA OnMinimize                INIT NIL
+   DATA OnRestore                 INIT NIL
+   DATA InteractiveClose          INIT -1
+   DATA nVirtualHeight            INIT 0
+   DATA nVirtualWidth             INIT 0
+   DATA RangeHeight               INIT 0
+   DATA RangeWidth                INIT 0
+   DATA MinWidth                  INIT 0
+   DATA MaxWidth                  INIT 0
+   DATA MinHeight                 INIT 0
+   DATA MaxHeight                 INIT 0
+   DATA ForceRow                  INIT NIL   // Must be NIL instead of 0
+   DATA ForceCol                  INIT NIL   // Must be NIL instead of 0
+   DATA GraphControls             INIT {}
+   DATA GraphTasks                INIT {}
+   DATA GraphCommand              INIT NIL
+   DATA GraphData                 INIT {}
+   DATA SplitChildList            INIT {}    // INTERNAL windows.
+   DATA aChildPopUp               INIT {}    // POP UP windows.
+   DATA lTopmost                  INIT .F.
+   DATA aNotifyIcons              INIT {}
+   METHOD Title                   SETGET
+   METHOD Height                  SETGET
+   METHOD Width                   SETGET
+   METHOD Col                     SETGET
+   METHOD Row                     SETGET
+   METHOD Cursor                  SETGET
+   METHOD BackColor               SETGET
+   METHOD TopMost                 SETGET
+   METHOD VirtualWidth            SETGET
+   METHOD VirtualHeight           SETGET
+   METHOD BackImage               SETGET
    METHOD AutoAdjust
    METHOD AdjustWindowSize
    METHOD ClientsPos
-   METHOD Closable            SETGET
+   METHOD Closable                SETGET
    METHOD FocusedControl
    METHOD SizePos
    METHOD Define
    METHOD Define2
    METHOD EndWindow
    METHOD Register
-   METHOD Visible             SETGET
+   METHOD Visible                 SETGET
    METHOD Show
    METHOD Hide
    METHOD Flash
    METHOD Activate
    METHOD Release
    METHOD RefreshData
-   METHOD Center()      BLOCK { | Self | C_Center( ::hWnd ) }
-   METHOD Restore()     BLOCK { | Self | Restore( ::hWnd ) }
-   METHOD Minimize()    BLOCK { | Self | Minimize( ::hWnd ) }
-   METHOD Maximize()    BLOCK { | Self | Maximize( ::hWnd ) }
-   METHOD DefWindowProc(nMsg,wParam,lParam)       BLOCK { |Self,nMsg,wParam,lParam| IF( ValidHandler( ::hWndClient ), ;
-   METHOD ToolTipWidth( nWidth )          BLOCK { |Self, nWidth | ::oToolTip:WindowWidth( nWidth ) }
-   METHOD ToolTipMultiLine( lMultiLine )  BLOCK { |Self,lMultiLine| ::oToolTip:MultiLine( lMultiLine ) }
-   METHOD ToolTipAutoPopTime( nMilliSec ) BLOCK { |Self,nMilliSec| ::oToolTip:AutoPopTime( nMilliSec ) }
-   METHOD ToolTipInitialTime( nMilliSec ) BLOCK { |Self,nMilliSec| ::oToolTip:InitialTime( nMilliSec ) }
-   METHOD ToolTipResetDelays( nMilliSec ) BLOCK { |Self,nMilliSec| ::oToolTip:ResetDelays( nMilliSec ) }
-   METHOD ToolTipReshowTime( nMilliSec )  BLOCK { |Self,nMilliSec| ::oToolTip:ReshowTime( nMilliSec ) }
-   METHOD ToolTipIcon( nIcon )            BLOCK { |Self,nIcon| ::oToolTip:Icon( nIcon ) }
-   METHOD ToolTipTitle( cTitle )          BLOCK { |Self,cTitle| ::oToolTip:Title( cTitle ) }
+   METHOD Center()                BLOCK { | Self | C_Center( ::hWnd ) }
+   METHOD Restore()               BLOCK { | Self | Restore( ::hWnd ) }
+   METHOD Minimize()              BLOCK { | Self | Minimize( ::hWnd ) }
+   METHOD Maximize()              BLOCK { | Self | Maximize( ::hWnd ) }
+   METHOD DefWindowProc( nMsg, wParam, lParam) BLOCK { | Self, nMsg, wParam, lParam | iif( ValidHandler( ::hWndClient ), ;
+                                                                                           DefFrameProc( ::hWnd, ::hWndClient, nMsg, wParam, lParam ), ;
+                                                                                           DefWindowProc( ::hWnd, nMsg, wParam, lParam ) ) }
+   METHOD ToolTipWidth( nWidth )          BLOCK { | Self, nWidth | ::oToolTip:WindowWidth( nWidth ) }
+   METHOD ToolTipMultiLine( lMultiLine )  BLOCK { | Self, lMultiLine | ::oToolTip:MultiLine( lMultiLine ) }
+   METHOD ToolTipAutoPopTime( nMilliSec ) BLOCK { | Self, nMilliSec | ::oToolTip:AutoPopTime( nMilliSec ) }
+   METHOD ToolTipInitialTime( nMilliSec ) BLOCK { | Self, nMilliSec | ::oToolTip:InitialTime( nMilliSec ) }
+   METHOD ToolTipResetDelays( nMilliSec ) BLOCK { | Self, nMilliSec | ::oToolTip:ResetDelays( nMilliSec ) }
+   METHOD ToolTipReshowTime( nMilliSec )  BLOCK { | Self, nMilliSec | ::oToolTip:ReshowTime( nMilliSec ) }
+   METHOD ToolTipIcon( nIcon )            BLOCK { | Self, nIcon | ::oToolTip:Icon( nIcon ) }
+   METHOD ToolTipTitle( cTitle )          BLOCK { | Self, cTitle | ::oToolTip:Title( cTitle ) }
    METHOD GetWindowState()
    METHOD SetActivationFocus
    METHOD ProcessInitProcedure
@@ -702,24 +707,24 @@ CLASS TForm FROM TWindow
    METHOD Events_Destroy
    METHOD Events_VScroll
    METHOD Events_HScroll
-   METHOD HelpButton          SETGET
-   METHOD HelpTopic(lParam)   BLOCK { | Self, lParam | HelpTopic( GetControlObjectByHandle( GetHelpData( lParam ) ):HelpId , 2 ), Self, nil }
+   METHOD HelpButton              SETGET
+   METHOD HelpTopic(lParam)       BLOCK { | Self, lParam | HelpTopic( GetControlObjectByHandle( GetHelpData( lParam ) ):HelpId, 2 ), Self, NIL }
    METHOD ScrollControls
    METHOD MessageLoop
-   METHOD HasStatusBar        BLOCK { | Self | aScan( ::aControls, { |c| c:Type == "MESSAGEBAR" } ) > 0 }
-   METHOD Inspector           BLOCK { | Self | Inspector( Self ) }
+   METHOD HasStatusBar            BLOCK { | Self | AScan( ::aControls, { |c| c:Type == "MESSAGEBAR" } ) > 0 }
+   METHOD Inspector               BLOCK { | Self | Inspector( Self ) }
    METHOD NotifyIconObject
-   METHOD NotifyIcon            SETGET
-   METHOD NotifyToolTip         SETGET
-   METHOD NotifyIconLeftClick   SETGET
-   METHOD NotifyIconDblClick    SETGET
-   METHOD NotifyIconRightClick  SETGET
-   METHOD NotifyIconRDblClick   SETGET
-   METHOD NotifyIconMidClick    SETGET
-   METHOD NotifyIconMDblClick   SETGET
-   METHOD NotifyMenu            SETGET
-   METHOD cNotifyIconName       SETGET
-   METHOD cNotifyIconToolTip    SETGET
+   METHOD NotifyIcon              SETGET
+   METHOD NotifyToolTip           SETGET
+   METHOD NotifyIconLeftClick     SETGET
+   METHOD NotifyIconDblClick      SETGET
+   METHOD NotifyIconRightClick    SETGET
+   METHOD NotifyIconRDblClick     SETGET
+   METHOD NotifyIconMidClick      SETGET
+   METHOD NotifyIconMDblClick     SETGET
+   METHOD NotifyMenu              SETGET
+   METHOD cNotifyIconName         SETGET
+   METHOD cNotifyIconToolTip      SETGET
    METHOD AddNotifyIcon
 ENDCLASS
 
@@ -892,6 +897,7 @@ CLASS TGrid FROM TControl
    DATA OnAbortEdit               INIT Nil
    DATA OnAppend                  INIT Nil
    DATA OnBeforeEditCell          INIT Nil
+   DATA OnBeforeInsert            INIT Nil
    DATA OnCheckChange             INIT Nil
    DATA OnDelete                  INIT Nil
    DATA OnDispInfo                INIT Nil
@@ -975,7 +981,7 @@ CLASS TGrid FROM TControl
    METHOD IsColumnReadOnly
    METHOD IsColumnWhen
    METHOD Item
-   METHOD ItemCount               BLOCK { | Self | ListViewGetItemCount( ::hWnd ) }
+   METHOD ItemCount               SETGET
    METHOD ItemHeight
    METHOD Justify
    METHOD LastColInOrder
@@ -1121,7 +1127,7 @@ ENDCLASS
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TGridControlMemo FROM TGridControl
    DATA nDefHeight                INIT 84
-   DATA cTitle                    INIT _OOHG_Messages( 1, 11 )
+   DATA cTitle                    INIT _OOHG_Messages( MT_MISCELL, 11 )
    DATA lCleanCRLF                INIT .F.
    DATA nWidth                    INIT 350
    DATA nHeight                   INIT 265
@@ -1483,6 +1489,7 @@ CLASS TMenu FROM TControl
    METHOD CursorType                   SETGET
    METHOD Define
    METHOD DisableVisualStyle
+   METHOD Enabled                      SETGET
    METHOD EndMenu
    METHOD Events_InitMenuPopUp( nPos ) BLOCK { |Self, nPos| _OOHG_EVAL( ::bOnInitPopUp, Self, nPos ) }
    METHOD Gradient                     SETGET
@@ -1492,7 +1499,7 @@ CLASS TMenu FROM TControl
    METHOD Params                       SETGET
    METHOD PopUpPosition( hWndPopUp )   BLOCK { |Self, hWndPopUp| FindPopUpPosition( ::hWnd, hWndPopUp ) }
    METHOD Refresh
-   METHOD Release                      BLOCK { |Self| DestroyMenu( ::hWnd ), ::Super:Release() }
+   METHOD Release                      BLOCK { |Self| DestroyMenu( ::hWnd ), ::oMenuParams := NIL, ::Super:Release() }
    METHOD Separator                    BLOCK { |Self| TMenuItem():DefineSeparator( NIL, Self ) }
    METHOD SeparatorType                SETGET
    METHOD SetMenuBarColor
@@ -1857,8 +1864,8 @@ CLASS TPRINTBASE
    DATA nUnitsLin                 INIT 1                     READONLY
    DATA nvFij                     INIT ( 12 / 1.65 )         READONLY
    DATA nwPen                     INIT 0.1                   READONLY    // pen width in MM, do not exceed 1
+   DATA oParent                   INIT NIL                   READONLY
    DATA oWinReport                INIT NIL                   READONLY
-   DATA uParent                   INIT NIL                   READONLY
    METHOD BeginDoc
    METHOD BeginDocX               BLOCK { || NIL }
    METHOD BeginPage
@@ -1890,6 +1897,8 @@ CLASS TPRINTBASE
    METHOD NormalDosX              BLOCK { || NIL }
    METHOD PrintBarcode
    METHOD PrintBarcodeX           BLOCK { || NIL }
+   METHOD PrintBitmap
+   METHOD PrintBitmapX            BLOCK { || NIL }
    METHOD PrintData
    METHOD PrintDataX              BLOCK { || NIL }
    METHOD PrintImage
@@ -1900,6 +1909,7 @@ CLASS TPRINTBASE
    METHOD PrintModeX              BLOCK { || NIL }
    METHOD PrintRectangle
    METHOD PrintRectangleX         BLOCK { || NIL }
+   METHOD PrintResource
    METHOD PrintRoundRectangle
    METHOD PrintRoundRectangleX    BLOCK { || NIL }
    METHOD Release
@@ -1909,20 +1919,20 @@ CLASS TPRINTBASE
    METHOD SetBarColor
    METHOD SetColor
    METHOD SetColorX               BLOCK { || NIL }
-   METHOD SetCpl                  
-   METHOD SetDosPort              
+   METHOD SetCpl
+   METHOD SetDosPort
    METHOD SetFont
-   METHOD SetFontType             
+   METHOD SetFontType
    METHOD SetFontX                BLOCK { || NIL }
-   METHOD SetIndentation          
-   METHOD SetLMargin              
-   METHOD SetPreviewSize          
+   METHOD SetIndentation
+   METHOD SetLMargin
+   METHOD SetPreviewSize
    METHOD SetPreviewSizeX         BLOCK { |Self| ::nPreviewSize }
-   METHOD SetProp                 
+   METHOD SetProp
    METHOD SetRawPrinter
-   METHOD SetSeparateSheets       
-   METHOD SetShowErrors           
-   METHOD SetTMargin              
+   METHOD SetSeparateSheets
+   METHOD SetShowErrors
+   METHOD SetTMargin
    METHOD SetUnits
    METHOD Sup5
    METHOD Upca
@@ -1933,6 +1943,7 @@ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TMINIPRINT FROM TPRINTBASE
+   DATA Type                      INIT "MINIPRINT"           READONLY
    METHOD BeginDocX
    METHOD BeginPageX
    METHOD EndDocX
@@ -1956,6 +1967,7 @@ ENDCLASS
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS THBPRINTER FROM TPRINTBASE
    DATA oHBPrn                    INIT NIL                   READONLY
+   DATA Type                      INIT "HBPRINTER"           READONLY
    METHOD BeginDocX
    METHOD BeginPageX
    METHOD EndDocX
@@ -1967,6 +1979,7 @@ CLASS THBPRINTER FROM TPRINTBASE
    METHOD MaxRow
    METHOD PrintBarcodeX
    METHOD PrintDataX
+   METHOD PrintBitmapX
    METHOD PrintImageX
    METHOD PrintLineX
    METHOD PrintRectangleX
@@ -1983,6 +1996,7 @@ CLASS TDOSPRINT FROM TPRINTBASE
    DATA cString                   INIT ""                    READONLY
    DATA nOccur                    INIT 0                     READONLY
    DATA oWinPreview               INIT NIL                   READONLY
+   DATA Type                      INIT "DOSPRINT"            READONLY
    METHOD BeginDocX
    METHOD BeginPageX
    METHOD CondenDosX
@@ -1998,13 +2012,14 @@ CLASS TDOSPRINT FROM TPRINTBASE
    METHOD SearchString
    METHOD SelPrinterX
    METHOD Zoom
-ENDCLASS
+ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TTXTPRINT FROM TDOSPRINT
    DATA cBusca                    INIT ""                    READONLY
    DATA cString                   INIT ""                    READONLY
    DATA nOccur                    INIT 0                     READONLY
+   DATA Type                      INIT "TXTPRINT"            READONLY
    METHOD BeginDocX
    METHOD EndDocX
    METHOD InitX
@@ -2016,6 +2031,7 @@ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TRAWPRINT FROM TDOSPRINT
+   DATA Type                      INIT "RAWPRINT"            READONLY
    METHOD BeginDocX
    METHOD InitX
    METHOD PrintModeX
@@ -2027,6 +2043,7 @@ CLASS TEXCELPRINT FROM TPRINTBASE
    DATA oExcel                    INIT NIL                   READONLY
    DATA oBook                     INIT NIL                   READONLY
    DATA oHoja                     INIT NIL                   READONLY
+   DATA Type                      INIT "EXCELPRINT"          READONLY
    METHOD BeginDocX
    METHOD BeginPageX
    METHOD EndDocX
@@ -2046,6 +2063,7 @@ CLASS TSPREADSHEETPRINT FROM TPRINTBASE
    DATA nLinRel                   INIT 0                     READONLY
    DATA nLpp                      INIT 60                    READONLY    // lines per page
    DATA nXls                      INIT 0                     READONLY
+   DATA Type                      INIT "SPREADSHEETPRINT"    READONLY
    METHOD AddPage
    METHOD BeginDocX
    METHOD EndDocX
@@ -2059,6 +2077,7 @@ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS THTMLPRINTFROMEXCEL FROM TEXCELPRINT
+   DATA Type                      INIT "HTMLPRINTFROMEXCEL"  READONLY
    METHOD BeginDocX
    METHOD EndDocX
    METHOD InitX
@@ -2066,6 +2085,7 @@ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS THTMLPRINTFROMCALC FROM TCALCPRINT
+   DATA Type                      INIT "HTMLPRINTFROMCALC"   READONLY
    METHOD BeginDocX
    METHOD EndDocX
    METHOD InitX
@@ -2080,6 +2100,7 @@ CLASS TRTFPRINT FROM TPRINTBASE
    DATA nMarginSup                INIT 15                    READONLY    // in mm
    DATA nMarginRig                INIT 10                    READONLY    // in mm
    DATA nMarginInf                INIT 15                    READONLY    // in mm
+   DATA Type                      INIT "RTFPRINT"            READONLY
    METHOD BeginDocX
    METHOD EndDocX
    METHOD EndPageX
@@ -2094,6 +2115,7 @@ ENDCLASS
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TCSVPRINT FROM TPRINTBASE
    DATA aPrintCsv                 INIT {}                    READONLY
+   DATA Type                      INIT "CSVPRINT"            READONLY
    METHOD BeginDocX
    METHOD EndDocX
    METHOD EndPageX
@@ -2109,11 +2131,12 @@ CLASS TPDFPRINT FROM TPRINTBASE
    DATA cPageOrient               INIT "P"                   READONLY // P = portrait, L = Landscape
    DATA cPageSize                 INIT ""                    READONLY // page size
    DATA oPDF                      INIT NIL                   READONLY // reference to the TPDF object
+   DATA Type                      INIT "PDFPRINT"            READONLY
    METHOD BeginDocX
    METHOD BeginPageX
    METHOD EndDocX
    METHOD InitX
-   METHOD MaxCol         
+   METHOD MaxCol
    METHOD MaxRow
    METHOD PrintBarcodeX
    METHOD PrintDataX
@@ -2135,6 +2158,7 @@ CLASS TCALCPRINT FROM TPRINTBASE
    DATA oSheet                    INIT NIL                   READONLY
    DATA nHorzResol                INIT PixelsPerInchX()      READONLY
    DATA nVertResol                INIT PixelsPerInchY()      READONLY
+   DATA Type                      INIT "CALCPRINT"           READONLY
    METHOD BeginDocX
    METHOD BeginPageX
    METHOD EndDocX
@@ -2690,61 +2714,75 @@ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TText FROM TLabel
-   DATA Type                      INIT "TEXT" READONLY
-   DATA lSetting                  INIT .F.
-   DATA nMaxLength                INIT 0
+   DATA aBitmap                   INIT NIL
+   DATA bAction1                  INIT NIL
+   DATA bAction2                  INIT NIL
+   DATA bWhen                     INIT NIL
+   DATA cToolTipBut1              INIT NIL
+   DATA cToolTipBut2              INIT NIL
    DATA lAutoSkip                 INIT .F.
+   DATA lFocused                  INIT .F.
+   DATA lInsert                   INIT .T.
+   DATA lPrevUndo                 INIT .F.
+   DATA lRecreateOnReset          INIT .T.
+   DATA lSetting                  INIT .F.
+   DATA nBtnWidth                 INIT 20
+   DATA nDefAnchor                INIT 13   // TopBottomRight
+   DATA nHeight                   INIT 24
+   DATA nInsertType               INIT 0
+   DATA nMaxLength                INIT 0
    DATA nOnFocusPos               INIT -2
    DATA nWidth                    INIT 120
-   DATA nHeight                   INIT 24
-   DATA OnTextFilled              INIT Nil
-   DATA nDefAnchor                INIT 13   // TopBottomRight
-   DATA bWhen                     INIT Nil
-   DATA When_Processed            INIT .F.
+   DATA oButton1                  INIT NIL
+   DATA oButton2                  INIT NIL
+   DATA OnTextFilled              INIT NIL
+   DATA Type                      INIT "TEXT" READONLY
    DATA When_Procesing            INIT .F.
-   DATA lInsert                   INIT .T.
-   DATA lFocused                  INIT .F.
-   DATA xUndo                     INIT Nil
-   DATA lPrevUndo                 INIT .F.
-   DATA xPrevUndo                 INIT Nil
-   DATA nInsertType               INIT 0
-   DATA oButton1                  INIT Nil
-   DATA oButton2                  INIT Nil
-   METHOD Define
-   METHOD Define2
-   METHOD RefreshData
-   METHOD Refresh                      BLOCK { |Self| ::RefreshData() }
-   METHOD SizePos
-   METHOD Enabled                      SETGET
-   METHOD Visible                      SETGET
+   DATA When_Processed            INIT .F.
+   DATA xPrevUndo                 INIT NIL
+   DATA xUndo                     INIT NIL
    METHOD AddControl
-   METHOD DeleteControl
-   METHOD AdjustResize( nDivh, nDivw ) BLOCK { |Self,nDivh,nDivw| ::Super:AdjustResize( nDivh, nDivw, .T. ) }
-   METHOD Value                        SETGET
-   METHOD SetFocus
+   METHOD AdjustResize( nDivh, nDivw ) BLOCK { |Self, nDivh, nDivw| ::Super:AdjustResize( nDivh, nDivw, .T. ) }
    METHOD CaretPos                     SETGET
-   METHOD ReadOnly                     SETGET
-   METHOD MaxLength                    SETGET
-   METHOD DoAutoSkip
-   METHOD Events_Command
-   METHOD Events
    METHOD ControlArea                  SETGET
    METHOD ControlPosition              SETGET
-   METHOD ScrollCaret                  BLOCK { |Self| SendMessage( ::hWnd, EM_SCROLLCARET, 0, 0 ) }
-   METHOD GetSelection
-   METHOD SetSelection
-   METHOD GetSelText
-   METHOD InsertStatus                 SETGET
-   METHOD GetLine
-   METHOD GetLineIndex( nLine )        BLOCK { |Self,nLine| SendMessage( ::hWnd, EM_LINEINDEX, nLine, 0 ) }
+   METHOD Define
+   METHOD Define2
+   METHOD DefineAction
+   METHOD DefineAction2
+   METHOD DeleteControl
+   METHOD DoAutoSkip
+   METHOD Enabled                      SETGET
+   METHOD Events
+   METHOD Events_Command
+   METHOD GetCharFromPos
+   METHOD GetCurrentLine               BLOCK { |Self| ::GetLineFromChar( -1 ) }
    METHOD GetFirstVisibleLine          BLOCK { |Self| SendMessage( ::hWnd, EM_GETFIRSTVISIBLELINE, 0, 0 ) }
+   METHOD GetLastVisibleLine
+   METHOD GetLine
    METHOD GetLineCount                 BLOCK { |Self| SendMessage( ::hWnd, EM_GETLINECOUNT, 0, 0 ) }
    METHOD GetLineFromChar( nChar )
-   METHOD GetCurrentLine               BLOCK { |Self| ::GetLineFromChar( -1 ) }
-   METHOD GetLineLength( nLine )       BLOCK { |Self,nLine| SendMessage( ::hWnd, EM_LINELENGTH, ::GetLineIndex( nLine ), 0 ) }
-   METHOD GetLastVisibleLine
-   METHOD GetCharFromPos
+   METHOD GetLineIndex( nLine )        BLOCK { |Self, nLine| SendMessage( ::hWnd, EM_LINEINDEX, nLine, 0 ) }
+   METHOD GetLineLength( nLine )       BLOCK { |Self, nLine| SendMessage( ::hWnd, EM_LINELENGTH, ::GetLineIndex( nLine ), 0 ) }
    METHOD GetRect
+   METHOD GetSelection
+   METHOD GetSelText
+   METHOD InsertStatus                 SETGET
+   METHOD MaxLength                    SETGET
+   METHOD PasswordChar                 SETGET
+   METHOD ReadOnly                     SETGET
+   METHOD RedefinePasswordStyle
+   METHOD Refresh                      BLOCK { |Self| ::RefreshData() }
+   METHOD RefreshData
+   METHOD Release
+   METHOD ReleaseAction
+   METHOD ReleaseAction2
+   METHOD ScrollCaret                  BLOCK { |Self| SendMessage( ::hWnd, EM_SCROLLCARET, 0, 0 ) }
+   METHOD SetFocus
+   METHOD SetSelection
+   METHOD SizePos
+   METHOD Value                        SETGET
+   METHOD Visible                      SETGET
 ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
@@ -2783,12 +2821,14 @@ ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 CLASS TTimer FROM TControl
-   DATA Type      INIT "TIMER" READONLY
-   DATA Interval  INIT 0
+   DATA Interval                  INIT 0
+   DATA lOnce                     INIT .F.
+   DATA Type                      INIT "TIMER" READONLY
    METHOD Define
-   METHOD Value        SETGET
-   METHOD Enabled      SETGET
+   METHOD Enabled                 SETGET
+   METHOD Events_TimeOut
    METHOD Release
+   METHOD Value                   SETGET
 ENDCLASS
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
@@ -2975,7 +3015,7 @@ CLASS TWindow
    DATA FocusStrikeout            INIT .F.
    DATA FocusUnderline            INIT .F.
    DATA HasDragFocus              INIT .F.                                    // .T. when drag image is over a drop-enabled control
-   DATA hDC                                                                   
+   DATA hDC
    DATA hDynamicValues            INIT NIL
    DATA HScrollBar                INIT NIL
    DATA hWnd                      INIT 0
@@ -3006,6 +3046,7 @@ CLASS TWindow
    DATA nFocusFontSize            INIT 0
    DATA nFontSize                 INIT 0
    DATA nHeight                   INIT 0
+   DATA NoDefWinProc              INIT .F.                                    // See WM_PAINT message in h_form.prg
    DATA nOLdh                     INIT NIL
    DATA nOldw                     INIT NIL
    DATA nPaintCount                                                           // counter for GetDC and ReleaseDC methods
@@ -3081,6 +3122,7 @@ CLASS TWindow
    METHOD Events_Enter            BLOCK { || NIL }
    METHOD Events_HScroll          BLOCK { || NIL }
    METHOD Events_Size             BLOCK { || NIL }
+   METHOD Events_TimeOut          BLOCK { |Self| ::DoEvent( ::OnClick, "TIMER" ) }
    METHOD Events_VScroll          BLOCK { || NIL }
    METHOD ExStyle                 SETGET
    METHOD Fill
@@ -3096,6 +3138,7 @@ CLASS TWindow
    METHOD GetTextWidth
    METHOD Hide                    BLOCK { |Self| ::Visible := .F. }
    METHOD HotKey                                                              // OS-controlled hotkeys
+   METHOD IconHandle              SETGET
    METHOD ImageList               SETGET
    METHOD IsVisualStyled
    METHOD Line
