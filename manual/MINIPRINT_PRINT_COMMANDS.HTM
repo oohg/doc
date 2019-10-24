@@ -68,7 +68,7 @@ $Id: MINIPRINT_PRINT_COMMANDS.HTM $
       IIF( _HMG_PRINTER_Preview, ;
            ( _HMG_PRINTER_PageCount := 0, ;
              _HMG_PRINTER_hDC_Bak := _HMG_PRINTER_hDC ), ;
-           _HMG_PRINTER_StartDoc( _HMG_PRINTER_hDC, _OOHG_PRINTER_DocName ) )
+           _HMG_PRINTER_StartDoc( _HMG_PRINTER_hDC, _HMG_PRINTER_GetJobName() ) )
 Declares the start of a printer document.
 
 #xcommand START PRINTPAGE ;
