@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2019-10-24 19:03 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\manual\MINIPRINT_PRINT_COMMANDS.HTM
+     * Small correction.
+
 2019-09-10 19:44 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Classes.md
    * doc\manual\CLASSES_INDEX.HTM
