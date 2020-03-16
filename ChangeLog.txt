@@ -8,6 +8,13 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2020-03-16 18:59 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\manual\Changelog.htm
+     * References to files oohg_hb* changed to oohg_hm*
+   * doc\english\BUILD_CON.HBP
+   * doc\english\BUILD_GUI.HBP
+     * -n2 changed to -n
+
 2019-10-24 19:03 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\manual\MINIPRINT_PRINT_COMMANDS.HTM
      * Small correction.
@@ -18,7 +25,7 @@
      * Updated.
 
 2019-09-08 12:25 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\manual\Changelog.HTM
+   * doc\manual\Changelog.htm
      ! Typos.
 
 2019-07-20 19:38 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
@@ -48,7 +55,7 @@
    + doc\manual\CHANGELOG_FMT.HTM
    + doc\manual\CHANGELOG_IDE.HTM
    + doc\manual\CHANGELOG_SAMPLES.HTM
-   * doc\manual\Changelog.HTM
+   * doc\manual\Changelog.htm
    * doc\manual\INFORMATION.HTM
    * doc\manual\LICENSE.HTM
      * Changes logs are now separated by repository.
@@ -174,7 +181,7 @@
    + doc\english\Grid_Colors.md
 
 2018-08-04 9:36 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\manual\Changelog.HTM
+   * doc\manual\Changelog.htm
      ! Typo.
 
 2018-07-24 22:49 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
@@ -184,7 +191,7 @@
 2018-07-16 18:31 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Determine the DATAs, METHODs and INLINEs of a given class.prg
    * doc\english\TreeOfClasses.prg
-   * doc\manual\Changelog.HTM
+   * doc\manual\Changelog.htm
    * doc\spanish\Datas y Métodos de una Clase.prg
      * Changed private mail to public one.
 
@@ -193,14 +200,14 @@
      * Copyright updated.
 
 2018-05-01 19:36 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
-   * doc\manual\Changelog.HTM
+   * doc\manual\Changelog.htm
      ! Missing entries.
      * Updated.
 
 2018-05-01 10:40 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\english\Maintenance.txt
      * Improved.
-   * doc\manual\Changelog.HTM
+   * doc\manual\Changelog.htm
      ! Missing entries.
      * Updated.
 
@@ -209,7 +216,7 @@
      + New methods, datas and classes.
    * doc\english\Maintenance.txt
    * doc\manual\BROWSE.HTM
-   * doc\manual\Changelog.HTM
+   * doc\manual\Changelog.htm
    * doc\manual\CLASSES_INDEX.HTM
      * Updated.
 
