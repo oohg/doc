@@ -24,7 +24,7 @@
 #-info
 
 # Harbour compiler flags
--n2 -q0 -w3 -es2
+-n -q0 -w3 -es2
 
 # To build a .ppo file, remove the #
 #-prgflag=-p
