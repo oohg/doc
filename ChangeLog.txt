@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2020-05-30 09:05 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\manual\*.HTM
+     * Copyright date updated.
+
 2020-03-16 18:59 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\manual\Changelog.htm
      * References to files oohg_hb* changed to oohg_hm*
