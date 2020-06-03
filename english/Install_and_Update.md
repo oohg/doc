@@ -53,12 +53,28 @@
 6. Rebuild the libraries (see below).
 
 
-## Procedure to update Harbour HB32's compiler:
+## Procedure to update (x)Harbour compiler:
 
-1. Download Harbour's nightly version from this link:
+1. Harbour 3.0 has no new version so do not try to update it.
+2. Harbour 3.2 32 bits: download the 'nightly' version from
    https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
-2. Install Harbour to C:\OOHG\HB32
-3. Rebuild the libraries (see below).
+   Install into C:\OOHG\HB32 and rebuild the libraries (see below).
+3. Harbour 3.2 64 bits: download from
+   http://www.whosaway.com/
+   Install into C:\OOHG\HB32 and rebuild the libraries (see below).
+4. Harbour 3.4 32 and 64 bits: download from
+   https://github.com/vszakats/harbour-core/releases/download/v3.4.0dev/harbour-snapshot-win.7z
+   Install into C:\OOHG\HB34 and rebuild the libraries (see below).
+   Note that this package includes both versions.
+5. xHarbour for BCC 5.5.1 and BCC 5.8.2: download from
+   http://www.whosaway.com/
+   Install into C:\OOHG\xhbcc.
+   Note that these packages do not include the BCC compiler.
+   You can download then from
+   http://www.whosaway.com/
+5. xHarbour for MinGw: download from
+   http://www.whosaway.com/
+   Install into C:\OOHG\xhmingw and rebuild the libraries (see below).
 
 
 ## Procedure to rebuild ooHG's libraries:
@@ -77,14 +93,22 @@
 2. Open a CMD window at C:\OOHG\SOURCE folder.
 3. Execute CLEAN.BAT
 4. Execute the command:
-   * "MAKELIB.BAT HB30" to rebuild using Harbour 3.0 and MinGW compiler.
-   * "MAKELIB.BAT HB32" to rebuild using Harbour 3.2 and MinGW compiler.
-   * "MAKELIB.BAT XB"   to rebuild using xHarbour    and BCC   compiler.
+   * "MAKELIB.BAT HM30"   to rebuild using Harbour 3.0 and MinGW compiler.
+   * "MAKELIB.BAT HM32"   to rebuild using Harbour 3.2 32 bits and MinGW compiler.
+   * "MAKELIB.BAT HM3264" to rebuild using Harbour 3.2 64 bits and MinGW compiler.
+   * "MAKELIB.BAT HM34"   to rebuild using Harbour 3.4 32 bits and MinGW compiler.
+   * "MAKELIB.BAT HM3464" to rebuild using Harbour 3.4 64 bits and MinGW compiler.
+   * "MAKELIB.BAT XB55"   to rebuild using xHarbour and BCC 5.5.1 compiler.
+   * "MAKELIB.BAT XB58"   to rebuild using xHarbour and BCC 5.8.2 compiler.
+   * "MAKELIB.BAT XM"     to rebuild using xHarbour and MinGW compiler.
    * To use another C compiler you must tweak and use one of the alternative files MAKELIB_BCC.BAT, MAKELIB_PC.BAT or MAKELIB_VC.BAT
 
-#### To rebuild ooHG libraries using Harbour's 'hbmk2' tool (only for HB30 and HB32):
+#### To rebuild ooHG libraries using Harbour's 'hbmk2' tool (only for Harbour based distros):
 
 1. Open a CMD window at C:\OOHG\SOURCE folder.
 2. Execute command
-      "BUILDLIB.BAT HB30" to rebuild using Harbour 3.0 and MinGW compiler.
-      "BUILDLIB.BAT HB32" to rebuild using Harbour 3.2 and MinGW compiler.
+      "BUILDLIB.BAT HB30"   to rebuild using Harbour 3.0 and MinGW compiler.
+      "BUILDLIB.BAT HB32"   to rebuild using Harbour 3.2 32 bits and MinGW compiler.
+      "BUILDLIB.BAT HB3264" to rebuild using Harbour 3.2 64 bits and MinGW compiler.
+      "BUILDLIB.BAT HB34"   to rebuild using Harbour 3.4 32 bits and MinGW compiler.
+      "BUILDLIB.BAT HB3464" to rebuild using Harbour 3.4 64 bits and MinGW compiler.
