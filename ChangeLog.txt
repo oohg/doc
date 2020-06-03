@@ -8,6 +8,10 @@
  * 2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
  */
 
+2020-06-03 16:34 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
+   * doc\english\Install_and_Update.md
+     + Support for new flavors.
+
 2020-05-30 09:05 UTC-0300 Fernando Yurisich <fyurisich@oohg.org>
    * doc\manual\*.HTM
      * Copyright date updated.
