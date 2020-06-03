@@ -57,23 +57,23 @@
 
 1. Harbour 3.0 has no new version so do not try to update it.
 2. Harbour 3.2 32 bits: download the 'nightly' version from
-   https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
+   * https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
    * Install into C:\OOHG\HB32 and rebuild the libraries (see below).
 3. Harbour 3.2 64 bits: download from
-   http://www.whosaway.com/
+   * http://www.whosaway.com/
    * Install into C:\OOHG\HB32 and rebuild the libraries (see below).
 4. Harbour 3.4 32 and 64 bits: download from
-   https://github.com/vszakats/harbour-core/releases/download/v3.4.0dev/harbour-snapshot-win.7z
+   * https://github.com/vszakats/harbour-core/releases/download/v3.4.0dev/harbour-snapshot-win.7z
    * Install into C:\OOHG\HB34 and rebuild the libraries (see below).
    * Note that this package includes both versions.
 5. xHarbour for BCC 5.5.1 and BCC 5.8.2: download from
-   http://www.whosaway.com/
+   * http://www.whosaway.com/
    * Install into C:\OOHG\xhbcc.
    * Note that these packages do not include the BCC compiler.
    * You can download then from
-   http://www.whosaway.com/
+   * http://www.whosaway.com/
 5. xHarbour for MinGw: download from
-   http://www.whosaway.com/
+   * http://www.whosaway.com/
    * Install into C:\OOHG\xhmingw and rebuild the libraries (see below).
 
 
