@@ -1,4 +1,4 @@
-## Procedure to install ooHG official distro:
+## Procedure to install OOHG official distro:
 
 1. Download the .ZIP file from http://sourceforge.net/projects/oohg/files/.
 2. If you already have a C:\OOHG folder in your hard drive, it's strongly recommended that you delete, rename or move it to another folder to avoid problems and improve support.
@@ -58,26 +58,26 @@
 1. Harbour 3.0 has no new version so do not try to update it.
 2. Harbour 3.2 32 bits: download the 'nightly' version from
    https://sourceforge.net/projects/harbour-project/files/binaries-windows/nightly/harbour-nightly-win.exe/download
-   Install into C:\OOHG\HB32 and rebuild the libraries (see below).
+   * Install into C:\OOHG\HB32 and rebuild the libraries (see below).
 3. Harbour 3.2 64 bits: download from
    http://www.whosaway.com/
-   Install into C:\OOHG\HB32 and rebuild the libraries (see below).
+   * Install into C:\OOHG\HB32 and rebuild the libraries (see below).
 4. Harbour 3.4 32 and 64 bits: download from
    https://github.com/vszakats/harbour-core/releases/download/v3.4.0dev/harbour-snapshot-win.7z
-   Install into C:\OOHG\HB34 and rebuild the libraries (see below).
-   Note that this package includes both versions.
+   * Install into C:\OOHG\HB34 and rebuild the libraries (see below).
+   * Note that this package includes both versions.
 5. xHarbour for BCC 5.5.1 and BCC 5.8.2: download from
    http://www.whosaway.com/
-   Install into C:\OOHG\xhbcc.
-   Note that these packages do not include the BCC compiler.
-   You can download then from
+   * Install into C:\OOHG\xhbcc.
+   * Note that these packages do not include the BCC compiler.
+   * You can download then from
    http://www.whosaway.com/
 5. xHarbour for MinGw: download from
    http://www.whosaway.com/
-   Install into C:\OOHG\xhmingw and rebuild the libraries (see below).
+   * Install into C:\OOHG\xhmingw and rebuild the libraries (see below).
 
 
-## Procedure to rebuild ooHG's libraries:
+## Procedure to rebuild OOHG's libraries:
 
 #### Traditional method:
 
@@ -103,7 +103,7 @@
    * "MAKELIB.BAT XM"     to rebuild using xHarbour and MinGW compiler.
    * To use another C compiler you must tweak and use one of the alternative files MAKELIB_BCC.BAT, MAKELIB_PC.BAT or MAKELIB_VC.BAT
 
-#### To rebuild ooHG libraries using Harbour's 'hbmk2' tool (only for Harbour based distros):
+#### To rebuild OOHG libraries using Harbour's 'hbmk2' tool (only for Harbour based distros):
 
 1. Open a CMD window at C:\OOHG\SOURCE folder.
 2. Execute command
