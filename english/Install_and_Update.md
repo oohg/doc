@@ -70,9 +70,9 @@
    * http://www.whosaway.com/
    * Install into C:\OOHG\xhbcc.
    * Note that these packages do not include the BCC compiler.
-   * You can download then from
+   * You can download it from
    * http://www.whosaway.com/
-5. xHarbour for MinGw: download from
+6. xHarbour for MinGw: download from
    * http://www.whosaway.com/
    * Install into C:\OOHG\xhmingw and rebuild the libraries (see below).
 
