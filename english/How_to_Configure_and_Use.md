@@ -62,8 +62,8 @@ PATH %HG_ROOT%\%HG_HRB%\%BIN_HRB%;%HG_CCOMP%;%PATH%
 
 ## To use Harbour's HBMK2.EXE construction tool with a customized OOHG package
 
-Set the aformentioned environment variables to your customized paths.
-Add to the system's PATH the folder where the Harbour's binaries are located and the folder where the C compiler is located (see previous sections).
+1. Set the aformentioned environment variables to your customized paths.
+2. Add to the system's PATH the folder where the Harbour's binaries are located and the folder where the C compiler is located (see previous sections).
 
 # How to build and app
 
@@ -94,12 +94,11 @@ compile myApp [options]
 #include "myFuncs.prg"
 ```
 * To include a resource file (.rc) you must name it `myApp.rc` and place it at the same folder where `myApp.prg` is.
-* To include an adicional resource file you must add at the end of `myApp.rc`:
+* To include an aditional resource file you must add, at the end of `myApp.rc`:
 ```
 #include "another.rc"
 ```
 * By default, this building process automatically includes ooHG's resource file (see file `OOHG.RC` at folder INCLUDE).
-* If you have more than one OOHG flavor installed in the same folder, you must specify which one has to be used. For that, use `compile version MYAPP`. For more details execute `COMPILE.BAT` without arguments.
 
 ## Using `BUILDAPP.BAT` (based on Harbour's `HBMK2.EXE` utility)
 
