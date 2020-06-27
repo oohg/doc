@@ -1,43 +1,72 @@
-# How to configure and use
+# How to configure the development environment
 
-Let's assume you installed a prebuilt OOHG package at `C:\OOHG` folder.
-If you choose another path, please substitute all instances of `C:\OOHG` with your chosen path.
+## Setting the root folder
 
-#### The easiest way
+For the rest of this document let's assume you installed an OOHG package at `C:\OOHG` folder.
 
-If you are planning to build your apps with `COMPILE.BAT` or `BUILDAPP.BAT` batch files, all you need to do is add `C:\OOHG` to the system's PATH.
-
-#### The hardest way
-
-If you want to build your apps with `COMPILE.BAT` or `BUILDAPP.BAT` batch files but using tools not located at the default paths,
-please take note that before building you must set the following environment variables:
-
-* If your OOHG libraries are located at folder C:\OOHG\MYLIBS then:
+The first configuration step is to add the following environment variable:
 ```
-set LIB_GUI=MYLIBS
+SET HG_ROOT=C:\OOHG
 ```
 
-* If your (x)Harbour compiler is located at folder C:\MYHARBOUR then:
+## To use the batch construction tools included in an unmodified prebuilt OOHG package
+
+Add `C:\OOHG` to the system's PATH.
+
+## To use the unmodified batch construction tools with a customized OOHG package
+
+Add `C:\OOHG` to the system's PATH and set the following environment variables:
+* If the OOHG libraries are located at folder C:\OOHG\MYLIBS then:
 ```
-set HG_HRB=D:\MYHARBOUR
+SET LIB_GUI=MYLIBS
+```
+* If the (x)Harbour compiler is located at folder C:\MYHARBOUR then:
+```
+SET HG_HRB=D:\MYHARBOUR
+```
+* If the (x)Harbour compiler binaries are located at folder D:\MYHARBOUR\BIN" then:
+```
+SET BIN_HRB=BIN
+```
+* If the (x)Harbour compiler libraries are located at folder C:\MYHARBOUR\LIBS\WIN then:
+```
+SET LIB_HRB=LIBS\WIN
+```
+* If the C compiler is located at C:\MYCCOMP then:
+```
+SET HG_CCOMP=D:\MYCCOMP
 ```
 
-* If your (x)Harbour compiler binaries are located at folder D:\MYHARBOUR\BIN" then:
+## To use Harbour's HBMK2.EXE construction tool with an unmodified prebuilt OOHG package
+
+For HM32 flavor, set the following environment variables:
 ```
-set BIN_HRB=BIN
+SET LIB_GUI=LIB\HB\MINGW
+SET HG_HRB=%HG_ROOT%\HB3264
+SET BIN_HRB=BIN
+SET LIB_HRB=LIB\WIN\MINGW
+SET HG_CCOMP=%HG_ROOT%\%HG_HRB%\COMP\MINGW
+```
+For HM3264 flavor, set the following environment variables:
+```
+SET LIB_GUI=LIB\HB\MINGW
+SET HG_HRB=%HG_ROOT%\HB32
+SET BIN_HRB=BIN
+SET LIB_HRB=LIB\WIN\MINGW64
+```
+Finally, add to the system's PATH the folder where the Harbour's binaries are located and the folder where the C compiler is located.
+```
+PATH %HG_ROOT%\%HG_HRB%\%BIN_HRB%;%HG_CCOMP%;%PATH%
 ```
 
-* If your (x)Harbour compiler libraries are located at folder C:\MYHARBOUR\LIBS\WIN then:
-```
-set LIB_HRB=LIBS\WIN
-```
+## To use Harbour's HBMK2.EXE construction tool with a customized OOHG package
 
-* If your C compiler is located at C:\MYCCOMP then:
-```
-set HG_CCOMP=D:\MYCCOMP
-```
+Set the aformentioned environment variables to your customized paths.
+Add to the system's PATH the folder where the Harbour's binaries are located and the folder where the C compiler is located (see previous sections).
 
-## Basic procedure to build an app:
+# How to build and app
+
+## Using `COMPILE.BAT`
 
 1. Open a `CMD` window and check that your environment is configured properly.
 2. Change to the folder where your source code (*.prg files) resides.
@@ -45,7 +74,8 @@ set HG_CCOMP=D:\MYCCOMP
 ```
 compile myApp [options]
 ```
-4. Available options are (options must be separated by spaces, / can be replaced by -):
+4. myApp must be a .prg file with or without the extension.
+5. Available options are (options must be separated by spaces, / can be replaced by -):
 * /P | to create a preprocessor's output file (.ppo file).
 * /C | create a console or mixed mode app.
 * /D | to include Harbour's debugger in your app.
@@ -54,11 +84,11 @@ compile myApp [options]
 * /L | to send output to oohglog.txt file (also /LOG).
 * /W3 | to set (x)Harbour warning level to its maximum.
 * /NR | to build without running (also /NORUN).
-* /NORC | to exclude resource file
+* /NORC | to exclude OOHG's resource file
 
 #### Notes:
 
-* If the app has more than one source file (f.e.: `myApp.prg` and `myFuncs.prg`), to build it successfully you need to add at the end of `myApp.prg`:
+* If the app has more than one source file (f.e.: `myApp.prg` and `myFuncs.prg`), to build it successfully you need to add at, the end of `myApp.prg`:
 ```
 #include "myFuncs.prg"
 ```
@@ -67,50 +97,50 @@ compile myApp [options]
 ```
 #include "another.rc"
 ```
-* By default, this building process automatically __includes__ ooHG's resource file (see file `OOHG.RC` at folder INCLUDE).
-* If you have more than one OOHG version installed in the same folder, yo must specify which one has to be used. For that, use `compile version MYAPP`. For more details execute `COMPILE.BAT` without arguments.
+* By default, this building process automatically includes ooHG's resource file (see file `OOHG.RC` at folder INCLUDE).
+* If you have more than one OOHG flavor installed in the same folder, you must specify which one has to be used. For that, use `compile version MYAPP`. For more details execute `COMPILE.BAT` without arguments.
 
-## Alternative procedure to build an app using Harbour:
+## Using `BUILDAPP.BAT` (based on Harbour's `HBMK2.EXE` utility)
 
-1. Use `BUILDAPP.BAT` instead of `COMPILE.BAT`.
-
-#### Notes:
-
-* Harbour's `HBMK2` utility will be used to build the app.
-* All the notes for the basic procedure apply.
-* With this procedure you can also use a `MYAPP.HBP` file detailing all the sources:
+1. Open a `CMD` window and check that your environment is configured properly.
+2. Change to the folder where your source code (*.prg files) resides.
+3. Execute this command:
 ```
-#include "MYAPP.PRG"
-#include "MYFUNCS.PRG"
+buildapp myApp [options]
 ```
-* If you have more than one OOHG version installed in the same folder, yo must specify which one has to be used. For that, use `buildapp version myApp`. For more details execute `BUILDAPP.BAT` without arguments.
+4. myApp must be a .prg or .hbp file with or without the extension.
+5. Available options are (options must be separated by spaces, / can be replaced by -):
+* /SL | to suppress the creation of the log.
+* /NR | to build without running (also /NORUN).
+* /GTWIN | to create a console or mixed mode app.
+* /NOHBC | to build without including OOHG.HBC
+* /NORC | to exclude OOHG's resource file
+* -rebuild | to force the compilation of all the sources.
+* Other options supported by HBMK2.EXE
+6. You can use `BUILD_GUI.HBP` (for GUI or mixed mode) or `BUILD_CON.HBP` (for console mode) if you need a template for you app.
 
-## Another alternative procedure to build an app using Harbour:
+## Using Harbour's `HBMK2.EXE` utility
 
-1. Add to the system's PATH the folder where Harbour binaries are located.
-2. Add to the system's PATH the folder where the C compiler is located.
-3. Copy `BUILD_GUI.HBP` (for GUI or mixed mode) or `BUILD_CON.HBP` (for console mode) to your working folder as `myapp.hbp` and configure it.
-4. Open a `CMD` window and execute this command:
+1. Open a `CMD` window and check that your environment is configured properly.
+2. Change to the folder where your source code (*.prg files) resides.
+3. Execute this command:
 ```
-HBMK2 MYAPP.HBP
+HBMK2 myApp [options]
 ```
-
-## And yet another alternative procedure to build an app using Harbour:
-
-1. Open a `CMD` window and execute these commands:
-```
-SET HG_ROOT=C:\OOHG
-SET LIB_GUI=LIB\HB\MINGW
-PATH %HG_ROOT%;%HG_ROOT%\HB32\BIN;%HG_ROOT%\HB32\MINGW;"%PATH%"
-HBMK2 myprg %HG_ROOT%\OOHG.HBC
-```
-
-#### Notes:
-
-* If your app needs a resouce file, you can add one at the section `# Source` of the .HBP file.
-* To include an adicional resource file, you must add at the end of the .rc file:
+4. myApp must be a .prg or .hbp file with or without the extension.
+5. To learn about the available options please read Harbour's documentation.
+6. You can use `BUILD_GUI.HBP` (for GUI or mixed mode) or `BUILD_CON.HBP` (for console mode) if you need a template for you app.
+7. You can add the file OOHG.HBC (located at C:\OOHG folder) to your .hbp file or to the command line to set the needed parameters for building you app with OOHG libraries.
+8. If your app needs a resource file, you can add **one** at the section `# Source` of the .hbp file or at the command line.
+9. To include an aditional resource file, you must add at the end of the first .rc file:
 ```
 #include "another.rc"
 ```
-* By default, this building process does not include `OOHG.RC` resource file.
-* If your app needs its resources you must explicitly add the file by one of the aformentioned methods and using its full name: `C:\OOHG\RESOURCES\OOHG.RC`.
+10. If your app uses any of the OOHG resources you must add `C:\OOHG\RESOURCES\OOHG.RC` file by one of the aformentioned methods.
+
+# How to configure and use more than one version
+
+You can install and use more than one flavor in the same system but be warned that you need to be extra careful when setting your environment to avoid errors.
+If you really need this kind of installation then the recommended way is to install all the versions to `C:\OOHG` and use `COMPILE.BAT` and `BUILDAPP.BAT` files to build your apps.
+Note that, in order to build an app, you must use `compile flavor myApp` or `buildapp flavor myApp`.
+Look at `COMPILE.BAT` or `BUILDAPP.BAT` to see the currently supported flavors.
