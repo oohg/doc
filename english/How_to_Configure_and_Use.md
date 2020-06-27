@@ -42,17 +42,18 @@ SET HG_CCOMP=D:\MYCCOMP
 For HM32 flavor, set the following environment variables:
 ```
 SET LIB_GUI=LIB\HB\MINGW
-SET HG_HRB=%HG_ROOT%\HB3264
+SET HG_HRB=%HG_ROOT%\HB32
 SET BIN_HRB=BIN
 SET LIB_HRB=LIB\WIN\MINGW
 SET HG_CCOMP=%HG_ROOT%\%HG_HRB%\COMP\MINGW
 ```
 For HM3264 flavor, set the following environment variables:
 ```
-SET LIB_GUI=LIB\HB\MINGW
-SET HG_HRB=%HG_ROOT%\HB32
+SET LIB_GUI=LIB\HB\MINGW64
+SET HG_HRB=%HG_ROOT%\HB3264
 SET BIN_HRB=BIN
 SET LIB_HRB=LIB\WIN\MINGW64
+SET HG_CCOMP=%HG_ROOT%\%HG_HRB%\COMP\MINGW
 ```
 Finally, add to the system's PATH the folder where the Harbour's binaries are located and the folder where the C compiler is located.
 ```
