@@ -12,27 +12,27 @@ If you are planning to build your apps with `COMPILE.BAT` or `BUILDAPP.BAT` batc
 If you want to build your apps with `COMPILE.BAT` or `BUILDAPP.BAT` batch files but using tools not located at the default paths,
 please take note that before building you must set the following environment variables:
 
-* If OOHG libraries are located at folder C:\OOHG\MYLIBS then:
+* If your OOHG libraries are located at folder C:\OOHG\MYLIBS then:
 ```
 set LIB_GUI=MYLIBS
 ```
 
-* If (x)Harbour compiler is located at folder C:\MYHARBOUR then:
+* If your (x)Harbour compiler is located at folder C:\MYHARBOUR then:
 ```
 set HG_HRB=D:\MYHARBOUR
 ```
 
-* If (x)Harbour compiler binaries are located at folder D:\MYHARBOUR\BIN" then:
+* If your (x)Harbour compiler binaries are located at folder D:\MYHARBOUR\BIN" then:
 ```
 set BIN_HRB=BIN
 ```
 
-* If (x)Harbour compiler libraries are located at folder C:\MYHARBOUR\LIBS\WIN then:
+* If your (x)Harbour compiler libraries are located at folder C:\MYHARBOUR\LIBS\WIN then:
 ```
 set LIB_HRB=LIBS\WIN
 ```
 
-* If C compiler is located at C:\MYCCOMP then:
+* If your C compiler is located at C:\MYCCOMP then:
 ```
 set HG_CCOMP=D:\MYCCOMP
 ```
@@ -46,15 +46,15 @@ set HG_CCOMP=D:\MYCCOMP
 compile myApp [options]
 ```
 4. Available options are (options must be separated by spaces, / can be replaced by -):
-* /P    - to create a preprocessor's output file (.ppo file).
-* /C    - create a console or mixed mode app.
-* /D    - to include Harbour's debugger in your app.
-* /S    - to run silently.
-* /V    - to run verbosely.
-* /L    - to send output to oohglog.txt file (also /LOG).
-* /W3   - to set (x)Harbour warning level to its maximum.
-* /NR   - to build without running (also /NORUN).
-* /NORC - to exclude resource file
+* /P | to create a preprocessor's output file (.ppo file).
+* /C | create a console or mixed mode app.
+* /D | to include Harbour's debugger in your app.
+* /S | to run silently.
+* /V | to run verbosely.
+* /L | to send output to oohglog.txt file (also /LOG).
+* /W3 | to set (x)Harbour warning level to its maximum.
+* /NR | to build without running (also /NORUN).
+* /NORC | to exclude resource file
 
 #### Notes:
 
@@ -68,27 +68,27 @@ compile myApp [options]
 #include "another.rc"
 ```
 * By default, this building process automatically __includes__ ooHG's resource file (see file `OOHG.RC` at folder INCLUDE).
-* If you have more than one OOHG version installed in the same folder, yo must specify which one has to be used. For that, use "compile version MYAPP". For more details execute "compile" without arguments.
+* If you have more than one OOHG version installed in the same folder, yo must specify which one has to be used. For that, use `compile version MYAPP`. For more details execute `COMPILE.BAT` without arguments.
 
 ## Alternative procedure to build an app using Harbour:
 
-1. Use "buildapp" instead of "compile".
+1. Use `BUILDAPP.BAT` instead of `COMPILE.BAT`.
 
 #### Notes:
 
-* Harbour's HBMK2 utility will be used to build the app.
-* All the basic procedure's notes apply.
+* Harbour's `HBMK2` utility will be used to build the app.
+* All the notes for the basic procedure apply.
 * With this procedure you can also use a `MYAPP.HBP` file detailing all the sources:
 ```
 #include "MYAPP.PRG"
 #include "MYFUNCS.PRG"
 ```
-* If you have more than one OOHG version installed in the same folder, yo must specify which one has to be used. For that, use "buildapp version myApp". For more details execute "buildapp" without arguments.
+* If you have more than one OOHG version installed in the same folder, yo must specify which one has to be used. For that, use `buildapp version myApp`. For more details execute `BUILDAPP.BAT` without arguments.
 
 ## Another alternative procedure to build an app using Harbour:
 
-1. Add the folder where Harbour binaries are located to the system's PATH.
-2. Add the folder where the C compiler is located to the system's PATH.
+1. Add to the system's PATH the folder where Harbour binaries are located.
+2. Add to the system's PATH the folder where the C compiler is located.
 3. Copy `BUILD_GUI.HBP` (for GUI or mixed mode) or `BUILD_CON.HBP` (for console mode) to your working folder as `myapp.hbp` and configure it.
 4. Open a `CMD` window and execute this command:
 ```
@@ -107,7 +107,7 @@ HBMK2 myprg %HG_ROOT%\OOHG.HBC
 
 #### Notes:
 
-* If your app needs a resouce file, you can add one at the section '# Source' of the .HBP file.
+* If your app needs a resouce file, you can add one at the section `# Source` of the .HBP file.
 * To include an adicional resource file, you must add at the end of the .rc file:
 ```
 #include "another.rc"
