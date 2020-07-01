@@ -130,7 +130,7 @@ HBMK2 myApp [options]
 4. myApp must be a .prg or .hbp file with or without the extension.
 5. To learn about the available options please read Harbour's documentation.
 6. You can use `BUILD_GUI.HBP` (for GUI or mixed mode) or `BUILD_CON.HBP` (for console mode) if you need a template for you app.
-7. You can add the file OOHG.HBC (located at C:\OOHG folder) to your .hbp file or to the command line to set the needed parameters for building you app with OOHG libraries.
+7. You can add the file OOHG.HBC (located at C:\OOHG folder) to your .hbp file or to the command line to set the needed parameters for building you app with OOHG libraries. Note that OOHG.HGC does not include -GUI nor -STD switches.
 8. If your app needs a resource file, you can add **one (and only one)** at the section `# Source` of the .hbp file or at the command line.
 9. To include an aditional resource file, you must add, at the end of the first .rc file:
 ```
