@@ -62,7 +62,7 @@ Sets the size of the HBPRINTER's preview (it has no effect on other libraries).
 
 Signals the start of a new page.
 
-::PrintData( nRow, nCol, uData, cFontName, nFontSize, lBold, aColor, cAlign, nWidth )
+::PrintData( nRow, nCol, uData, cFont, nSize, lBold, aColor, cAlign, nLen, lItalic, nAngle, lUnder, lStrike, nWidth )
 
 Prints data.
 
@@ -74,7 +74,12 @@ Prints data.
     lBold     = .T. to set the font's bold attribute, defaults to .F.
     aColor    = color to print the data with.
     cAlign    = data position into the printing zone (nCol to nCol + nWidth), use "L" (default), "C" or "R" for left, center or right.
-    nWidth    = size of the printing zone, defaults to 15.
+    nLen      = size of the printing zone, defaults to 15.
+    lItalic   = .T. to set the font's italic attribute, defaults to .F.
+    nAngle    = font's angle, defaults to 0
+    lUnder    = .T. to set the font's underline attribute, defaults to .F.
+    lStrike   = .T. to set the font's strikeout attribute, defaults to .F.
+    nWidth    = average width, in logical units, of characters in the requested font.
 
 ::PrintImage( nRowFrom, nColFrom, nRowTo, nColTo, cName )
 

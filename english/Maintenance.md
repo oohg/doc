@@ -36,8 +36,7 @@ A modification is made to any ChangeLog.txt (core, distros, doc, fmt, ide, or sa
 A new distro is builded:
 
    * Change the date in doc\manual\OOHG.HTM
-   * Change the date in pseudo-function OOHGVERSION of
-     core\include\i_pseudofunc.ch
+   * Change the version number and date in file core\include\oohgversion.h
    * Updated doc\manual\Changelog_XXXXXXX.htm
    * Create new oide.chm (see doc\manual\HowToBuild.txt)
 
