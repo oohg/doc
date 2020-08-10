@@ -10,9 +10,6 @@
 
 #include "oohg.ch"
 
-#define DOUBLE_QUOTATION_MARK  '"'
-#define DQM( x )               ( DOUBLE_QUOTATION_MARK + x + DOUBLE_QUOTATION_MARK )
-
 FUNCTION Main()
 
    SET EXACT ON
