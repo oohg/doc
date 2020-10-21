@@ -306,7 +306,7 @@ Editing methods of TOBrowse control
 
    METHOD EditItem_B( lAppend )
 
-   METHOD EditAllCells( nRow, nCol, lAppend, lFromB )
+   METHOD EditAllCells( nRow, nCol, lAppend, lOneRow, lChange, lRefresh )
 
       It uses EditCell to edit all the cells of a row, starting from nCol.
       If FULLMOVE is not enabled, the edition proceeds to the right until
@@ -333,9 +333,11 @@ Editing methods of TOBrowse control
                        Defaults to 1.
          lAppend     = When .T., a new row is added before editing starts.
                        Defaults to .F.
-         lFromB      = xxx
          lOneRow     = disables FULLMOVE for this method.
                        Defaults to .F.
+         lChange     = When .T. the control's value is updated before start.
+                       For TGrid and TOBrowse controls only.
+         lRefresh    = For TOBrowse controls only.
 
 Other methods of TOBrowse control
 ---------------------------------
