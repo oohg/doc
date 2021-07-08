@@ -36,10 +36,11 @@
 ${HG_ROOT}\oohg.hbc
 
 # Sources
-# Add here all additional needed source files
-# To include oohg.rc add C:\OOHG\RESOURCES\OOHG.RC
-# Remember you can add only one .rc file
-# To use more you must #include them in the one added here
+# Add here all additional needed source files.
+# To include oohg.rc only, add C:\OOHG\RESOURCES\OOHG.RC.
+# Remember you can add only one .rc file.
+# To use additional files you must #include them in the one added here.
+# If you include oohg.rc in your .rc file, place it last.
 MyApp.prg
 
 # EXE name
