@@ -1,12 +1,18 @@
-## Procedure to install OOHG official distro:
+## Preferred procedure to install OOHG official distro:
 
-1. Download the .ZIP file from http://sourceforge.net/projects/oohg/files/.
+1. Download the installer from https://github.com/oohg/core/releases and run it.
+2. Perform the procedures to manually update (see bellow). 
+
+
+## Procedure to manually install OOHG official distro:
+
+1. Go to https://github.com/oohg/core, click on the green "Code" button and select "Download ZIP".
 2. If you already have a C:\OOHG folder in your hard drive, it's strongly recommended that you delete, rename or move it to another folder to avoid problems and improve support.
 3. Extract the content of the downloaded file to C:\ folder so its files are placed at C:\OOHG folder.
 4. Add C:\OOHG to your system's PATH so you can build samples and applications using COMPILE.BAT batch command file.
 
 
-## Procedures to update your copy with the latest changes:
+## Procedures to manually update your copy with the latest changes:
 
 #### For people who develop OOHG:
 
