@@ -92,6 +92,6 @@ Receives six parameters: foreground color (optional, if omitted no change is mad
 
 **Samples:**
 
-For a Grid sample, see [https://github.com/oohg/samples/tree/master/grid](https://github.com/oohg/samples/tree/master/grid "Grid Samples").
+For a Grid sample, see [https://github.com/oohg/samples/tree/main/grid](https://github.com/oohg/samples/tree/main/grid "Grid Samples").
 
-For a Browse sample, see [https://github.com/oohg/samples/tree/master/browse](https://github.com/oohg/samples/tree/master/browse "Browse Samples").
+For a Browse sample, see [https://github.com/oohg/samples/tree/main/browse](https://github.com/oohg/samples/tree/main/browse "Browse Samples").
