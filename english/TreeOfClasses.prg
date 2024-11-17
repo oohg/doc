@@ -407,7 +407,7 @@ FUNCTION Rebuild
                   IF Len( cInput ) + 3 < 48
                      cInput += Space( 48 - 3 - Len( cInput ) )
                   ENDIF
-                  IF Right( cInput, 1 ) # " "
+                  IF Right( cInput, 1 ) != " "
                      cInput += " "
                   ENDIF
                   cInput += cWord3
@@ -433,7 +433,7 @@ FUNCTION Rebuild
                   IF Len( cInput ) + 3 < 48
                      cInput += Space( 48 - 3 - Len( cInput ) )
                   ENDIF
-                  IF Right( cInput, 1 ) # " "
+                  IF Right( cInput, 1 ) != " "
                      cInput += " "
                   ENDIF
                   cInput += cWord3
@@ -450,7 +450,7 @@ FUNCTION Rebuild
                   IF Len( cInput ) + 3 < 48
                      cInput += Space( 48 - 3 - Len( cInput ) )
                   ENDIF
-                  IF Right( cInput, 1 ) # " "
+                  IF Right( cInput, 1 ) != " "
                      cInput += " "
                   ENDIF
                   cInput += cWord3
