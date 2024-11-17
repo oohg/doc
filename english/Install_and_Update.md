@@ -1,7 +1,7 @@
 ## Preferred procedure to install OOHG official distro:
 
 1. Download the installer from https://github.com/oohg/core/releases and run it.
-2. Perform the procedures to manually update (see bellow). 
+2. Perform the procedures to manually update (see bellow).
 
 
 ## Procedure to manually install OOHG official distro:
